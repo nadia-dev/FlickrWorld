@@ -55,9 +55,9 @@
 		05B327E718DA118F00E06A55 /* FlickrWorldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlickrWorldTests-Info.plist"; sourceTree = "<group>"; };
 		05B327E918DA118F00E06A55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		05B327EB18DA118F00E06A55 /* FlickrWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrWorldTests.m; sourceTree = "<group>"; };
-		05B327F518DA2DA600E06A55 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		05B327F618DA2DA600E06A55 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		05B327F718DA2DA600E06A55 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		05B327FA18DA2FD200E06A55 /* FlickrAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		34DAD357EE5D4D708CB3F71A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E523B9BCEC984730AED96E51 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,7 +167,7 @@
 		05B327F918DA2DC100E06A55 /* New Group */ = {
 			isa = PBXGroup;
 			children = (
-				05B327F518DA2DA600E06A55 /* FlickrAPIKey.h */,
+				05B327FA18DA2FD200E06A55 /* FlickrAPIKey.h */,
 				05B327F618DA2DA600E06A55 /* FlickrFetcher.h */,
 				05B327F718DA2DA600E06A55 /* FlickrFetcher.m */,
 			);
