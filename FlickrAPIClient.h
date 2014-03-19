@@ -10,6 +10,10 @@
 
 @interface FlickrAPIClient : NSObject
 
+extern NSString * const BASE_URL;
+extern NSString * const PARAMS;
+
+
 + (void)getInterestingPhotos;
 
 @end

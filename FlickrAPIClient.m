@@ -12,10 +12,13 @@
 
 @implementation FlickrAPIClient
 
+NSString * const BASE_URL = @"https://api.flickr.com/services/rest";
+NSString * const PARAMS = @"format=json&nojsoncallback=1";
+
 
 + (void)getInterestingPhotos
 {
-    NSString *URLString = [NSString stringWithFormat:@"https://api.flickr.com/services/rest/?method=flickr.interestingness.getList&api_key=%@&format=json&nojsoncallback=1", FlickrAPIKey];
+    NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.interestingness.getList&api_key=%@&%@", BASE_URL, FlickrAPIKey, PARAMS];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
     
