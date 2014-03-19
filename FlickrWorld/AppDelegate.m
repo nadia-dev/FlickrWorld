@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "FlickrAPIClient.h"
 
 @implementation AppDelegate
 
@@ -20,6 +21,10 @@
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
+    
+    
+    [FlickrAPIClient getInterestingPhotos];
+    
     return YES;
 }
 
