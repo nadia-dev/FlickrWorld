@@ -1,1085 +1,540 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-	<key>archiveVersion</key>
-	<string>1</string>
-	<key>classes</key>
-	<dict/>
-	<key>objectVersion</key>
-	<string>46</string>
-	<key>objects</key>
-	<dict>
-		<key>05B327B418DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327C818DA118F00E06A55</string>
-				<string>05B327E518DA118F00E06A55</string>
-				<string>05B327BF18DA118F00E06A55</string>
-				<string>05B327BE18DA118F00E06A55</string>
-				<string>E523B9BCEC984730AED96E51</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327B518DA118F00E06A55</key>
-		<dict>
-			<key>attributes</key>
-			<dict>
-				<key>LastUpgradeCheck</key>
-				<string>0500</string>
-				<key>ORGANIZATIONNAME</key>
-				<string>Nadia Yudina</string>
-				<key>TargetAttributes</key>
-				<dict>
-					<key>05B327DC18DA118F00E06A55</key>
-					<dict>
-						<key>TestTargetID</key>
-						<string>05B327BC18DA118F00E06A55</string>
-					</dict>
-				</dict>
-			</dict>
-			<key>buildConfigurationList</key>
-			<string>05B327B818DA118F00E06A55</string>
-			<key>compatibilityVersion</key>
-			<string>Xcode 3.2</string>
-			<key>developmentRegion</key>
-			<string>English</string>
-			<key>hasScannedForEncodings</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXProject</string>
-			<key>knownRegions</key>
-			<array>
-				<string>en</string>
-			</array>
-			<key>mainGroup</key>
-			<string>05B327B418DA118F00E06A55</string>
-			<key>productRefGroup</key>
-			<string>05B327BE18DA118F00E06A55</string>
-			<key>projectDirPath</key>
-			<string></string>
-			<key>projectReferences</key>
-			<array/>
-			<key>projectRoot</key>
-			<string></string>
-			<key>targets</key>
-			<array>
-				<string>05B327BC18DA118F00E06A55</string>
-				<string>05B327DC18DA118F00E06A55</string>
-			</array>
-		</dict>
-		<key>05B327B818DA118F00E06A55</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>05B327ED18DA118F00E06A55</string>
-				<string>05B327EE18DA118F00E06A55</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>defaultConfigurationName</key>
-			<string>Release</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>05B327B918DA118F00E06A55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>05B327D318DA118F00E06A55</string>
-				<string>05B327D618DA118F00E06A55</string>
-				<string>05B327CF18DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>05B327BA18DA118F00E06A55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>05B327C318DA118F00E06A55</string>
-				<string>05B327C718DA118F00E06A55</string>
-				<string>05B327C518DA118F00E06A55</string>
-				<string>05B327C118DA118F00E06A55</string>
-				<string>45EA89CCDA824E0A8663C8B7</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>05B327BB18DA118F00E06A55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>05B327CD18DA118F00E06A55</string>
-				<string>05B327D818DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>05B327BC18DA118F00E06A55</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>05B327EF18DA118F00E06A55</string>
-			<key>buildPhases</key>
-			<array>
-				<string>BB56D8AF49464D5D82E92960</string>
-				<string>05B327B918DA118F00E06A55</string>
-				<string>05B327BA18DA118F00E06A55</string>
-				<string>05B327BB18DA118F00E06A55</string>
-				<string>B8C4C156BB4E48BF80247B77</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>FlickrWorld</string>
-			<key>productName</key>
-			<string>FlickrWorld</string>
-			<key>productReference</key>
-			<string>05B327BD18DA118F00E06A55</string>
-			<key>productType</key>
-			<string>com.apple.product-type.application</string>
-		</dict>
-		<key>05B327BD18DA118F00E06A55</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.application</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>FlickrWorld.app</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>05B327BE18DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327BD18DA118F00E06A55</string>
-				<string>05B327DD18DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Products</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327BF18DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327C018DA118F00E06A55</string>
-				<string>05B327C218DA118F00E06A55</string>
-				<string>05B327C418DA118F00E06A55</string>
-				<string>05B327C618DA118F00E06A55</string>
-				<string>05B327DE18DA118F00E06A55</string>
-				<string>34DAD357EE5D4D708CB3F71A</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Frameworks</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327C018DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>Foundation.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/Foundation.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>05B327C118DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327C018DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327C218DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreGraphics.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreGraphics.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>05B327C318DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327C218DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327C418DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>UIKit.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/UIKit.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>05B327C518DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327C418DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327C618DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>CoreData.framework</string>
-			<key>path</key>
-			<string>System/Library/Frameworks/CoreData.framework</string>
-			<key>sourceTree</key>
-			<string>SDKROOT</string>
-		</dict>
-		<key>05B327C718DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327C618DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327C818DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327D118DA118F00E06A55</string>
-				<string>05B327D218DA118F00E06A55</string>
-				<string>05B327D718DA118F00E06A55</string>
-				<string>05B327D418DA118F00E06A55</string>
-				<string>05B327C918DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>FlickrWorld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327C918DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327CA18DA118F00E06A55</string>
-				<string>05B327CB18DA118F00E06A55</string>
-				<string>05B327CE18DA118F00E06A55</string>
-				<string>05B327D018DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327CA18DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>FlickrWorld-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327CB18DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327CC18DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327CC18DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327CD18DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327CB18DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327CE18DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>main.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327CF18DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327CE18DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327D018DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>FlickrWorld-Prefix.pch</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327D118DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>AppDelegate.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327D218DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>AppDelegate.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327D318DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327D218DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327D418DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327D518DA118F00E06A55</string>
-			</array>
-			<key>currentVersion</key>
-			<string>05B327D518DA118F00E06A55</string>
-			<key>isa</key>
-			<string>XCVersionGroup</string>
-			<key>path</key>
-			<string>FlickrWorld.xcdatamodeld</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-			<key>versionGroupType</key>
-			<string>wrapper.xcdatamodel</string>
-		</dict>
-		<key>05B327D518DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.xcdatamodel</string>
-			<key>path</key>
-			<string>FlickrWorld.xcdatamodel</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327D618DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327D418DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327D718DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>folder.assetcatalog</string>
-			<key>path</key>
-			<string>Images.xcassets</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327D818DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327D718DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327D918DA118F00E06A55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>05B327EC18DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXSourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>05B327DA18DA118F00E06A55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>05B327DF18DA118F00E06A55</string>
-				<string>05B327E218DA118F00E06A55</string>
-				<string>05B327E118DA118F00E06A55</string>
-				<string>05B327E018DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXFrameworksBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>05B327DB18DA118F00E06A55</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array>
-				<string>05B327EA18DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXResourcesBuildPhase</string>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-		</dict>
-		<key>05B327DC18DA118F00E06A55</key>
-		<dict>
-			<key>buildConfigurationList</key>
-			<string>05B327F218DA118F00E06A55</string>
-			<key>buildPhases</key>
-			<array>
-				<string>05B327D918DA118F00E06A55</string>
-				<string>05B327DA18DA118F00E06A55</string>
-				<string>05B327DB18DA118F00E06A55</string>
-			</array>
-			<key>buildRules</key>
-			<array/>
-			<key>dependencies</key>
-			<array>
-				<string>05B327E418DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXNativeTarget</string>
-			<key>name</key>
-			<string>FlickrWorldTests</string>
-			<key>productName</key>
-			<string>FlickrWorldTests</string>
-			<key>productReference</key>
-			<string>05B327DD18DA118F00E06A55</string>
-			<key>productType</key>
-			<string>com.apple.product-type.bundle.unit-test</string>
-		</dict>
-		<key>05B327DD18DA118F00E06A55</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>wrapper.cfbundle</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>FlickrWorldTests.xctest</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>05B327DE18DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>wrapper.framework</string>
-			<key>name</key>
-			<string>XCTest.framework</string>
-			<key>path</key>
-			<string>Library/Frameworks/XCTest.framework</string>
-			<key>sourceTree</key>
-			<string>DEVELOPER_DIR</string>
-		</dict>
-		<key>05B327DF18DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327DE18DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327E018DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327C018DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327E118DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327C418DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327E218DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327C618DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327E318DA118F00E06A55</key>
-		<dict>
-			<key>containerPortal</key>
-			<string>05B327B518DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXContainerItemProxy</string>
-			<key>proxyType</key>
-			<string>1</string>
-			<key>remoteGlobalIDString</key>
-			<string>05B327BC18DA118F00E06A55</string>
-			<key>remoteInfo</key>
-			<string>FlickrWorld</string>
-		</dict>
-		<key>05B327E418DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXTargetDependency</string>
-			<key>target</key>
-			<string>05B327BC18DA118F00E06A55</string>
-			<key>targetProxy</key>
-			<string>05B327E318DA118F00E06A55</string>
-		</dict>
-		<key>05B327E518DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327EB18DA118F00E06A55</string>
-				<string>05B327E618DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>FlickrWorldTests</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327E618DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327E718DA118F00E06A55</string>
-				<string>05B327E818DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Supporting Files</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327E718DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.xml</string>
-			<key>path</key>
-			<string>FlickrWorldTests-Info.plist</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327E818DA118F00E06A55</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>05B327E918DA118F00E06A55</string>
-			</array>
-			<key>isa</key>
-			<string>PBXVariantGroup</string>
-			<key>name</key>
-			<string>InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327E918DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.plist.strings</string>
-			<key>name</key>
-			<string>en</string>
-			<key>path</key>
-			<string>en.lproj/InfoPlist.strings</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327EA18DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327E818DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327EB18DA118F00E06A55</key>
-		<dict>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>FlickrWorldTests.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>05B327EC18DA118F00E06A55</key>
-		<dict>
-			<key>fileRef</key>
-			<string>05B327EB18DA118F00E06A55</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>05B327ED18DA118F00E06A55</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_DYNAMIC_NO_PIC</key>
-				<string>NO</string>
-				<key>GCC_OPTIMIZATION_LEVEL</key>
-				<string>0</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>GCC_SYMBOLS_PRIVATE_EXTERN</key>
-				<string>NO</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>ONLY_ACTIVE_ARCH</key>
-				<string>YES</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>05B327EE18DA118F00E06A55</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ALWAYS_SEARCH_USER_PATHS</key>
-				<string>NO</string>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>CLANG_CXX_LANGUAGE_STANDARD</key>
-				<string>gnu++0x</string>
-				<key>CLANG_CXX_LIBRARY</key>
-				<string>libc++</string>
-				<key>CLANG_ENABLE_MODULES</key>
-				<string>YES</string>
-				<key>CLANG_ENABLE_OBJC_ARC</key>
-				<string>YES</string>
-				<key>CLANG_WARN_BOOL_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_CONSTANT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_DIRECT_OBJC_ISA_USAGE</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN_EMPTY_BODY</key>
-				<string>YES</string>
-				<key>CLANG_WARN_ENUM_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_INT_CONVERSION</key>
-				<string>YES</string>
-				<key>CLANG_WARN_OBJC_ROOT_CLASS</key>
-				<string>YES_ERROR</string>
-				<key>CLANG_WARN__DUPLICATE_METHOD_MATCH</key>
-				<string>YES</string>
-				<key>CODE_SIGN_IDENTITY[sdk=iphoneos*]</key>
-				<string>iPhone Developer</string>
-				<key>COPY_PHASE_STRIP</key>
-				<string>YES</string>
-				<key>ENABLE_NS_ASSERTIONS</key>
-				<string>NO</string>
-				<key>GCC_C_LANGUAGE_STANDARD</key>
-				<string>gnu99</string>
-				<key>GCC_WARN_64_TO_32_BIT_CONVERSION</key>
-				<string>YES</string>
-				<key>GCC_WARN_ABOUT_RETURN_TYPE</key>
-				<string>YES_ERROR</string>
-				<key>GCC_WARN_UNDECLARED_SELECTOR</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNINITIALIZED_AUTOS</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_FUNCTION</key>
-				<string>YES</string>
-				<key>GCC_WARN_UNUSED_VARIABLE</key>
-				<string>YES</string>
-				<key>IPHONEOS_DEPLOYMENT_TARGET</key>
-				<string>7.0</string>
-				<key>SDKROOT</key>
-				<string>iphoneos</string>
-				<key>VALIDATE_PRODUCT</key>
-				<string>YES</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>05B327EF18DA118F00E06A55</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>05B327F018DA118F00E06A55</string>
-				<string>05B327F118DA118F00E06A55</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>05B327F018DA118F00E06A55</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E523B9BCEC984730AED96E51</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>FlickrWorld/FlickrWorld-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>FlickrWorld/FlickrWorld-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>05B327F118DA118F00E06A55</key>
-		<dict>
-			<key>baseConfigurationReference</key>
-			<string>E523B9BCEC984730AED96E51</string>
-			<key>buildSettings</key>
-			<dict>
-				<key>ASSETCATALOG_COMPILER_APPICON_NAME</key>
-				<string>AppIcon</string>
-				<key>ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME</key>
-				<string>LaunchImage</string>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>FlickrWorld/FlickrWorld-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>FlickrWorld/FlickrWorld-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>app</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>05B327F218DA118F00E06A55</key>
-		<dict>
-			<key>buildConfigurations</key>
-			<array>
-				<string>05B327F318DA118F00E06A55</string>
-				<string>05B327F418DA118F00E06A55</string>
-			</array>
-			<key>defaultConfigurationIsVisible</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>XCConfigurationList</string>
-		</dict>
-		<key>05B327F318DA118F00E06A55</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/FlickrWorld.app/FlickrWorld</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>FlickrWorld/FlickrWorld-Prefix.pch</string>
-				<key>GCC_PREPROCESSOR_DEFINITIONS</key>
-				<array>
-					<string>DEBUG=1</string>
-					<string>$(inherited)</string>
-				</array>
-				<key>INFOPLIST_FILE</key>
-				<string>FlickrWorldTests/FlickrWorldTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Debug</string>
-		</dict>
-		<key>05B327F418DA118F00E06A55</key>
-		<dict>
-			<key>buildSettings</key>
-			<dict>
-				<key>ARCHS</key>
-				<string>$(ARCHS_STANDARD_INCLUDING_64_BIT)</string>
-				<key>BUNDLE_LOADER</key>
-				<string>$(BUILT_PRODUCTS_DIR)/FlickrWorld.app/FlickrWorld</string>
-				<key>FRAMEWORK_SEARCH_PATHS</key>
-				<array>
-					<string>$(SDKROOT)/Developer/Library/Frameworks</string>
-					<string>$(inherited)</string>
-					<string>$(DEVELOPER_FRAMEWORKS_DIR)</string>
-				</array>
-				<key>GCC_PRECOMPILE_PREFIX_HEADER</key>
-				<string>YES</string>
-				<key>GCC_PREFIX_HEADER</key>
-				<string>FlickrWorld/FlickrWorld-Prefix.pch</string>
-				<key>INFOPLIST_FILE</key>
-				<string>FlickrWorldTests/FlickrWorldTests-Info.plist</string>
-				<key>PRODUCT_NAME</key>
-				<string>$(TARGET_NAME)</string>
-				<key>TEST_HOST</key>
-				<string>$(BUNDLE_LOADER)</string>
-				<key>WRAPPER_EXTENSION</key>
-				<string>xctest</string>
-			</dict>
-			<key>isa</key>
-			<string>XCBuildConfiguration</string>
-			<key>name</key>
-			<string>Release</string>
-		</dict>
-		<key>34DAD357EE5D4D708CB3F71A</key>
-		<dict>
-			<key>explicitFileType</key>
-			<string>archive.ar</string>
-			<key>includeInIndex</key>
-			<string>0</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>path</key>
-			<string>libPods.a</string>
-			<key>sourceTree</key>
-			<string>BUILT_PRODUCTS_DIR</string>
-		</dict>
-		<key>45EA89CCDA824E0A8663C8B7</key>
-		<dict>
-			<key>fileRef</key>
-			<string>34DAD357EE5D4D708CB3F71A</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
-		<key>B8C4C156BB4E48BF80247B77</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Copy Pods Resources</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>"${SRCROOT}/Pods/Pods-resources.sh"
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>BB56D8AF49464D5D82E92960</key>
-		<dict>
-			<key>buildActionMask</key>
-			<string>2147483647</string>
-			<key>files</key>
-			<array/>
-			<key>inputPaths</key>
-			<array/>
-			<key>isa</key>
-			<string>PBXShellScriptBuildPhase</string>
-			<key>name</key>
-			<string>Check Pods Manifest.lock</string>
-			<key>outputPaths</key>
-			<array/>
-			<key>runOnlyForDeploymentPostprocessing</key>
-			<string>0</string>
-			<key>shellPath</key>
-			<string>/bin/sh</string>
-			<key>shellScript</key>
-			<string>diff "${PODS_ROOT}/../Podfile.lock" "${PODS_ROOT}/Manifest.lock" &gt; /dev/null
-if [[ $? != 0 ]] ; then
-    cat &lt;&lt; EOM
-error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.
-EOM
-    exit 1
-fi
-</string>
-			<key>showEnvVarsInLog</key>
-			<string>0</string>
-		</dict>
-		<key>E523B9BCEC984730AED96E51</key>
-		<dict>
-			<key>includeInIndex</key>
-			<string>1</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>text.xcconfig</string>
-			<key>name</key>
-			<string>Pods.xcconfig</string>
-			<key>path</key>
-			<string>Pods/Pods.xcconfig</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-	</dict>
-	<key>rootObject</key>
-	<string>05B327B518DA118F00E06A55</string>
-</dict>
-</plist>
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
+		05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C218DA118F00E06A55 /* CoreGraphics.framework */; };
+		05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
+		05B327C718DA118F00E06A55 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C618DA118F00E06A55 /* CoreData.framework */; };
+		05B327CD18DA118F00E06A55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05B327CB18DA118F00E06A55 /* InfoPlist.strings */; };
+		05B327CF18DA118F00E06A55 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B327CE18DA118F00E06A55 /* main.m */; };
+		05B327D318DA118F00E06A55 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B327D218DA118F00E06A55 /* AppDelegate.m */; };
+		05B327D618DA118F00E06A55 /* FlickrWorld.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 05B327D418DA118F00E06A55 /* FlickrWorld.xcdatamodeld */; };
+		05B327D818DA118F00E06A55 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05B327D718DA118F00E06A55 /* Images.xcassets */; };
+		05B327DF18DA118F00E06A55 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327DE18DA118F00E06A55 /* XCTest.framework */; };
+		05B327E018DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
+		05B327E118DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
+		05B327E218DA118F00E06A55 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C618DA118F00E06A55 /* CoreData.framework */; };
+		05B327EA18DA118F00E06A55 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 05B327E818DA118F00E06A55 /* InfoPlist.strings */; };
+		05B327EC18DA118F00E06A55 /* FlickrWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B327EB18DA118F00E06A55 /* FlickrWorldTests.m */; };
+		05B327F818DA2DA600E06A55 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B327F718DA2DA600E06A55 /* FlickrFetcher.m */; };
+		45EA89CCDA824E0A8663C8B7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DAD357EE5D4D708CB3F71A /* libPods.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		05B327E318DA118F00E06A55 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 05B327B518DA118F00E06A55 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 05B327BC18DA118F00E06A55;
+			remoteInfo = FlickrWorld;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		05B327C418DA118F00E06A55 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		05B327C618DA118F00E06A55 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		05B327CA18DA118F00E06A55 /* FlickrWorld-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlickrWorld-Info.plist"; sourceTree = "<group>"; };
+		05B327CC18DA118F00E06A55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05B327CE18DA118F00E06A55 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		05B327D018DA118F00E06A55 /* FlickrWorld-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FlickrWorld-Prefix.pch"; sourceTree = "<group>"; };
+		05B327D118DA118F00E06A55 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		05B327D218DA118F00E06A55 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		05B327D518DA118F00E06A55 /* FlickrWorld.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FlickrWorld.xcdatamodel; sourceTree = "<group>"; };
+		05B327D718DA118F00E06A55 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		05B327DD18DA118F00E06A55 /* FlickrWorldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FlickrWorldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		05B327DE18DA118F00E06A55 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		05B327E718DA118F00E06A55 /* FlickrWorldTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "FlickrWorldTests-Info.plist"; sourceTree = "<group>"; };
+		05B327E918DA118F00E06A55 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		05B327EB18DA118F00E06A55 /* FlickrWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrWorldTests.m; sourceTree = "<group>"; };
+		05B327F518DA2DA600E06A55 /* FlickrAPIKey.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
+		05B327F618DA2DA600E06A55 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
+		05B327F718DA2DA600E06A55 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
+		34DAD357EE5D4D708CB3F71A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		E523B9BCEC984730AED96E51 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		05B327BA18DA118F00E06A55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */,
+				05B327C718DA118F00E06A55 /* CoreData.framework in Frameworks */,
+				05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */,
+				05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */,
+				45EA89CCDA824E0A8663C8B7 /* libPods.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B327DA18DA118F00E06A55 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B327DF18DA118F00E06A55 /* XCTest.framework in Frameworks */,
+				05B327E218DA118F00E06A55 /* CoreData.framework in Frameworks */,
+				05B327E118DA118F00E06A55 /* UIKit.framework in Frameworks */,
+				05B327E018DA118F00E06A55 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		05B327B418DA118F00E06A55 = {
+			isa = PBXGroup;
+			children = (
+				05B327F918DA2DC100E06A55 /* New Group */,
+				05B327C818DA118F00E06A55 /* FlickrWorld */,
+				05B327E518DA118F00E06A55 /* FlickrWorldTests */,
+				05B327BF18DA118F00E06A55 /* Frameworks */,
+				05B327BE18DA118F00E06A55 /* Products */,
+				E523B9BCEC984730AED96E51 /* Pods.xcconfig */,
+			);
+			sourceTree = "<group>";
+		};
+		05B327BE18DA118F00E06A55 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				05B327BD18DA118F00E06A55 /* FlickrWorld.app */,
+				05B327DD18DA118F00E06A55 /* FlickrWorldTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		05B327BF18DA118F00E06A55 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				05B327C018DA118F00E06A55 /* Foundation.framework */,
+				05B327C218DA118F00E06A55 /* CoreGraphics.framework */,
+				05B327C418DA118F00E06A55 /* UIKit.framework */,
+				05B327C618DA118F00E06A55 /* CoreData.framework */,
+				05B327DE18DA118F00E06A55 /* XCTest.framework */,
+				34DAD357EE5D4D708CB3F71A /* libPods.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		05B327C818DA118F00E06A55 /* FlickrWorld */ = {
+			isa = PBXGroup;
+			children = (
+				05B327D118DA118F00E06A55 /* AppDelegate.h */,
+				05B327D218DA118F00E06A55 /* AppDelegate.m */,
+				05B327D718DA118F00E06A55 /* Images.xcassets */,
+				05B327D418DA118F00E06A55 /* FlickrWorld.xcdatamodeld */,
+				05B327C918DA118F00E06A55 /* Supporting Files */,
+			);
+			path = FlickrWorld;
+			sourceTree = "<group>";
+		};
+		05B327C918DA118F00E06A55 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05B327CA18DA118F00E06A55 /* FlickrWorld-Info.plist */,
+				05B327CB18DA118F00E06A55 /* InfoPlist.strings */,
+				05B327CE18DA118F00E06A55 /* main.m */,
+				05B327D018DA118F00E06A55 /* FlickrWorld-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05B327E518DA118F00E06A55 /* FlickrWorldTests */ = {
+			isa = PBXGroup;
+			children = (
+				05B327EB18DA118F00E06A55 /* FlickrWorldTests.m */,
+				05B327E618DA118F00E06A55 /* Supporting Files */,
+			);
+			path = FlickrWorldTests;
+			sourceTree = "<group>";
+		};
+		05B327E618DA118F00E06A55 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				05B327E718DA118F00E06A55 /* FlickrWorldTests-Info.plist */,
+				05B327E818DA118F00E06A55 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		05B327F918DA2DC100E06A55 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+				05B327F518DA2DA600E06A55 /* FlickrAPIKey.h */,
+				05B327F618DA2DA600E06A55 /* FlickrFetcher.h */,
+				05B327F718DA2DA600E06A55 /* FlickrFetcher.m */,
+			);
+			name = "New Group";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		05B327BC18DA118F00E06A55 /* FlickrWorld */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B327EF18DA118F00E06A55 /* Build configuration list for PBXNativeTarget "FlickrWorld" */;
+			buildPhases = (
+				BB56D8AF49464D5D82E92960 /* Check Pods Manifest.lock */,
+				05B327B918DA118F00E06A55 /* Sources */,
+				05B327BA18DA118F00E06A55 /* Frameworks */,
+				05B327BB18DA118F00E06A55 /* Resources */,
+				B8C4C156BB4E48BF80247B77 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FlickrWorld;
+			productName = FlickrWorld;
+			productReference = 05B327BD18DA118F00E06A55 /* FlickrWorld.app */;
+			productType = "com.apple.product-type.application";
+		};
+		05B327DC18DA118F00E06A55 /* FlickrWorldTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 05B327F218DA118F00E06A55 /* Build configuration list for PBXNativeTarget "FlickrWorldTests" */;
+			buildPhases = (
+				05B327D918DA118F00E06A55 /* Sources */,
+				05B327DA18DA118F00E06A55 /* Frameworks */,
+				05B327DB18DA118F00E06A55 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				05B327E418DA118F00E06A55 /* PBXTargetDependency */,
+			);
+			name = FlickrWorldTests;
+			productName = FlickrWorldTests;
+			productReference = 05B327DD18DA118F00E06A55 /* FlickrWorldTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		05B327B518DA118F00E06A55 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+				ORGANIZATIONNAME = "Nadia Yudina";
+				TargetAttributes = {
+					05B327DC18DA118F00E06A55 = {
+						TestTargetID = 05B327BC18DA118F00E06A55;
+					};
+				};
+			};
+			buildConfigurationList = 05B327B818DA118F00E06A55 /* Build configuration list for PBXProject "FlickrWorld" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 05B327B418DA118F00E06A55;
+			productRefGroup = 05B327BE18DA118F00E06A55 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				05B327BC18DA118F00E06A55 /* FlickrWorld */,
+				05B327DC18DA118F00E06A55 /* FlickrWorldTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		05B327BB18DA118F00E06A55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B327CD18DA118F00E06A55 /* InfoPlist.strings in Resources */,
+				05B327D818DA118F00E06A55 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B327DB18DA118F00E06A55 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B327EA18DA118F00E06A55 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		B8C4C156BB4E48BF80247B77 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BB56D8AF49464D5D82E92960 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		05B327B918DA118F00E06A55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B327D318DA118F00E06A55 /* AppDelegate.m in Sources */,
+				05B327D618DA118F00E06A55 /* FlickrWorld.xcdatamodeld in Sources */,
+				05B327F818DA2DA600E06A55 /* FlickrFetcher.m in Sources */,
+				05B327CF18DA118F00E06A55 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		05B327D918DA118F00E06A55 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				05B327EC18DA118F00E06A55 /* FlickrWorldTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		05B327E418DA118F00E06A55 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 05B327BC18DA118F00E06A55 /* FlickrWorld */;
+			targetProxy = 05B327E318DA118F00E06A55 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		05B327CB18DA118F00E06A55 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B327CC18DA118F00E06A55 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		05B327E818DA118F00E06A55 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				05B327E918DA118F00E06A55 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		05B327ED18DA118F00E06A55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		05B327EE18DA118F00E06A55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		05B327F018DA118F00E06A55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E523B9BCEC984730AED96E51 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlickrWorld/FlickrWorld-Prefix.pch";
+				INFOPLIST_FILE = "FlickrWorld/FlickrWorld-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		05B327F118DA118F00E06A55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E523B9BCEC984730AED96E51 /* Pods.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlickrWorld/FlickrWorld-Prefix.pch";
+				INFOPLIST_FILE = "FlickrWorld/FlickrWorld-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		05B327F318DA118F00E06A55 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FlickrWorld.app/FlickrWorld";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlickrWorld/FlickrWorld-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "FlickrWorldTests/FlickrWorldTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		05B327F418DA118F00E06A55 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/FlickrWorld.app/FlickrWorld";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "FlickrWorld/FlickrWorld-Prefix.pch";
+				INFOPLIST_FILE = "FlickrWorldTests/FlickrWorldTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		05B327B818DA118F00E06A55 /* Build configuration list for PBXProject "FlickrWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B327ED18DA118F00E06A55 /* Debug */,
+				05B327EE18DA118F00E06A55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B327EF18DA118F00E06A55 /* Build configuration list for PBXNativeTarget "FlickrWorld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B327F018DA118F00E06A55 /* Debug */,
+				05B327F118DA118F00E06A55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		05B327F218DA118F00E06A55 /* Build configuration list for PBXNativeTarget "FlickrWorldTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05B327F318DA118F00E06A55 /* Debug */,
+				05B327F418DA118F00E06A55 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		05B327D418DA118F00E06A55 /* FlickrWorld.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				05B327D518DA118F00E06A55 /* FlickrWorld.xcdatamodel */,
+			);
+			currentVersion = 05B327D518DA118F00E06A55 /* FlickrWorld.xcdatamodel */;
+			path = FlickrWorld.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 05B327B518DA118F00E06A55 /* Project object */;
+}
