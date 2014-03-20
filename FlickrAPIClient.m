@@ -15,18 +15,21 @@
 NSString * const BASE_URL = @"https://api.flickr.com/services/rest";
 NSString * const PARAMS = @"format=json&nojsoncallback=1";
 
-
-+ (void)getInterestingPhotos
+//will take id, ownerId and title from here
++ (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock
 {
+    
     NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.interestingness.getList&api_key=%@&%@", BASE_URL, FlickrAPIKey, PARAMS];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
+
     [manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        NSLog(@"%@", responseObject);
+        
+        NSArray *photos = responseObject[@"photos"][@"photo"];
+
+        completionBlock(photos);
+        
     } failure:nil];
 }
-
-
 
 @end

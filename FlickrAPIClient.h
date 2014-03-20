@@ -14,6 +14,6 @@ extern NSString * const BASE_URL;
 extern NSString * const PARAMS;
 
 
-+ (void)getInterestingPhotos;
++ (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock;
 
 @end

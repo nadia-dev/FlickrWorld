@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CAB918DBAAE60074D768 /* Photo+Methods.m */; };
+		0510CABD18DBAC560074D768 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CABC18DBAC560074D768 /* Photo.m */; };
+		0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CABF18DBAD980074D768 /* FlickrDataStore.m */; };
 		05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
 		05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C218DA118F00E06A55 /* CoreGraphics.framework */; };
 		05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
@@ -38,6 +41,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0510CAB818DBAAE60074D768 /* Photo+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Methods.h"; sourceTree = "<group>"; };
+		0510CAB918DBAAE60074D768 /* Photo+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Methods.m"; sourceTree = "<group>"; };
+		0510CABB18DBAC560074D768 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		0510CABC18DBAC560074D768 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		0510CABE18DBAD980074D768 /* FlickrDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrDataStore.h; sourceTree = "<group>"; };
+		0510CABF18DBAD980074D768 /* FlickrDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrDataStore.m; sourceTree = "<group>"; };
 		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -92,12 +101,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05B327B418DA118F00E06A55 = {
+		0510CAB618DBAA9A0074D768 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				05B327D418DA118F00E06A55 /* FlickrWorld.xcdatamodeld */,
+				0510CABB18DBAC560074D768 /* Photo.h */,
+				0510CABC18DBAC560074D768 /* Photo.m */,
+				0510CAB818DBAAE60074D768 /* Photo+Methods.h */,
+				0510CAB918DBAAE60074D768 /* Photo+Methods.m */,
+				0510CABE18DBAD980074D768 /* FlickrDataStore.h */,
+				0510CABF18DBAD980074D768 /* FlickrDataStore.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		0510CAB718DBAAB30074D768 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
 				05B3281218DA516A00E06A55 /* FlickrAPIClient.h */,
 				05B3281318DA516A00E06A55 /* FlickrAPIClient.m */,
 				05B327F918DA2DC100E06A55 /* FlickrFetcher */,
+			);
+			name = APIClient;
+			sourceTree = "<group>";
+		};
+		05B327B418DA118F00E06A55 = {
+			isa = PBXGroup;
+			children = (
+				0510CAB618DBAA9A0074D768 /* Model */,
+				0510CAB718DBAAB30074D768 /* APIClient */,
 				05B327C818DA118F00E06A55 /* FlickrWorld */,
 				05B327E518DA118F00E06A55 /* FlickrWorldTests */,
 				05B327BF18DA118F00E06A55 /* Frameworks */,
@@ -134,7 +166,6 @@
 				05B327D118DA118F00E06A55 /* AppDelegate.h */,
 				05B327D218DA118F00E06A55 /* AppDelegate.m */,
 				05B327D718DA118F00E06A55 /* Images.xcassets */,
-				05B327D418DA118F00E06A55 /* FlickrWorld.xcdatamodeld */,
 				05B327C918DA118F00E06A55 /* Supporting Files */,
 			);
 			path = FlickrWorld;
@@ -312,7 +343,10 @@
 				05B327D318DA118F00E06A55 /* AppDelegate.m in Sources */,
 				05B327D618DA118F00E06A55 /* FlickrWorld.xcdatamodeld in Sources */,
 				05B3281418DA516A00E06A55 /* FlickrAPIClient.m in Sources */,
+				0510CABD18DBAC560074D768 /* Photo.m in Sources */,
+				0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */,
 				05B327F818DA2DA600E06A55 /* FlickrFetcher.m in Sources */,
+				0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */,
 				05B327CF18DA118F00E06A55 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -536,7 +570,8 @@
 				05B327D518DA118F00E06A55 /* FlickrWorld.xcdatamodel */,
 			);
 			currentVersion = 05B327D518DA118F00E06A55 /* FlickrWorld.xcdatamodel */;
-			path = FlickrWorld.xcdatamodeld;
+			name = FlickrWorld.xcdatamodeld;
+			path = FlickrWorld/FlickrWorld.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};
