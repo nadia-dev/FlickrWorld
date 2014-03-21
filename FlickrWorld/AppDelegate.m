@@ -27,7 +27,7 @@
 //            
 //            [self.dataStore addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
 //                
-//                [placeForPhoto addPhotosObject:photo];
+//                placeForPhoto.photo = photo;
 //            }];
 //            
 //            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {

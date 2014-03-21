@@ -45,7 +45,7 @@
         placeCoordinate.longitude = [place.longitude floatValue];
 
         
-        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:@"test" Location:placeCoordinate];//add Photo object as a property here?
+        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:@"test" Location:placeCoordinate Photo:place.photo];   //add Photo object as a property here?
         
         [self.mapView addAnnotation:annotation];
     }

@@ -12,10 +12,11 @@
 
 @implementation FlickrAnnotation
 
--(id)initWithWithTitle: (NSString *)title Location: (CLLocationCoordinate2D)location
+-(id)initWithWithTitle: (NSString *)title Location: (CLLocationCoordinate2D)location Photo: (Photo *)photo;
 {
     self = [super init];
     if (self) {
+        _photo = photo;
         _title = title;
         _coordinate = location;
     }
