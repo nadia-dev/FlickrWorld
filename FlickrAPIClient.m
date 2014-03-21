@@ -18,7 +18,6 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
 //will take id, ownerId and title from here
 + (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock
 {
-    
     NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.interestingness.getList&api_key=%@&%@", BASE_URL, FlickrAPIKey, PARAMS];
     
     AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
@@ -31,5 +30,9 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
         
     } failure:nil];
 }
+
+
+//    NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.getSizes&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photoId, PARAMS];
+
 
 @end

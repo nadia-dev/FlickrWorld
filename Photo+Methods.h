@@ -12,4 +12,5 @@
 
 + (Photo *)getPhotoFromPhotoDict: (NSDictionary *)photoDict inManagedObjectContext: (NSManagedObjectContext *)context;
 
+
 @end

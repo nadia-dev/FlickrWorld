@@ -16,4 +16,5 @@ extern NSString * const PARAMS;
 
 + (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock;
 
+
 @end

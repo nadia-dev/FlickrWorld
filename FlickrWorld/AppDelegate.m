@@ -26,6 +26,7 @@
     self.dataStore = [FlickrDataStore sharedDataStore];
     
     [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
+        
         [self.dataStore saveContext];
     }];
     

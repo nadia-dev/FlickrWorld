@@ -8,7 +8,7 @@
 
 #import "FlickrDataStore.h"
 #import "FlickrAPIClient.h"
-#import "Photo+Methods.h"
+
 
 @implementation FlickrDataStore
 
@@ -62,6 +62,7 @@
         completionBlock(photos);
     }];
 }
+
 
 #pragma mark - Core Data stack
 
