@@ -33,13 +33,16 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.1.5):
     - FontAwesomeKit/Core
+  - MPColorTools (1.4.1)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FontAwesomeKit (~> 2.1.0)
+  - MPColorTools
 
 SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
   FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
+  MPColorTools: f58e73f5c351d22fb950948cdb60521a8cb924ea
 
 COCOAPODS: 0.29.0
