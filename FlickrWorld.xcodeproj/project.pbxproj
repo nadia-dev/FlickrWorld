@@ -13,6 +13,7 @@
 		055617A118DCD36A007E9296 /* FlickrAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617A018DCD36A007E9296 /* FlickrAnnotation.m */; };
 		055617AA18DCDEE8007E9296 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617A918DCDEE8007E9296 /* Place.m */; };
 		055617AD18DCDEE8007E9296 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617AC18DCDEE8007E9296 /* Photo.m */; };
+		055617B018DCE281007E9296 /* ImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617AF18DCE281007E9296 /* ImageViewController.m */; };
 		05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
 		05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C218DA118F00E06A55 /* CoreGraphics.framework */; };
 		05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
@@ -60,6 +61,8 @@
 		055617A918DCDEE8007E9296 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		055617AB18DCDEE8007E9296 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		055617AC18DCDEE8007E9296 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		055617AE18DCE281007E9296 /* ImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewController.h; sourceTree = "<group>"; };
+		055617AF18DCE281007E9296 /* ImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewController.m; sourceTree = "<group>"; };
 		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -244,6 +247,8 @@
 		05D8154218DCB43200857BF3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				055617AE18DCE281007E9296 /* ImageViewController.h */,
+				055617AF18DCE281007E9296 /* ImageViewController.m */,
 				05D8154418DCB49100857BF3 /* MapViewController.h */,
 				05D8154518DCB49100857BF3 /* MapViewController.m */,
 				0556179F18DCD36A007E9296 /* FlickrAnnotation.h */,
@@ -399,6 +404,7 @@
 				05B327D318DA118F00E06A55 /* AppDelegate.m in Sources */,
 				055617AA18DCDEE8007E9296 /* Place.m in Sources */,
 				05B327D618DA118F00E06A55 /* FlickrWorld.xcdatamodeld in Sources */,
+				055617B018DCE281007E9296 /* ImageViewController.m in Sources */,
 				055617A118DCD36A007E9296 /* FlickrAnnotation.m in Sources */,
 				05B3281418DA516A00E06A55 /* FlickrAPIClient.m in Sources */,
 				0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */,

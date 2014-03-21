@@ -10,12 +10,13 @@
 #import "FlickrDataStore.h"
 #import "Place+Methods.h"
 #import "FlickrAnnotation.h"
-
+#import "ImageViewController.h"
 
 @interface MapViewController ()
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) FlickrDataStore *dataStore;
+@property (strong, nonatomic) Photo *photo;
 
 @end
 
@@ -71,9 +72,30 @@
     }
 }
 
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
+    NSLog(@"prepare for segue");
+}
+
+
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    [self performSegueWithIdentifier:@"toImage" sender:self];
+    
+    FlickrAnnotation *annotation = view.annotation;
+    
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    ImageViewController *imageVC = (ImageViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"image"];
+    
+    imageVC.photo = annotation.photo;
+    imageVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    
+    NSLog(@"%@", annotation.photo);
+
+    [self presentViewController:imageVC animated:YES completion:^{
+        nil;
+    }];
+
 
 }
 

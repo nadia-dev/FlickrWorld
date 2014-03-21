@@ -32,17 +32,16 @@
                     <navigationItem key="navigationItem" id="G2V-NC-kFc"/>
                     <connections>
                         <outlet property="mapView" destination="FCY-co-OsD" id="md2-xR-Yje"/>
-                        <segue destination="CtM-jz-bP2" kind="push" identifier="toImage" id="ebF-MN-pvz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HM0-9E-sJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="615" y="160"/>
         </scene>
-        <!--View Controller-->
+        <!--Image View Controller-->
         <scene sceneID="7wS-Jf-jBE">
             <objects>
-                <viewController id="CtM-jz-bP2" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="image" id="CtM-jz-bP2" customClass="ImageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="P9d-yb-R7g"/>
                         <viewControllerLayoutGuide type="bottom" id="Okq-dJ-mmy"/>
@@ -50,7 +49,6 @@
                     <view key="view" contentMode="scaleToFill" id="oVs-8l-SMf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="pD7-Jt-86g"/>
                 </viewController>
