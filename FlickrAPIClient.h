@@ -19,7 +19,7 @@ extern NSString * const PARAMS;
 
 + (void)fetchImagesForPhoto: (Photo *)photo Completion: (void(^)(NSArray *))completionBlock;
 
-+ (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes;
++ (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes Completion: (void(^)(NSData *))completionBlock;;
 
 
 @end

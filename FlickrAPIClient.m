@@ -51,7 +51,7 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     
 }
 
-+ (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes
++ (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes Completion: (void(^)(NSData *))completionBlock
 {
     NSString *URLString = [NSString stringWithFormat:@"%@", sizes[2][@"source"]];
     
@@ -63,8 +63,12 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     operation.responseSerializer = [AFImageResponseSerializer serializer];
     
     [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-
-        NSLog(@"%@", responseObject);
+        
+        UIImage *image = responseObject;
+        
+        NSData *imageData = UIImagePNGRepresentation(image);
+        
+        completionBlock(imageData);
         
     } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
         
