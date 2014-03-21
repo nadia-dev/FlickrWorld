@@ -13,6 +13,7 @@
 #import "ImageScrollViewController.h"
 
 
+
 @interface MapViewController ()
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
@@ -68,14 +69,11 @@
             annotationView.annotation = annotation;
         }
         return annotationView;
+        
     } else {
+        
         return nil;
     }
-}
-
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    NSLog(@"prepare for segue");
 }
 
 
