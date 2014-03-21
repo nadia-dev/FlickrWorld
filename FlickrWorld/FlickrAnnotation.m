@@ -28,7 +28,7 @@
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     
-    UIColor *circleColor = MP_RGB(255, 51, 153);
+    UIColor *circleColor = MP_RGB(255, 102, 102);
     FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:15];
     [circle addAttribute:NSForegroundColorAttributeName value:circleColor];
     UIImage *circleImage = [circle imageWithSize:CGSizeMake(15, 15)];

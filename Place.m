@@ -12,11 +12,11 @@
 
 @implementation Place
 
-@dynamic latutide;
-@dynamic longitude;
-@dynamic locality;
 @dynamic country;
+@dynamic latutide;
+@dynamic locality;
+@dynamic longitude;
 @dynamic region;
-@dynamic photos;
+@dynamic photo;
 
 @end

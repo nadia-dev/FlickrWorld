@@ -13,19 +13,11 @@
 
 @interface Place : NSManagedObject
 
-@property (nonatomic, retain) NSNumber * latutide;
-@property (nonatomic, retain) NSNumber * longitude;
-@property (nonatomic, retain) NSString * locality;
 @property (nonatomic, retain) NSString * country;
+@property (nonatomic, retain) NSNumber * latutide;
+@property (nonatomic, retain) NSString * locality;
+@property (nonatomic, retain) NSNumber * longitude;
 @property (nonatomic, retain) NSString * region;
-@property (nonatomic, retain) NSSet *photos;
-@end
-
-@interface Place (CoreDataGeneratedAccessors)
-
-- (void)addPhotosObject:(Photo *)value;
-- (void)removePhotosObject:(Photo *)value;
-- (void)addPhotos:(NSSet *)values;
-- (void)removePhotos:(NSSet *)values;
+@property (nonatomic, retain) Photo *photo;
 
 @end

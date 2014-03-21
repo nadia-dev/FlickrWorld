@@ -28,7 +28,7 @@
     
     self.dataStore = [FlickrDataStore sharedDataStore];
 	self.mapView.delegate = self;
-    self.mapView.mapType = MKMapTypeHybrid;
+    self.mapView.mapType = MKMapTypeStandard;
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
@@ -45,7 +45,7 @@
         placeCoordinate.longitude = [place.longitude floatValue];
 
         
-        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:@"test" Location:placeCoordinate];
+        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:@"test" Location:placeCoordinate];//add Photo object as a property here?
         
         [self.mapView addAnnotation:annotation];
     }
@@ -71,12 +71,10 @@
     }
 }
 
-
-//-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-//{
-//    NSLog(@"selected");
-//}
-
+- (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
+{
+    NSLog(@"callout tapped");
+}
 
 
 @end
