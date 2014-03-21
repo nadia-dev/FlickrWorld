@@ -88,9 +88,8 @@
     ImageViewController *imageVC = (ImageViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"image"];
     
     imageVC.photo = annotation.photo;
-    imageVC.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
     
-    NSLog(@"%@", annotation.photo);
+//    imageVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 
     [self presentViewController:imageVC animated:YES completion:^{
         nil;
