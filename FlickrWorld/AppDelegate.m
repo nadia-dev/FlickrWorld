@@ -31,12 +31,15 @@
             
             [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
                 
+                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes];
+                
                 photo.largeImageLink = [sizes lastObject][@"source"];
-                NSLog(@"%@", photo.largeImageLink);
                 
                 [self.dataStore saveContext];
 
             }];
+            
+            
         }
   
     }];

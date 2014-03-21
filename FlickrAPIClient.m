@@ -9,6 +9,7 @@
 #import "FlickrAPIClient.h"
 #import "FlickrAPIKey.h"
 #import <AFNetworking.h>
+#import "AFNetworkActivityIndicatorManager.h"
 
 
 @implementation FlickrAPIClient
@@ -50,7 +51,28 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     
 }
 
-//    NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.getSizes&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photoId, PARAMS];
++ (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes
+{
+    NSString *URLString = [NSString stringWithFormat:@"%@", sizes[2][@"source"]];
+    
+    NSURL *url = [NSURL URLWithString:URLString];
+ 
+    NSURLRequest *request = [NSURLRequest requestWithURL:url];
+    
+    AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    operation.responseSerializer = [AFImageResponseSerializer serializer];
+    
+    [operation setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
 
+        NSLog(@"%@", responseObject);
+        
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        
+        NSLog(@"Error: %@", error);
+    }];
+    
+    [operation start];
+    
+}
 
 @end
