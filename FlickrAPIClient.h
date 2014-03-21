@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Photo+Methods.h"
 
 @interface FlickrAPIClient : NSObject
 
@@ -15,6 +16,8 @@ extern NSString * const PARAMS;
 
 
 + (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock;
+
++ (void)fetchImagesForPhoto: (Photo *)photo Completion: (void(^)(NSArray *))completionBlock;
 
 
 @end

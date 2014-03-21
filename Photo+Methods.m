@@ -10,6 +10,12 @@
 
 @implementation Photo (Methods)
 
+- (NSString *)description
+{
+    return [NSString stringWithFormat:@"ID: %@ title: %@ urlToLargeImage: %@",self.identifier ,self.title, self.largeImageLink];
+}
+
+
 
 //get id, title and ownerId for the photo
 + (Photo *)getPhotoFromPhotoDict: (NSDictionary *)photoDict inManagedObjectContext: (NSManagedObjectContext *)context
@@ -40,6 +46,13 @@
         return photos[0];
     }
 }
+
+
++ (void)getImagesFromSizes: (NSArray *)sizes
+{
+    
+}
+
 
 
 @end

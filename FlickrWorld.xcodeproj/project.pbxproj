@@ -8,8 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CAB918DBAAE60074D768 /* Photo+Methods.m */; };
-		0510CABD18DBAC560074D768 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CABC18DBAC560074D768 /* Photo.m */; };
 		0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CABF18DBAD980074D768 /* FlickrDataStore.m */; };
+		0510CAC318DC65F80074D768 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CAC218DC65F80074D768 /* Photo.m */; };
 		05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
 		05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C218DA118F00E06A55 /* CoreGraphics.framework */; };
 		05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
@@ -43,10 +43,10 @@
 /* Begin PBXFileReference section */
 		0510CAB818DBAAE60074D768 /* Photo+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photo+Methods.h"; sourceTree = "<group>"; };
 		0510CAB918DBAAE60074D768 /* Photo+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Methods.m"; sourceTree = "<group>"; };
-		0510CABB18DBAC560074D768 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		0510CABC18DBAC560074D768 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		0510CABE18DBAD980074D768 /* FlickrDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrDataStore.h; sourceTree = "<group>"; };
 		0510CABF18DBAD980074D768 /* FlickrDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrDataStore.m; sourceTree = "<group>"; };
+		0510CAC118DC65F80074D768 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		0510CAC218DC65F80074D768 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -104,9 +104,9 @@
 		0510CAB618DBAA9A0074D768 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				0510CAC118DC65F80074D768 /* Photo.h */,
+				0510CAC218DC65F80074D768 /* Photo.m */,
 				05B327D418DA118F00E06A55 /* FlickrWorld.xcdatamodeld */,
-				0510CABB18DBAC560074D768 /* Photo.h */,
-				0510CABC18DBAC560074D768 /* Photo.m */,
 				0510CAB818DBAAE60074D768 /* Photo+Methods.h */,
 				0510CAB918DBAAE60074D768 /* Photo+Methods.m */,
 				0510CABE18DBAD980074D768 /* FlickrDataStore.h */,
@@ -343,8 +343,8 @@
 				05B327D318DA118F00E06A55 /* AppDelegate.m in Sources */,
 				05B327D618DA118F00E06A55 /* FlickrWorld.xcdatamodeld in Sources */,
 				05B3281418DA516A00E06A55 /* FlickrAPIClient.m in Sources */,
-				0510CABD18DBAC560074D768 /* Photo.m in Sources */,
 				0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */,
+				0510CAC318DC65F80074D768 /* Photo.m in Sources */,
 				05B327F818DA2DA600E06A55 /* FlickrFetcher.m in Sources */,
 				0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */,
 				05B327CF18DA118F00E06A55 /* main.m in Sources */,

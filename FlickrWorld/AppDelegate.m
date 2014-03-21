@@ -27,7 +27,18 @@
     
     [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
         
-        [self.dataStore saveContext];
+        for (Photo *photo in photos) {
+            
+            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
+                
+                photo.largeImageLink = [sizes lastObject][@"source"];
+                NSLog(@"%@", photo.largeImageLink);
+                
+                [self.dataStore saveContext];
+
+            }];
+        }
+  
     }];
     
     return YES;
