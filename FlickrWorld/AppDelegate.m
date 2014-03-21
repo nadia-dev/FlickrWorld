@@ -18,10 +18,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    // Override point for customization after application launch.
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
     
@@ -50,10 +46,12 @@
 //    }];
     
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
-    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
-    NSLog(@"%@", places);
+    
+    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
+    //NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    //NSLog(@"%@", places);
     
     return YES;
 }

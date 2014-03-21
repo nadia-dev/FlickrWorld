@@ -29,6 +29,10 @@
 		05D8153518DCAE8300857BF3 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D8153418DCAE8300857BF3 /* Photo.m */; };
 		05D8153818DCAE8400857BF3 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D8153718DCAE8400857BF3 /* Place.m */; };
 		05D8153B18DCAECF00857BF3 /* Place+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D8153A18DCAECF00857BF3 /* Place+Methods.m */; };
+		05D8153D18DCB37D00857BF3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D8153C18DCB37D00857BF3 /* MapKit.framework */; };
+		05D8153F18DCB38800857BF3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D8153E18DCB38800857BF3 /* CoreLocation.framework */; };
+		05D8154118DCB3DD00857BF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D8154018DCB3DD00857BF3 /* Main.storyboard */; };
+		05D8154618DCB49100857BF3 /* MapViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05D8154518DCB49100857BF3 /* MapViewController.m */; };
 		45EA89CCDA824E0A8663C8B7 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 34DAD357EE5D4D708CB3F71A /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -76,6 +80,11 @@
 		05D8153718DCAE8400857BF3 /* Place.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Place.m; sourceTree = "<group>"; };
 		05D8153918DCAECF00857BF3 /* Place+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Place+Methods.h"; path = "FlickrWorld/Place+Methods.h"; sourceTree = "<group>"; };
 		05D8153A18DCAECF00857BF3 /* Place+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "Place+Methods.m"; path = "FlickrWorld/Place+Methods.m"; sourceTree = "<group>"; };
+		05D8153C18DCB37D00857BF3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		05D8153E18DCB38800857BF3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		05D8154018DCB3DD00857BF3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
+		05D8154418DCB49100857BF3 /* MapViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MapViewController.h; sourceTree = "<group>"; };
+		05D8154518DCB49100857BF3 /* MapViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MapViewController.m; sourceTree = "<group>"; };
 		34DAD357EE5D4D708CB3F71A /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		E523B9BCEC984730AED96E51 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -85,6 +94,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D8153F18DCB38800857BF3 /* CoreLocation.framework in Frameworks */,
+				05D8153D18DCB37D00857BF3 /* MapKit.framework in Frameworks */,
 				05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */,
 				05B327C718DA118F00E06A55 /* CoreData.framework in Frameworks */,
 				05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */,
@@ -138,6 +149,8 @@
 		05B327B418DA118F00E06A55 = {
 			isa = PBXGroup;
 			children = (
+				05D8154318DCB45300857BF3 /* Views */,
+				05D8154218DCB43200857BF3 /* Controllers */,
 				0510CAB618DBAA9A0074D768 /* Model */,
 				0510CAB718DBAAB30074D768 /* APIClient */,
 				05B327C818DA118F00E06A55 /* FlickrWorld */,
@@ -160,6 +173,8 @@
 		05B327BF18DA118F00E06A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05D8153E18DCB38800857BF3 /* CoreLocation.framework */,
+				05D8153C18DCB37D00857BF3 /* MapKit.framework */,
 				05B327C018DA118F00E06A55 /* Foundation.framework */,
 				05B327C218DA118F00E06A55 /* CoreGraphics.framework */,
 				05B327C418DA118F00E06A55 /* UIKit.framework */,
@@ -218,6 +233,25 @@
 				05B327F718DA2DA600E06A55 /* FlickrFetcher.m */,
 			);
 			name = FlickrFetcher;
+			sourceTree = "<group>";
+		};
+		05D8154218DCB43200857BF3 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				05D8154418DCB49100857BF3 /* MapViewController.h */,
+				05D8154518DCB49100857BF3 /* MapViewController.m */,
+			);
+			name = Controllers;
+			path = FlickrWorld;
+			sourceTree = "<group>";
+		};
+		05D8154318DCB45300857BF3 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				05D8154018DCB3DD00857BF3 /* Main.storyboard */,
+			);
+			name = Views;
+			path = FlickrWorld;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,6 +331,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D8154118DCB3DD00857BF3 /* Main.storyboard in Resources */,
 				05B327CD18DA118F00E06A55 /* InfoPlist.strings in Resources */,
 				05B327D818DA118F00E06A55 /* Images.xcassets in Resources */,
 			);
@@ -360,6 +395,7 @@
 				05D8153818DCAE8400857BF3 /* Place.m in Sources */,
 				0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */,
 				05B327CF18DA118F00E06A55 /* main.m in Sources */,
+				05D8154618DCB49100857BF3 /* MapViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
