@@ -9,6 +9,8 @@
 #import "MapViewController.h"
 #import "FlickrDataStore.h"
 #import "Place+Methods.h"
+#import "FlickrAnnotation.h"
+
 
 @interface MapViewController ()
 
@@ -38,34 +40,43 @@
     
     for (Place *place in places) {
         
-        MKPointAnnotation *annotation = [[MKPointAnnotation alloc] init];
-        CLLocationCoordinate2D myCoordinate;
-        myCoordinate.latitude = [place.latutide floatValue];
-        myCoordinate.longitude = [place.longitude floatValue];
-        annotation.coordinate = myCoordinate;
+        CLLocationCoordinate2D placeCoordinate;
+        placeCoordinate.latitude = [place.latutide floatValue];
+        placeCoordinate.longitude = [place.longitude floatValue];
+
+        
+        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:@"test" Location:placeCoordinate];
+        
         [self.mapView addAnnotation:annotation];
     }
     
 }
 
-
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    static NSString *identifier = @"MyLocation";
+    if ([annotation isKindOfClass:[FlickrAnnotation class]]) {
         
-    MKAnnotationView *annotationView = (MKAnnotationView *) [self.mapView dequeueReusableAnnotationViewWithIdentifier:identifier];
-    if (annotationView == nil) {
-        annotationView = [[MKAnnotationView alloc] initWithAnnotation:annotation reuseIdentifier:identifier];
-        annotationView.enabled = YES;
-        annotationView.canShowCallout = YES;
-        annotationView.image = [UIImage imageNamed:@"arrest.png"];//here we use a nice image instead of the default pins
+        FlickrAnnotation *myLocation = (FlickrAnnotation *)annotation;
+        
+        MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"FlickrAnnotation"];
+        
+        if (annotationView == nil) {
+            annotationView = myLocation.annotationView;
+        } else {
+            annotationView.annotation = annotation;
+        }
+        return annotationView;
     } else {
-        annotationView.annotation = annotation;
+        return nil;
     }
-    
-    return annotationView;
-
 }
+
+
+//-(void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+//{
+//    NSLog(@"selected");
+//}
+
 
 
 @end
