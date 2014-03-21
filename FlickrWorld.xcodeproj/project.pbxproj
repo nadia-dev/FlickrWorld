@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CAB918DBAAE60074D768 /* Photo+Methods.m */; };
 		0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CABF18DBAD980074D768 /* FlickrDataStore.m */; };
+		0556179E18DCC2F7007E9296 /* arrest.png in Resources */ = {isa = PBXBuildFile; fileRef = 0556179D18DCC2F7007E9296 /* arrest.png */; };
 		05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
 		05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C218DA118F00E06A55 /* CoreGraphics.framework */; };
 		05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
@@ -51,6 +52,7 @@
 		0510CAB918DBAAE60074D768 /* Photo+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Methods.m"; sourceTree = "<group>"; };
 		0510CABE18DBAD980074D768 /* FlickrDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrDataStore.h; sourceTree = "<group>"; };
 		0510CABF18DBAD980074D768 /* FlickrDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrDataStore.m; sourceTree = "<group>"; };
+		0556179D18DCC2F7007E9296 /* arrest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrest.png; sourceTree = "<group>"; };
 		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -188,6 +190,7 @@
 		05B327C818DA118F00E06A55 /* FlickrWorld */ = {
 			isa = PBXGroup;
 			children = (
+				0556179D18DCC2F7007E9296 /* arrest.png */,
 				05B327D118DA118F00E06A55 /* AppDelegate.h */,
 				05B327D218DA118F00E06A55 /* AppDelegate.m */,
 				05B327D718DA118F00E06A55 /* Images.xcassets */,
@@ -333,6 +336,7 @@
 			files = (
 				05D8154118DCB3DD00857BF3 /* Main.storyboard in Resources */,
 				05B327CD18DA118F00E06A55 /* InfoPlist.strings in Resources */,
+				0556179E18DCC2F7007E9296 /* arrest.png in Resources */,
 				05B327D818DA118F00E06A55 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
