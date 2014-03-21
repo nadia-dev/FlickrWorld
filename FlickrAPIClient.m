@@ -10,6 +10,7 @@
 #import "FlickrAPIKey.h"
 #import <AFNetworking.h>
 #import "AFNetworkActivityIndicatorManager.h"
+#import "UIImageView+AFNetworking.h"
 
 
 @implementation FlickrAPIClient
@@ -94,7 +95,7 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
         completionBlock(placeDict);
         
     } failure:nil];
-
 }
+
 
 @end

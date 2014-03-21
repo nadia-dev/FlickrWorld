@@ -10,6 +10,7 @@
 #import "Photo+Methods.h"
 #import "FlickrAPIClient.h"
 #import "Photo+Methods.h"
+#import "AFNetworkActivityIndicatorManager.h"
 
 
 @implementation AppDelegate
@@ -18,6 +19,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
     

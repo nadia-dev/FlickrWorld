@@ -10,7 +10,8 @@
 #import "FlickrDataStore.h"
 #import "Place+Methods.h"
 #import "FlickrAnnotation.h"
-#import "ImageViewController.h"
+#import "ImageScrollViewController.h"
+
 
 @interface MapViewController ()
 
@@ -84,8 +85,9 @@
     FlickrAnnotation *annotation = view.annotation;
     
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+
     
-    ImageViewController *imageVC = (ImageViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"image"];
+    ImageScrollViewController *imageVC = (ImageScrollViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"image"];
     
     imageVC.photo = annotation.photo;
     
