@@ -64,6 +64,16 @@
 }
 
 
+- (void)addPlaceToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Place *))completionBlock
+{
+    [FlickrAPIClient fetchPlaceForPhoto:photo Completion:^(NSDictionary *placeDict) {
+        
+        Place *placeForPhoto = [Place getPlaceFromPlaceDict:placeDict inManagedObjectContext:self.managedObjectContext];
+        
+        completionBlock(placeForPhoto);
+        
+    }];
+}
 
 
 #pragma mark - Core Data stack

@@ -25,24 +25,35 @@
     
     self.dataStore = [FlickrDataStore sharedDataStore];
     
-    [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
-        
-        for (Photo *photo in photos) {
-            
-            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
-                
-                photo.largeImageLink = [sizes lastObject][@"source"];
-                
-                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
-                    
-                    photo.thumbnailImage = thumbnailData;
-                    
-                    [self.dataStore saveContext];
-                }];
-
-            }];
-        }
-    }];
+//    [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
+//        
+//        for (Photo *photo in photos) {
+//            
+//            [self.dataStore addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
+//                
+//                [placeForPhoto addPhotosObject:photo];
+//            }];
+//            
+//            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
+//                
+//                photo.largeImageLink = [sizes lastObject][@"source"];
+//                
+//                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
+//                    
+//                    photo.thumbnailImage = thumbnailData;
+//                    
+//                    [self.dataStore saveContext];
+//                }];
+//
+//            }];
+//        }
+//    }];
+    
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
+    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    NSLog(@"%@", places);
     
     return YES;
 }

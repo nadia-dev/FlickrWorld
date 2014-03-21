@@ -7,6 +7,7 @@
 //
 
 #import "Photo.h"
+#import "Place.h"
 
 
 @implementation Photo
@@ -16,5 +17,6 @@
 @dynamic ownerId;
 @dynamic thumbnailImage;
 @dynamic title;
+@dynamic place;
 
 @end

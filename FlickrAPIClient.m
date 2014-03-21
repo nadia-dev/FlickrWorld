@@ -79,4 +79,22 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     
 }
 
+
++ (void)fetchPlaceForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock
+{
+    
+    NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.geo.getLocation&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photo.identifier, PARAMS];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary *placeDict = responseObject[@"photo"][@"location"];
+        
+        completionBlock(placeDict);
+        
+    } failure:nil];
+
+}
+
 @end
