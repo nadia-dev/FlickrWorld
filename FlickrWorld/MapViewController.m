@@ -73,7 +73,8 @@
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
-    NSLog(@"callout tapped");
+    [self performSegueWithIdentifier:@"toImage" sender:self];
+
 }
 
 
