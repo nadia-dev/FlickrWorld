@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CAB918DBAAE60074D768 /* Photo+Methods.m */; };
 		0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */ = {isa = PBXBuildFile; fileRef = 0510CABF18DBAD980074D768 /* FlickrDataStore.m */; };
-		0556179E18DCC2F7007E9296 /* arrest.png in Resources */ = {isa = PBXBuildFile; fileRef = 0556179D18DCC2F7007E9296 /* arrest.png */; };
 		055617A118DCD36A007E9296 /* FlickrAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617A018DCD36A007E9296 /* FlickrAnnotation.m */; };
 		055617AA18DCDEE8007E9296 /* Place.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617A918DCDEE8007E9296 /* Place.m */; };
 		055617AD18DCDEE8007E9296 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617AC18DCDEE8007E9296 /* Photo.m */; };
@@ -55,7 +54,6 @@
 		0510CAB918DBAAE60074D768 /* Photo+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photo+Methods.m"; sourceTree = "<group>"; };
 		0510CABE18DBAD980074D768 /* FlickrDataStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrDataStore.h; sourceTree = "<group>"; };
 		0510CABF18DBAD980074D768 /* FlickrDataStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrDataStore.m; sourceTree = "<group>"; };
-		0556179D18DCC2F7007E9296 /* arrest.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = arrest.png; sourceTree = "<group>"; };
 		0556179F18DCD36A007E9296 /* FlickrAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAnnotation.h; sourceTree = "<group>"; };
 		055617A018DCD36A007E9296 /* FlickrAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAnnotation.m; sourceTree = "<group>"; };
 		055617A818DCDEE8007E9296 /* Place.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Place.h; sourceTree = "<group>"; };
@@ -198,7 +196,6 @@
 		05B327C818DA118F00E06A55 /* FlickrWorld */ = {
 			isa = PBXGroup;
 			children = (
-				0556179D18DCC2F7007E9296 /* arrest.png */,
 				05B327D118DA118F00E06A55 /* AppDelegate.h */,
 				05B327D218DA118F00E06A55 /* AppDelegate.m */,
 				05B327D718DA118F00E06A55 /* Images.xcassets */,
@@ -350,7 +347,6 @@
 				055617B518DCF84C007E9296 /* wallabi.jpg in Resources */,
 				05D8154118DCB3DD00857BF3 /* Main.storyboard in Resources */,
 				05B327CD18DA118F00E06A55 /* InfoPlist.strings in Resources */,
-				0556179E18DCC2F7007E9296 /* arrest.png in Resources */,
 				05B327D818DA118F00E06A55 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

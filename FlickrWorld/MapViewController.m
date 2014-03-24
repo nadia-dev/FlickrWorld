@@ -11,6 +11,7 @@
 #import "Place+Methods.h"
 #import "FlickrAnnotation.h"
 #import "ImageScrollViewController.h"
+#import <FontAwesomeKit.h>
 
 
 
@@ -32,6 +33,10 @@
     self.dataStore = [FlickrDataStore sharedDataStore];
 	self.mapView.delegate = self;
     self.mapView.mapType = MKMapTypeStandard;
+    
+    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:20];
+    UIImage *globeImage = [globe imageWithSize:CGSizeMake(20, 20)];
+    self.navigationController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"World" image:globeImage selectedImage:globeImage];
     
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];

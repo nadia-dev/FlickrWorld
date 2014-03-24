@@ -36,6 +36,7 @@
     
     annotationView.image = circleImage;
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+
     
     return annotationView;
 }
