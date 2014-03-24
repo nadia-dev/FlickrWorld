@@ -21,16 +21,13 @@
 
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
-@property (strong, nonatomic) IBOutlet UIToolbar *toolBar;
+@property (strong, nonatomic) IBOutlet UIButton *infoButton;
+
 
 @end
 
 @implementation ImageScrollViewController
 
-- (IBAction)doneButtonPressed:(id)sender
-{
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 - (void) viewWillAppear:(BOOL)animated
 
@@ -38,7 +35,7 @@
     
     [super viewWillAppear:animated];
     
-    self.navigationController.toolbarHidden=NO;
+    [self.view bringSubviewToFront:self.infoButton];
     
     self.scrollView.delegate = self;
     
