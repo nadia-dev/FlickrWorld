@@ -51,10 +51,10 @@
     
     
     
-    //NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
-    //NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
+    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
-    //NSLog(@"%@", places);
+    NSLog(@"%@", places);
     
     return YES;
 }

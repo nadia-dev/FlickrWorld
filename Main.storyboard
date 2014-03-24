@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="4514" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EAr-9F-9Gm">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="5053" systemVersion="13C64" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="EAr-9F-9Gm">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3747"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="3733"/>
     </dependencies>
     <scenes>
         <!--Map View Controller-->
@@ -51,36 +51,44 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="AWH-Mj-LF1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="524"/>
                                 <subviews>
                                     <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MoH-O1-eU8">
-                                        <rect key="frame" x="141" y="266" width="37" height="37"/>
+                                        <rect key="frame" x="141" y="244" width="37" height="37"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </activityIndicatorView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="c7l-nH-aQX">
-                                        <rect key="frame" x="110" y="234" width="100" height="100"/>
+                                        <rect key="frame" x="110" y="212" width="100" height="100"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="MoH-O1-eU8" firstAttribute="centerY" secondItem="c7l-nH-aQX" secondAttribute="centerY" id="1yQ-8c-eXF"/>
-                                    <constraint firstAttribute="bottom" secondItem="c7l-nH-aQX" secondAttribute="bottom" constant="234" id="6OU-Tk-j58"/>
-                                    <constraint firstItem="c7l-nH-aQX" firstAttribute="top" secondItem="AWH-Mj-LF1" secondAttribute="top" constant="234" id="oTa-4Q-PhQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="c7l-nH-aQX" secondAttribute="bottom" constant="212" id="6OU-Tk-j58"/>
+                                    <constraint firstItem="c7l-nH-aQX" firstAttribute="top" secondItem="AWH-Mj-LF1" secondAttribute="top" constant="212" id="oTa-4Q-PhQ"/>
                                     <constraint firstItem="MoH-O1-eU8" firstAttribute="leading" secondItem="AWH-Mj-LF1" secondAttribute="leading" constant="141" id="pDH-9r-sAu"/>
                                     <constraint firstAttribute="trailing" secondItem="c7l-nH-aQX" secondAttribute="trailing" constant="110" id="w2J-fK-U6x"/>
                                     <constraint firstItem="c7l-nH-aQX" firstAttribute="leading" secondItem="AWH-Mj-LF1" secondAttribute="leading" constant="110" id="yek-hf-OHO"/>
                                 </constraints>
                             </scrollView>
+                            <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="rqZ-FH-huh">
+                                <rect key="frame" x="0.0" y="524" width="320" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <items>
+                                    <barButtonItem title="Item" id="7fZ-5X-fyu"/>
+                                </items>
+                            </toolbar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="top" secondItem="sH5-nx-VSJ" secondAttribute="top" id="0dU-y6-dhe"/>
-                            <constraint firstAttribute="bottom" secondItem="AWH-Mj-LF1" secondAttribute="bottom" id="KFo-3F-v5z"/>
+                            <constraint firstAttribute="bottom" secondItem="AWH-Mj-LF1" secondAttribute="bottom" constant="44" id="KFo-3F-v5z"/>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" id="V63-nd-8eW"/>
                             <constraint firstAttribute="trailing" secondItem="AWH-Mj-LF1" secondAttribute="trailing" id="l0H-cu-SYI"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
+                    <navigationItem key="navigationItem" id="gU9-tH-VGw"/>
                     <connections>
                         <outlet property="constraintBottom" destination="6OU-Tk-j58" id="amo-Dm-XZ0"/>
                         <outlet property="constraintLeft" destination="yek-hf-OHO" id="5WN-63-rws"/>
@@ -93,7 +101,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rs1-Fo-F8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="439" y="208"/>
+            <point key="canvasLocation" x="441" y="220"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="c7j-Pt-R1l">

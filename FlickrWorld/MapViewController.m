@@ -91,9 +91,15 @@
     
 //    imageVC.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
 
-    [self presentViewController:imageVC animated:YES completion:^{
-        nil;
-    }];
+//    [self presentViewController:imageVC animated:YES completion:^{
+//        nil;
+//    }];
+    
+    [self.navigationController presentViewController:imageVC animated:YES completion:nil];
+    
+//    [self.navigationController performSegueWithIdentifier:@"toImage" sender:self];
+    
+//    [self performSegueWithIdentifier:@"toImage" sender:self];
 
 
 }

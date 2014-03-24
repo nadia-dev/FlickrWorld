@@ -33,26 +33,30 @@
     
     self.scrollView.delegate = self;
     
-    if (!self.imageView.image) {
-        
-        [self.spinner startAnimating];
-        
-        NSURL *url = [NSURL URLWithString:self.photo.largeImageLink];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-        
-        [self.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-            
-            self.imageView.image = image;
-            
-            [self.spinner stopAnimating];
-            
-            [self updateZoom];
-            
-        } failure:nil];
-        
-        
-        
-    }
+    self.imageView.image = [UIImage imageNamed:@"wallabi.jpg"];
+    
+    [self updateZoom];
+    
+//    if (!self.imageView.image) {
+//        
+//        [self.spinner startAnimating];
+//        
+//        NSURL *url = [NSURL URLWithString:self.photo.largeImageLink];
+//        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+//        
+//        [self.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+//            
+//            self.imageView.image = image;
+//            
+//            [self.spinner stopAnimating];
+//            
+//            [self updateZoom];
+//            
+//        } failure:nil];
+//        
+//        
+//        
+//    }
 
 }
 
@@ -122,7 +126,7 @@
     
     NSMutableArray *recentImages = [[NSMutableArray alloc] initWithArray: [defaults objectForKey:@"recentImages"]];
     
-    NSLog(@"%d", [recentImages count]);
+    NSLog(@"%lu", [recentImages count]);
     
     if ([recentImages count] < 5) {
         
