@@ -53,6 +53,8 @@
         [self.mapView addAnnotation:annotation];
     }
     
+    
+    
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
@@ -82,6 +84,8 @@
     
     FlickrAnnotation *annotation = view.annotation;
     
+    [self.mapView deselectAnnotation:annotation animated:YES];
+    
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
     
@@ -96,11 +100,6 @@
 //    }];
     
     [self.navigationController presentViewController:imageVC animated:YES completion:nil];
-    
-//    [self.navigationController performSegueWithIdentifier:@"toImage" sender:self];
-    
-//    [self performSegueWithIdentifier:@"toImage" sender:self];
-
 
 }
 
