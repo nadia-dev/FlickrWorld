@@ -14,6 +14,7 @@
 		055617AD18DCDEE8007E9296 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617AC18DCDEE8007E9296 /* Photo.m */; };
 		055617B318DCF845007E9296 /* ImageScrollViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055617B218DCF845007E9296 /* ImageScrollViewController.m */; };
 		055617B518DCF84C007E9296 /* wallabi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 055617B418DCF84C007E9296 /* wallabi.jpg */; };
+		05A5070D18E0C779008EBBA7 /* RecentPicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A5070C18E0C779008EBBA7 /* RecentPicturesViewController.m */; };
 		05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
 		05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C218DA118F00E06A55 /* CoreGraphics.framework */; };
 		05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
@@ -63,6 +64,8 @@
 		055617B118DCF845007E9296 /* ImageScrollViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageScrollViewController.h; sourceTree = "<group>"; };
 		055617B218DCF845007E9296 /* ImageScrollViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageScrollViewController.m; sourceTree = "<group>"; };
 		055617B418DCF84C007E9296 /* wallabi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallabi.jpg; sourceTree = "<group>"; };
+		05A5070B18E0C779008EBBA7 /* RecentPicturesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecentPicturesViewController.h; sourceTree = "<group>"; };
+		05A5070C18E0C779008EBBA7 /* RecentPicturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPicturesViewController.m; sourceTree = "<group>"; };
 		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -246,6 +249,8 @@
 		05D8154218DCB43200857BF3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				05A5070B18E0C779008EBBA7 /* RecentPicturesViewController.h */,
+				05A5070C18E0C779008EBBA7 /* RecentPicturesViewController.m */,
 				055617B418DCF84C007E9296 /* wallabi.jpg */,
 				055617B118DCF845007E9296 /* ImageScrollViewController.h */,
 				055617B218DCF845007E9296 /* ImageScrollViewController.m */,
@@ -407,6 +412,7 @@
 				05B327D618DA118F00E06A55 /* FlickrWorld.xcdatamodeld in Sources */,
 				055617A118DCD36A007E9296 /* FlickrAnnotation.m in Sources */,
 				05B3281418DA516A00E06A55 /* FlickrAPIClient.m in Sources */,
+				05A5070D18E0C779008EBBA7 /* RecentPicturesViewController.m in Sources */,
 				0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */,
 				05B327F818DA2DA600E06A55 /* FlickrFetcher.m in Sources */,
 				0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */,

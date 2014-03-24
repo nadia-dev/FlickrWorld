@@ -38,6 +38,7 @@
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(20, 20)];
     self.navigationController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"World" image:globeImage selectedImage:globeImage];
     
+
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
     NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
@@ -53,7 +54,7 @@
         placeCoordinate.longitude = [place.longitude floatValue];
 
         
-        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:@"test" Location:placeCoordinate Photo:place.photo];   //add Photo object as a property here?
+        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:@"test" Location:placeCoordinate Photo:place.photo];
         
         [self.mapView addAnnotation:annotation];
     }
