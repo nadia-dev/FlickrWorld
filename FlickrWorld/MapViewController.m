@@ -12,6 +12,7 @@
 #import "FlickrAnnotation.h"
 #import "ImageScrollViewController.h"
 #import <FontAwesomeKit.h>
+#import <MPColorTools.h>
 
 
 
@@ -36,9 +37,17 @@
     
     FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:20];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(20, 20)];
-    self.navigationController.tabBarItem = [[UITabBarItem alloc]initWithTitle:@"World" image:globeImage selectedImage:globeImage];
     
-
+    FAKFontAwesome *repeat = [FAKFontAwesome repeatIconWithSize:20];
+    UIImage *repeatImage = [repeat imageWithSize:CGSizeMake(20, 20)];
+    
+    
+    UITabBarItem *world =  self.navigationController.tabBarController.tabBar.items[0];
+    world.image = globeImage;
+    world.title = @"World";
+    UITabBarItem *recent =  self.navigationController.tabBarController.tabBar.items[1];
+    recent.image = repeatImage;
+    recent.title = @"Recent";
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
     NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
