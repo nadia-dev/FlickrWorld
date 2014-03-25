@@ -249,9 +249,9 @@
 		05D8154218DCB43200857BF3 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				055617B418DCF84C007E9296 /* wallabi.jpg */,
 				05A5070B18E0C779008EBBA7 /* RecentPicturesViewController.h */,
 				05A5070C18E0C779008EBBA7 /* RecentPicturesViewController.m */,
-				055617B418DCF84C007E9296 /* wallabi.jpg */,
 				055617B118DCF845007E9296 /* ImageScrollViewController.h */,
 				055617B218DCF845007E9296 /* ImageScrollViewController.m */,
 				05D8154418DCB49100857BF3 /* MapViewController.h */,

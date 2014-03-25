@@ -8,6 +8,8 @@
 
 #import "ImageScrollViewController.h"
 #import "UIImageView+AFNetworking.h"
+#import <FontAwesomeKit.h>
+#import <MPColorTools.h>
 
 @interface ImageScrollViewController () <UIScrollViewDelegate>
 
@@ -28,6 +30,25 @@
 
 @implementation ImageScrollViewController
 
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    UIColor *circleColor = MP_RGB(255, 102, 102);
+    
+    FAKFontAwesome *infoIcon = [FAKFontAwesome infoCircleIconWithSize:30];
+    
+    UIImage *infoImage = [infoIcon imageWithSize:CGSizeMake(30, 30)];
+    
+    [self.infoButton setTintColor:circleColor];
+    
+    [self.infoButton setImage:infoImage forState:UIControlStateNormal];
+
+    
+    [self.view bringSubviewToFront:self.infoButton];
+    
+}
+
 
 - (void) viewWillAppear:(BOOL)animated
 
@@ -35,7 +56,7 @@
     
     [super viewWillAppear:animated];
     
-    [self.view bringSubviewToFront:self.infoButton];
+    
     
     self.scrollView.delegate = self;
     
