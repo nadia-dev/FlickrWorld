@@ -39,7 +39,7 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
     fetchRequest.fetchBatchSize = 20;
-    NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:@"lastViewed" ascending:YES];
+    NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:@"lastViewed" ascending:NO];
     NSArray *descriptors = @[desc];
     fetchRequest.sortDescriptors = descriptors;
     NSPredicate *pr = [NSPredicate predicateWithFormat:@"lastViewed != %@", nil];
