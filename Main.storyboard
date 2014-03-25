@@ -54,24 +54,35 @@
                                 <rect key="frame" x="264" y="20" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <connections>
+                                    <segue destination="hFA-Gt-5Ii" kind="modal" id="ls7-nu-lTc"/>
+                                </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sn1-Zv-jNv">
+                                <rect key="frame" x="10" y="10" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButtonPressed:" destination="9Yy-yv-Qlm" eventType="touchUpInside" id="QMl-dO-qmL"/>
+                                </connections>
+                            </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MoH-O1-eU8">
+                                <rect key="frame" x="141" y="266" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="AWH-Mj-LF1">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <subviews>
-                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MoH-O1-eU8">
-                                        <rect key="frame" x="141" y="266" width="37" height="37"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </activityIndicatorView>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="c7l-nH-aQX">
                                         <rect key="frame" x="110" y="234" width="100" height="100"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstItem="MoH-O1-eU8" firstAttribute="centerY" secondItem="c7l-nH-aQX" secondAttribute="centerY" id="1yQ-8c-eXF"/>
                                     <constraint firstAttribute="bottom" secondItem="c7l-nH-aQX" secondAttribute="bottom" constant="234" id="6OU-Tk-j58"/>
                                     <constraint firstItem="c7l-nH-aQX" firstAttribute="top" secondItem="AWH-Mj-LF1" secondAttribute="top" constant="234" id="oTa-4Q-PhQ"/>
-                                    <constraint firstItem="MoH-O1-eU8" firstAttribute="leading" secondItem="AWH-Mj-LF1" secondAttribute="leading" constant="141" id="pDH-9r-sAu"/>
                                     <constraint firstAttribute="trailing" secondItem="c7l-nH-aQX" secondAttribute="trailing" constant="110" id="w2J-fK-U6x"/>
                                     <constraint firstItem="c7l-nH-aQX" firstAttribute="leading" secondItem="AWH-Mj-LF1" secondAttribute="leading" constant="110" id="yek-hf-OHO"/>
                                 </constraints>
@@ -80,16 +91,21 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="top" secondItem="sH5-nx-VSJ" secondAttribute="top" id="0dU-y6-dhe"/>
+                            <constraint firstAttribute="centerY" secondItem="MoH-O1-eU8" secondAttribute="centerY" constant="-0.5" id="7xO-9U-xhb"/>
+                            <constraint firstAttribute="centerX" secondItem="MoH-O1-eU8" secondAttribute="centerX" constant="0.5" id="DK2-Ne-XIt"/>
+                            <constraint firstItem="Sn1-Zv-jNv" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" constant="10" id="Ihg-Ss-6fU"/>
                             <constraint firstAttribute="bottom" secondItem="AWH-Mj-LF1" secondAttribute="bottom" id="KFo-3F-v5z"/>
                             <constraint firstAttribute="trailing" secondItem="940-bA-ovD" secondAttribute="trailing" constant="10" id="Tg6-pN-0bM"/>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" id="V63-nd-8eW"/>
                             <constraint firstAttribute="trailing" secondItem="AWH-Mj-LF1" secondAttribute="trailing" id="l0H-cu-SYI"/>
                             <constraint firstItem="940-bA-ovD" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" id="xUl-m4-GNj"/>
+                            <constraint firstItem="Sn1-Zv-jNv" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" id="znT-W6-tTO"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="gU9-tH-VGw"/>
                     <connections>
+                        <outlet property="backButton" destination="Sn1-Zv-jNv" id="ctC-Qp-RAK"/>
                         <outlet property="constraintBottom" destination="6OU-Tk-j58" id="amo-Dm-XZ0"/>
                         <outlet property="constraintLeft" destination="yek-hf-OHO" id="5WN-63-rws"/>
                         <outlet property="constraintRight" destination="w2J-fK-U6x" id="dVU-Jg-T7t"/>
@@ -102,7 +118,26 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rs1-Fo-F8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="967" y="220"/>
+            <point key="canvasLocation" x="1025" y="208"/>
+        </scene>
+        <!--Info View Controller-->
+        <scene sceneID="JQs-41-ibT">
+            <objects>
+                <viewController storyboardIdentifier="info" id="hFA-Gt-5Ii" customClass="InfoViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="J8w-bu-FJt"/>
+                        <viewControllerLayoutGuide type="bottom" id="sgg-3G-xtV"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="iP1-5c-l4I">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="kto-e5-keM"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tJQ-5e-dIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1546" y="208"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="c7j-Pt-R1l">

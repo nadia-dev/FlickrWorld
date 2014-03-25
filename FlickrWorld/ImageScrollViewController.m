@@ -10,6 +10,7 @@
 #import "UIImageView+AFNetworking.h"
 #import <FontAwesomeKit.h>
 #import <MPColorTools.h>
+#import "InfoViewController.h"
 
 @interface ImageScrollViewController () <UIScrollViewDelegate>
 
@@ -25,10 +26,16 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *backButton;
 
 @end
 
 @implementation ImageScrollViewController
+
+- (IBAction)backButtonPressed:(id)sender
+{
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
 -(void)viewDidLoad
 {
@@ -37,15 +44,20 @@
     UIColor *circleColor = MP_RGB(255, 102, 102);
     
     FAKFontAwesome *infoIcon = [FAKFontAwesome infoCircleIconWithSize:30];
-    
     UIImage *infoImage = [infoIcon imageWithSize:CGSizeMake(30, 30)];
-    
     [self.infoButton setTintColor:circleColor];
-    
     [self.infoButton setImage:infoImage forState:UIControlStateNormal];
-
-    
     [self.view bringSubviewToFront:self.infoButton];
+    
+    
+    
+    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:30];
+    UIImage *globeImage = [globe imageWithSize:CGSizeMake(30, 30)];
+    [self.backButton setTintColor:circleColor];
+    [self.backButton setImage:globeImage forState:UIControlStateNormal];
+    [self.view bringSubviewToFront:self.backButton];
+    
+    [self.view bringSubviewToFront:self.spinner];
     
 }
 
@@ -60,30 +72,31 @@
     
     self.scrollView.delegate = self;
     
-    self.imageView.image = [UIImage imageNamed:@"wallabi.jpg"];
+//    self.imageView.image = [UIImage imageNamed:@"wallabi.jpg"];
     
     [self updateZoom];
     
-//    if (!self.imageView.image) {
-//        
-//        [self.spinner startAnimating];
-//        
-//        NSURL *url = [NSURL URLWithString:self.photo.largeImageLink];
-//        NSURLRequest *request = [NSURLRequest requestWithURL:url];
-//        
-//        [self.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-//            
-//            self.imageView.image = image;
-//            
-//            [self.spinner stopAnimating];
-//            
-//            [self updateZoom];
-//            
-//        } failure:nil];
-//        
-//        
-//        
-//    }
+    if (!self.imageView.image) {
+        
+        [self.spinner startAnimating];
+        
+        NSURL *url = [NSURL URLWithString:self.photo.largeImageLink];
+        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        
+        
+        [self.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            
+            self.imageView.image = image;
+            
+            [self.spinner stopAnimating];
+            
+            [self updateZoom];
+            
+        } failure:nil];
+        
+        
+        
+    }
 
 }
 
