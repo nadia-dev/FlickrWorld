@@ -2,7 +2,7 @@
 //  Photo.h
 //  FlickrWorld
 //
-//  Created by Nadia Yudina on 3/21/14.
+//  Created by Nadia Yudina on 3/25/14.
 //  Copyright (c) 2014 Nadia Yudina. All rights reserved.
 //
 
@@ -18,6 +18,7 @@
 @property (nonatomic, retain) NSString * ownerId;
 @property (nonatomic, retain) NSData * thumbnailImage;
 @property (nonatomic, retain) NSString * title;
+@property (nonatomic, retain) NSDate * lastViewed;
 @property (nonatomic, retain) Place *place;
 
 @end

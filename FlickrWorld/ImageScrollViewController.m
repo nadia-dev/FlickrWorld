@@ -11,6 +11,8 @@
 #import <FontAwesomeKit.h>
 #import <MPColorTools.h>
 #import "InfoViewController.h"
+#import "FlickrDataStore.h"
+
 
 @interface ImageScrollViewController () <UIScrollViewDelegate>
 
@@ -27,6 +29,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
 
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
+
+@property (strong, nonatomic) FlickrDataStore *dataStore;
 
 @end
 
@@ -91,6 +95,11 @@
             [self.spinner stopAnimating];
             
             [self updateZoom];
+            
+            self.photo.lastViewed = [NSDate date];
+            
+            [self.dataStore saveContext]; //test that?
+            
             
         } failure:nil];
         
@@ -160,31 +169,31 @@
 }
 
 
-- (void)saveImage:(UIImage *)image
-{
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    
-    NSMutableArray *recentImages = [[NSMutableArray alloc] initWithArray: [defaults objectForKey:@"recentImages"]];
-    
-    NSLog(@"%lu", [recentImages count]);
-    
-    if ([recentImages count] < 5) {
-        
-        [recentImages addObject:UIImagePNGRepresentation(image)];
-        
-    } else {
-        
-        [recentImages removeObjectAtIndex:0];
-        
-        [recentImages addObject:UIImagePNGRepresentation(image)];
-    }
-    
-    [defaults setObject:recentImages forKey:@"recentImages"];
-    
-    //    NSLog(@"%@", recentImages);
-    
-    [defaults synchronize];
-}
+//- (void)saveImage:(UIImage *)image
+//{
+//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+//    
+//    NSMutableArray *recentImages = [[NSMutableArray alloc] initWithArray: [defaults objectForKey:@"recentImages"]];
+//    
+//    NSLog(@"%lu", [recentImages count]);
+//    
+//    if ([recentImages count] < 5) {
+//        
+//        [recentImages addObject:UIImagePNGRepresentation(image)];
+//        
+//    } else {
+//        
+//        [recentImages removeObjectAtIndex:0];
+//        
+//        [recentImages addObject:UIImagePNGRepresentation(image)];
+//    }
+//    
+//    [defaults setObject:recentImages forKey:@"recentImages"];
+//    
+//    //    NSLog(@"%@", recentImages);
+//    
+//    [defaults synchronize];
+//}
 
 
 @end

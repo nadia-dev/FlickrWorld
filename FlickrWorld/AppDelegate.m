@@ -41,6 +41,8 @@
 //                    
 //                    photo.thumbnailImage = thumbnailData;
 //                    
+//                    NSLog(@"done fetching");
+//                    
 //                    [self.dataStore saveContext];
 //                }];
 //

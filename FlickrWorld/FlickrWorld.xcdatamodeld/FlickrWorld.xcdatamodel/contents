@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="3401" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5063" systemVersion="13C64" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
     <entity name="Photo" representedClassName="Photo" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="largeImageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="lastViewed" optional="YES" attributeType="Date" syncable="YES"/>
         <attribute name="ownerId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailImage" optional="YES" attributeType="Binary" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
@@ -17,7 +18,7 @@
         <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="place" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="0" positionY="0" width="128" height="133"/>
+        <element name="Photo" positionX="0" positionY="0" width="128" height="150"/>
         <element name="Place" positionX="160" positionY="192" width="128" height="133"/>
     </elements>
 </model>

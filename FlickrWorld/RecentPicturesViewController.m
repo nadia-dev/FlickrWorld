@@ -8,10 +8,14 @@
 
 #import "RecentPicturesViewController.h"
 #import "ImageScrollViewController.h"
+#import "FlickrDataStore.h"
+#import "Photo+Methods.h"
+
 
 @interface RecentPicturesViewController ()
 
-@property (strong, nonatomic) NSArray *images;
+@property (strong, nonatomic) NSArray *photos;
+@property (strong, nonatomic) FlickrDataStore *dataStore;
 
 @end
 
@@ -31,13 +35,25 @@
 {
     [super viewWillAppear:animated];
     
-    self.images = [[NSArray alloc]init];
+    self.dataStore = [FlickrDataStore sharedDataStore];
     
-    UIImage *image1 = [UIImage imageNamed:@"wallabi.jpg"];
-    UIImage *image2 = [UIImage imageNamed:@"wallabi.jpg"];
-    UIImage *image3 = [UIImage imageNamed:@"wallabi.jpg"];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    fetchRequest.fetchBatchSize = 20;
+    NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:@"lastViewed" ascending:YES];
+    NSArray *descriptors = @[desc];
+    fetchRequest.sortDescriptors = descriptors;
+    NSPredicate *pr = [NSPredicate predicateWithFormat:@"lastViewed != %@", nil];
+    fetchRequest.predicate = pr;
+    self.photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
-    self.images = @[image1, image2, image3];
+
+    
+    
+//    UIImage *image1 = [UIImage imageNamed:@"wallabi.jpg"];
+//    UIImage *image2 = [UIImage imageNamed:@"wallabi.jpg"];
+//    UIImage *image3 = [UIImage imageNamed:@"wallabi.jpg"];
+//    
+//    self.images = @[image1, image2, image3];
     
 //    NSMutableArray *straightArray = [[NSMutableArray alloc]init];
 //    
@@ -66,7 +82,7 @@
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.images count];
+    return [self.photos count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -86,7 +102,11 @@
     
     imageView.image = nil;
     
-    imageView.image = [self.images objectAtIndex:indexPath.row];
+    Photo *photo = [self.photos objectAtIndex:indexPath.row];
+    
+    UIImage *thumbnail = [UIImage imageWithData:photo.thumbnailImage];
+    
+    imageView.image = thumbnail;
     
     [cell addSubview:imageView];
     //do not use addSubview, subclass the cell instead

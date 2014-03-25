@@ -38,6 +38,7 @@
         newPhoto.identifier = [NSString stringWithFormat:@"%@", photoDict[@"id"]];
         newPhoto.title = photoDict[@"title"];
         newPhoto.ownerId = [NSString stringWithFormat:@"%@", photoDict[@"owner"]];
+//        newPhoto.lastViewed = [NSDate date];
         
         return newPhoto;
         
