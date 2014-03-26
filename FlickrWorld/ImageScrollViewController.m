@@ -44,7 +44,13 @@
         [self.view sendSubviewToBack:self.infoView];
     } else {
         [self.view bringSubviewToFront:self.infoView];
+        [self putTextToLabel];
     }
+}
+
+- (void)putTextToLabel
+{
+    self.infoLabel.text = [NSString stringWithFormat:@"Title: %@\nPhotographer: %@", self.photo.title, self.photo.ownerId];
 }
 
 - (IBAction)backButtonPressed:(id)sender

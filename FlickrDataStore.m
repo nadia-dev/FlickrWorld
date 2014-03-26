@@ -44,6 +44,7 @@
 }
 
 
+#pragma mark - Photos and Places added to CD
 
 //put Photo with id, ownerId and title into CD
 - (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock

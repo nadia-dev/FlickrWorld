@@ -50,16 +50,21 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view tag="123" contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZD-sb-FHq">
-                                <rect key="frame" x="80" y="50" width="230" height="40"/>
+                            <view tag="123" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZD-sb-FHq">
+                                <rect key="frame" x="70" y="518" width="180" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="42" translatesAutoresizingMaskIntoConstraints="NO" id="oGS-bX-Ki5">
-                                        <rect key="frame" x="94" y="10" width="42" height="21"/>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="oGS-bX-Ki5">
+                                        <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                     </label>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -67,17 +72,19 @@
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
                                 </accessibility>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="230" id="GsO-BY-say"/>
-                                    <constraint firstAttribute="height" constant="40" id="XVW-yV-mCn"/>
+                                    <constraint firstAttribute="bottom" secondItem="oGS-bX-Ki5" secondAttribute="bottom" id="Awd-R3-x8U"/>
+                                    <constraint firstItem="oGS-bX-Ki5" firstAttribute="top" secondItem="UZD-sb-FHq" secondAttribute="top" id="Lyi-eW-QBI"/>
+                                    <constraint firstAttribute="trailing" secondItem="oGS-bX-Ki5" secondAttribute="trailing" id="SDD-AI-DLp"/>
+                                    <constraint firstItem="oGS-bX-Ki5" firstAttribute="leading" secondItem="UZD-sb-FHq" secondAttribute="leading" id="mOe-Xt-By4"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="10"/>
+                                        <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="940-bA-ovD">
-                                <rect key="frame" x="264" y="20" width="46" height="30"/>
+                                <rect key="frame" x="264" y="20" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
@@ -85,7 +92,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sn1-Zv-jNv">
-                                <rect key="frame" x="10" y="10" width="46" height="30"/>
+                                <rect key="frame" x="10" y="10" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -118,6 +125,7 @@
                         <constraints>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="top" secondItem="sH5-nx-VSJ" secondAttribute="top" id="0dU-y6-dhe"/>
                             <constraint firstAttribute="centerY" secondItem="MoH-O1-eU8" secondAttribute="centerY" constant="-0.5" id="7xO-9U-xhb"/>
+                            <constraint firstItem="UZD-sb-FHq" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" constant="70" id="9O2-nr-BhP"/>
                             <constraint firstAttribute="centerX" secondItem="MoH-O1-eU8" secondAttribute="centerX" constant="0.5" id="DK2-Ne-XIt"/>
                             <constraint firstItem="Sn1-Zv-jNv" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" constant="10" id="Ihg-Ss-6fU"/>
                             <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="Sn1-Zv-jNv" secondAttribute="bottom" constant="20" id="K0t-Jn-UGt"/>
@@ -125,9 +133,9 @@
                             <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="940-bA-ovD" secondAttribute="bottom" constant="20" id="QBS-kI-jqj"/>
                             <constraint firstAttribute="trailing" secondItem="940-bA-ovD" secondAttribute="trailing" constant="10" id="Tg6-pN-0bM"/>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" id="V63-nd-8eW"/>
+                            <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="UZD-sb-FHq" secondAttribute="bottom" constant="20" id="Y5L-xS-YRB"/>
                             <constraint firstAttribute="trailing" secondItem="AWH-Mj-LF1" secondAttribute="trailing" id="l0H-cu-SYI"/>
-                            <constraint firstItem="UZD-sb-FHq" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" constant="50" id="uWQ-tX-pvU"/>
-                            <constraint firstAttribute="trailing" secondItem="UZD-sb-FHq" secondAttribute="trailing" constant="10" id="wbR-uO-Oab"/>
+                            <constraint firstAttribute="trailing" secondItem="UZD-sb-FHq" secondAttribute="trailing" constant="70" id="wbR-uO-Oab"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
