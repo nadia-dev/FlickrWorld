@@ -37,8 +37,7 @@
     [super viewWillAppear:animated];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
-    
-    
+
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
     fetchRequest.fetchBatchSize = 20;
     NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:@"lastViewed" ascending:NO];

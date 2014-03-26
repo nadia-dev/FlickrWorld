@@ -67,7 +67,7 @@
     
     
     
-    UIColor *circleColor = MP_RGB(255, 102, 102);
+    UIColor *circleColor = [UIColor colorWithRed:255 green:0 blue:127 alpha:1.0];
     
     FAKFontAwesome *infoIcon = [FAKFontAwesome infoCircleIconWithSize:30];
     UIImage *infoImage = [infoIcon imageWithSize:CGSizeMake(30, 30)];
@@ -75,8 +75,7 @@
     [self.infoButton setImage:infoImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.infoButton];
     
-    
-    
+
     FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:30];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(30, 30)];
     [self.backButton setTintColor:circleColor];
@@ -97,8 +96,6 @@
     self.dataStore = [FlickrDataStore sharedDataStore];
     
     self.scrollView.delegate = self;
-    
-//    self.imageView.image = [UIImage imageNamed:@"wallabi.jpg"];
     
     [self updateZoom];
     

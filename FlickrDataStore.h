@@ -18,6 +18,8 @@
 @property (readonly, strong, nonatomic) NSPersistentStoreCoordinator *persistentStoreCoordinator;
 @property (readonly, strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
+@property (strong, nonatomic) NSMutableArray *selectedAnnotations;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 

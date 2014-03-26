@@ -49,9 +49,7 @@
 //            }];
 //        }
 //    }];
-    
-    
-    
+
     
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
 //    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];

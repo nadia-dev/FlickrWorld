@@ -17,7 +17,12 @@
     self = [super init];
     if (self) {
         _photo = photo;
-        _title = title;
+        
+        if (title) {
+            _title = title;
+        } else {
+            _title = @"no title";
+        }
         _coordinate = location;
     }
     return self;
@@ -29,17 +34,18 @@
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     
-    UIColor *circleColor = MP_RGB(255, 102, 102);
+    UIColor *circleColor = [UIColor colorWithRed:255 green:0 blue:127 alpha:0.75];
     
-    FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:15];
+    FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:30];
     [circle addAttribute:NSForegroundColorAttributeName value:circleColor];
-    UIImage *circleImage = [circle imageWithSize:CGSizeMake(15, 15)];
+    UIImage *circleImage = [circle imageWithSize:CGSizeMake(30, 30)];
     
     annotationView.image = circleImage;
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
 
-    
     return annotationView;
 }
+
+
 
 @end

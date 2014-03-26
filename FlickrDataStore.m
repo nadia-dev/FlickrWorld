@@ -33,6 +33,9 @@
 {
     self = [super init];
     if (self) {
+        
+        _selectedAnnotations = [[NSMutableArray alloc]init];
+        
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
         fetchRequest.fetchBatchSize = 20;
         NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:@"lastViewed" ascending:NO];
