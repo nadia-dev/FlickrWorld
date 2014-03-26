@@ -20,6 +20,10 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     
+    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
+    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
+    
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
