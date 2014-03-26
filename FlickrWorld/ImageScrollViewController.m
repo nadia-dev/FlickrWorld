@@ -16,8 +16,8 @@
 @interface ImageScrollViewController () <UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *infoView;
-
 @property (strong, nonatomic) IBOutlet UILabel *infoLabel;
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
@@ -44,6 +44,7 @@
         [self.view sendSubviewToBack:self.infoView];
     } else {
         [self.view bringSubviewToFront:self.infoView];
+        [self.infoLabel sizeToFit];
         [self putTextToLabel];
     }
 }

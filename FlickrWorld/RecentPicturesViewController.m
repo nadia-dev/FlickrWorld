@@ -10,6 +10,7 @@
 #import "ImageScrollViewController.h"
 #import "FlickrDataStore.h"
 #import "Photo+Methods.h"
+#import "ImageScrollViewController.h"
 
 
 @interface RecentPicturesViewController ()
@@ -37,53 +38,12 @@
     
     self.dataStore = [FlickrDataStore sharedDataStore];
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-    fetchRequest.fetchBatchSize = 20;
-    NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:@"lastViewed" ascending:NO];
-    NSArray *descriptors = @[desc];
-    fetchRequest.sortDescriptors = descriptors;
-    NSPredicate *pr = [NSPredicate predicateWithFormat:@"lastViewed != %@", nil];
-    fetchRequest.predicate = pr;
-    self.photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
-    for (Photo *photo in self.photos) {
-        NSLog(@"%@", photo.lastViewed);
-    }
-    
-
-    
-    
-//    UIImage *image1 = [UIImage imageNamed:@"wallabi.jpg"];
-//    UIImage *image2 = [UIImage imageNamed:@"wallabi.jpg"];
-//    UIImage *image3 = [UIImage imageNamed:@"wallabi.jpg"];
-//    
-//    self.images = @[image1, image2, image3];
-    
-//    NSMutableArray *straightArray = [[NSMutableArray alloc]init];
-//    
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    
-//    NSArray *imageDatas = [defaults objectForKey:@"recentImages"];
-//    
-//    for (NSData *data in imageDatas) {
-//        
-//        UIImage* image = [UIImage imageWithData:data];
-//        
-//        [straightArray addObject:image];
-//    }
-//    
-//    self.images = [[straightArray reverseObjectEnumerator] allObjects];
-    
-    
-    
-    [self.collectionView reloadData];
-    
 }
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.photos count];
+    return [self.dataStore.fetchedResultsController.sections[section] numberOfObjects];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -103,17 +63,34 @@
     
     imageView.image = nil;
     
-    Photo *photo = [self.photos objectAtIndex:indexPath.row];
+    Photo *photo = [self.dataStore.fetchedResultsController objectAtIndexPath:indexPath];
     
     UIImage *thumbnail = [UIImage imageWithData:photo.thumbnailImage];
     
     imageView.image = thumbnail;
     
-    [cell addSubview:imageView];
-    //do not use addSubview, subclass the cell instead
+    [cell addSubview:imageView];//do not use addSubview, subclass the cell instead
+    
     return cell;
 }
 
-
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    
+    ImageScrollViewController *imageVC = (ImageScrollViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"image"];
+    
+    
+    NSArray *indexes = [self.collectionView indexPathsForSelectedItems];
+    
+    NSIndexPath *ip = indexes[0];
+    
+    Photo *photo = [self.dataStore.fetchedResultsController objectAtIndexPath:ip];
+    
+    imageVC.photo = photo;
+    
+    [self.navigationController presentViewController:imageVC animated:YES completion:nil];
+}
 
 @end

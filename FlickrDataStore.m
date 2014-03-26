@@ -29,6 +29,25 @@
     return _sharedDataStore;
 }
 
+- (id)init
+{
+    self = [super init];
+    if (self) {
+        NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+        fetchRequest.fetchBatchSize = 20;
+        NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:@"lastViewed" ascending:NO];
+        NSArray *descriptors = @[desc];
+        fetchRequest.sortDescriptors = descriptors;
+        NSPredicate *pr = [NSPredicate predicateWithFormat:@"lastViewed != %@", nil];
+        fetchRequest.predicate = pr;
+        
+        _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"fetchResultsCache"];
+        [self.fetchedResultsController performFetch:nil];
+    }
+    return self;
+}
+
+
 - (void)saveContext
 {
     NSError *error = nil;
@@ -42,6 +61,8 @@
         }
     }
 }
+
+
 
 
 #pragma mark - Photos and Places added to CD

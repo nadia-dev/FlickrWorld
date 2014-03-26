@@ -54,7 +54,7 @@
                                 <rect key="frame" x="70" y="518" width="180" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="oGS-bX-Ki5">
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="180" translatesAutoresizingMaskIntoConstraints="NO" id="oGS-bX-Ki5">
                                         <rect key="frame" x="0.0" y="0.0" width="180" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -62,7 +62,7 @@
                                         <nil key="highlightedColor"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="5"/>
+                                                <integer key="value" value="10"/>
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                     </label>
@@ -79,7 +79,7 @@
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <integer key="value" value="5"/>
+                                        <integer key="value" value="10"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
@@ -105,8 +105,8 @@
                                 <rect key="frame" x="141" y="266" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </activityIndicatorView>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="AWH-Mj-LF1">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="redraw" misplaced="YES" maximumZoomScale="3" translatesAutoresizingMaskIntoConstraints="NO" id="AWH-Mj-LF1">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                 <subviews>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" placeholderIntrinsicWidth="100" placeholderIntrinsicHeight="100" translatesAutoresizingMaskIntoConstraints="NO" id="c7l-nH-aQX">
                                         <rect key="frame" x="110" y="234" width="100" height="100"/>
@@ -125,7 +125,6 @@
                         <constraints>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="top" secondItem="sH5-nx-VSJ" secondAttribute="top" id="0dU-y6-dhe"/>
                             <constraint firstAttribute="centerY" secondItem="MoH-O1-eU8" secondAttribute="centerY" constant="-0.5" id="7xO-9U-xhb"/>
-                            <constraint firstItem="UZD-sb-FHq" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" constant="70" id="9O2-nr-BhP"/>
                             <constraint firstAttribute="centerX" secondItem="MoH-O1-eU8" secondAttribute="centerX" constant="0.5" id="DK2-Ne-XIt"/>
                             <constraint firstItem="Sn1-Zv-jNv" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" constant="10" id="Ihg-Ss-6fU"/>
                             <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="Sn1-Zv-jNv" secondAttribute="bottom" constant="20" id="K0t-Jn-UGt"/>
@@ -148,7 +147,7 @@
                         <outlet property="constraintTop" destination="oTa-4Q-PhQ" id="WVc-ox-tIj"/>
                         <outlet property="imageView" destination="c7l-nH-aQX" id="Wt8-I2-dAd"/>
                         <outlet property="infoButton" destination="940-bA-ovD" id="FXo-69-yTy"/>
-                        <outlet property="infoLabel" destination="oGS-bX-Ki5" id="1D2-cX-xMR"/>
+                        <outlet property="infoLabel" destination="oGS-bX-Ki5" id="CA2-I9-s8b"/>
                         <outlet property="infoView" destination="UZD-sb-FHq" id="iFS-xh-fh5"/>
                         <outlet property="scrollView" destination="AWH-Mj-LF1" id="HH0-JU-q8c"/>
                         <outlet property="spinner" destination="MoH-O1-eU8" id="ZZO-HF-dk7"/>
