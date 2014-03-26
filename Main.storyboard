@@ -50,9 +50,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <view tag="123" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZD-sb-FHq">
+                            <view tag="123" contentMode="scaleAspectFit" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZD-sb-FHq">
                                 <rect key="frame" x="80" y="50" width="230" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" preferredMaxLayoutWidth="42" translatesAutoresizingMaskIntoConstraints="NO" id="oGS-bX-Ki5">
+                                        <rect key="frame" x="94" y="10" width="42" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                                 <accessibility key="accessibilityConfiguration">
                                     <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
@@ -111,14 +120,14 @@
                             <constraint firstAttribute="centerY" secondItem="MoH-O1-eU8" secondAttribute="centerY" constant="-0.5" id="7xO-9U-xhb"/>
                             <constraint firstAttribute="centerX" secondItem="MoH-O1-eU8" secondAttribute="centerX" constant="0.5" id="DK2-Ne-XIt"/>
                             <constraint firstItem="Sn1-Zv-jNv" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" constant="10" id="Ihg-Ss-6fU"/>
+                            <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="Sn1-Zv-jNv" secondAttribute="bottom" constant="20" id="K0t-Jn-UGt"/>
                             <constraint firstAttribute="bottom" secondItem="AWH-Mj-LF1" secondAttribute="bottom" id="KFo-3F-v5z"/>
+                            <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="940-bA-ovD" secondAttribute="bottom" constant="20" id="QBS-kI-jqj"/>
                             <constraint firstAttribute="trailing" secondItem="940-bA-ovD" secondAttribute="trailing" constant="10" id="Tg6-pN-0bM"/>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" id="V63-nd-8eW"/>
                             <constraint firstAttribute="trailing" secondItem="AWH-Mj-LF1" secondAttribute="trailing" id="l0H-cu-SYI"/>
                             <constraint firstItem="UZD-sb-FHq" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" constant="50" id="uWQ-tX-pvU"/>
                             <constraint firstAttribute="trailing" secondItem="UZD-sb-FHq" secondAttribute="trailing" constant="10" id="wbR-uO-Oab"/>
-                            <constraint firstItem="940-bA-ovD" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" id="xUl-m4-GNj"/>
-                            <constraint firstItem="Sn1-Zv-jNv" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" id="znT-W6-tTO"/>
                         </constraints>
                     </view>
                     <extendedEdge key="edgesForExtendedLayout"/>
@@ -131,6 +140,7 @@
                         <outlet property="constraintTop" destination="oTa-4Q-PhQ" id="WVc-ox-tIj"/>
                         <outlet property="imageView" destination="c7l-nH-aQX" id="Wt8-I2-dAd"/>
                         <outlet property="infoButton" destination="940-bA-ovD" id="FXo-69-yTy"/>
+                        <outlet property="infoLabel" destination="oGS-bX-Ki5" id="1D2-cX-xMR"/>
                         <outlet property="infoView" destination="UZD-sb-FHq" id="iFS-xh-fh5"/>
                         <outlet property="scrollView" destination="AWH-Mj-LF1" id="HH0-JU-q8c"/>
                         <outlet property="spinner" destination="MoH-O1-eU8" id="ZZO-HF-dk7"/>

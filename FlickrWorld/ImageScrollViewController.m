@@ -17,6 +17,7 @@
 
 @property (strong, nonatomic) IBOutlet UIView *infoView;
 
+@property (strong, nonatomic) IBOutlet UILabel *infoLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
