@@ -46,6 +46,10 @@
     fetchRequest.predicate = pr;
     self.photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
+    for (Photo *photo in self.photos) {
+        NSLog(@"%@", photo.lastViewed);
+    }
+    
 
     
     
@@ -70,15 +74,12 @@
 //    
 //    self.images = [[straightArray reverseObjectEnumerator] allObjects];
     
+    
+    
     [self.collectionView reloadData];
     
 }
 
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
@@ -94,7 +95,7 @@
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,100,100)];
     
-    imageView.backgroundColor = [UIColor darkGrayColor];
+    imageView.backgroundColor = [UIColor blackColor];
     
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     

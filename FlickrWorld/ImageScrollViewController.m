@@ -45,6 +45,8 @@
 {
     [super viewDidLoad];
     
+    self.dataStore = [FlickrDataStore sharedDataStore];
+    
     UIColor *circleColor = MP_RGB(255, 102, 102);
     
     FAKFontAwesome *infoIcon = [FAKFontAwesome infoCircleIconWithSize:30];
@@ -72,8 +74,6 @@
     
     [super viewWillAppear:animated];
     
-    
-    
     self.scrollView.delegate = self;
     
 //    self.imageView.image = [UIImage imageNamed:@"wallabi.jpg"];
@@ -95,15 +95,12 @@
             [self.spinner stopAnimating];
             
             [self updateZoom];
-            
+
             self.photo.lastViewed = [NSDate date];
             
-            [self.dataStore saveContext]; //test that?
-            
-            
+            [self.dataStore saveContext]; 
+   
         } failure:nil];
-        
-        
         
     }
 
