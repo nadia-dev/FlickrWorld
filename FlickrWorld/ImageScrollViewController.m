@@ -10,11 +10,12 @@
 #import "UIImageView+AFNetworking.h"
 #import <FontAwesomeKit.h>
 #import <MPColorTools.h>
-#import "InfoViewController.h"
 #import "FlickrDataStore.h"
 
 
 @interface ImageScrollViewController () <UIScrollViewDelegate>
+
+@property (strong, nonatomic) IBOutlet UIView *infoView;
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
@@ -35,6 +36,15 @@
 @end
 
 @implementation ImageScrollViewController
+
+- (IBAction)infoButtonPressed:(id)sender
+{
+    if ([self.view.subviews lastObject] == self.infoView) {
+        [self.view sendSubviewToBack:self.infoView];
+    } else {
+        [self.view bringSubviewToFront:self.infoView];
+    }
+}
 
 - (IBAction)backButtonPressed:(id)sender
 {
@@ -166,31 +176,6 @@
 }
 
 
-//- (void)saveImage:(UIImage *)image
-//{
-//    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-//    
-//    NSMutableArray *recentImages = [[NSMutableArray alloc] initWithArray: [defaults objectForKey:@"recentImages"]];
-//    
-//    NSLog(@"%lu", [recentImages count]);
-//    
-//    if ([recentImages count] < 5) {
-//        
-//        [recentImages addObject:UIImagePNGRepresentation(image)];
-//        
-//    } else {
-//        
-//        [recentImages removeObjectAtIndex:0];
-//        
-//        [recentImages addObject:UIImagePNGRepresentation(image)];
-//    }
-//    
-//    [defaults setObject:recentImages forKey:@"recentImages"];
-//    
-//    //    NSLog(@"%@", recentImages);
-//    
-//    [defaults synchronize];
-//}
 
 
 @end

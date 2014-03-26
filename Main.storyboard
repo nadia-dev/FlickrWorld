@@ -50,12 +50,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
+                            <view tag="123" contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UZD-sb-FHq">
+                                <rect key="frame" x="80" y="50" width="230" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="230" id="GsO-BY-say"/>
+                                    <constraint firstAttribute="height" constant="40" id="XVW-yV-mCn"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="940-bA-ovD">
                                 <rect key="frame" x="264" y="20" width="46" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="tintColor" red="1" green="0.0" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
-                                    <segue destination="hFA-Gt-5Ii" kind="modal" id="ls7-nu-lTc"/>
+                                    <action selector="infoButtonPressed:" destination="9Yy-yv-Qlm" eventType="touchUpInside" id="yMc-t6-GuP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sn1-Zv-jNv">
@@ -98,6 +115,8 @@
                             <constraint firstAttribute="trailing" secondItem="940-bA-ovD" secondAttribute="trailing" constant="10" id="Tg6-pN-0bM"/>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" id="V63-nd-8eW"/>
                             <constraint firstAttribute="trailing" secondItem="AWH-Mj-LF1" secondAttribute="trailing" id="l0H-cu-SYI"/>
+                            <constraint firstItem="UZD-sb-FHq" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" constant="50" id="uWQ-tX-pvU"/>
+                            <constraint firstAttribute="trailing" secondItem="UZD-sb-FHq" secondAttribute="trailing" constant="10" id="wbR-uO-Oab"/>
                             <constraint firstItem="940-bA-ovD" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" id="xUl-m4-GNj"/>
                             <constraint firstItem="Sn1-Zv-jNv" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" id="znT-W6-tTO"/>
                         </constraints>
@@ -112,6 +131,7 @@
                         <outlet property="constraintTop" destination="oTa-4Q-PhQ" id="WVc-ox-tIj"/>
                         <outlet property="imageView" destination="c7l-nH-aQX" id="Wt8-I2-dAd"/>
                         <outlet property="infoButton" destination="940-bA-ovD" id="FXo-69-yTy"/>
+                        <outlet property="infoView" destination="UZD-sb-FHq" id="iFS-xh-fh5"/>
                         <outlet property="scrollView" destination="AWH-Mj-LF1" id="HH0-JU-q8c"/>
                         <outlet property="spinner" destination="MoH-O1-eU8" id="ZZO-HF-dk7"/>
                     </connections>
@@ -119,25 +139,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rs1-Fo-F8q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1025" y="208"/>
-        </scene>
-        <!--Info View Controller-->
-        <scene sceneID="JQs-41-ibT">
-            <objects>
-                <viewController storyboardIdentifier="info" id="hFA-Gt-5Ii" customClass="InfoViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="J8w-bu-FJt"/>
-                        <viewControllerLayoutGuide type="bottom" id="sgg-3G-xtV"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="iP1-5c-l4I">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="kto-e5-keM"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tJQ-5e-dIs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1546" y="208"/>
         </scene>
         <!--Navigation Controller - Item-->
         <scene sceneID="c7j-Pt-R1l">
