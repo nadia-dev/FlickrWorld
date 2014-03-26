@@ -56,6 +56,8 @@
 
 - (IBAction)backButtonPressed:(id)sender
 {
+    [self.dataStore saveContext];
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -63,7 +65,7 @@
 {
     [super viewDidLoad];
     
-    self.dataStore = [FlickrDataStore sharedDataStore];
+    
     
     UIColor *circleColor = MP_RGB(255, 102, 102);
     
@@ -91,6 +93,8 @@
 {
     
     [super viewWillAppear:animated];
+    
+    self.dataStore = [FlickrDataStore sharedDataStore];
     
     self.scrollView.delegate = self;
     

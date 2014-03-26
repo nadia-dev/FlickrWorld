@@ -38,12 +38,26 @@
     
     self.dataStore = [FlickrDataStore sharedDataStore];
     
+    
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    fetchRequest.fetchBatchSize = 20;
+    NSSortDescriptor *desc = [NSSortDescriptor sortDescriptorWithKey:@"lastViewed" ascending:NO];
+    NSArray *descriptors = @[desc];
+    fetchRequest.sortDescriptors = descriptors;
+    NSPredicate *pr = [NSPredicate predicateWithFormat:@"lastViewed != %@", nil];
+    fetchRequest.predicate = pr;
+    
+    self.photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    [self.collectionView reloadData];
+    
 }
 
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return [self.dataStore.fetchedResultsController.sections[section] numberOfObjects];
+    
+    return [self.photos count];
 }
 
 -(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -63,13 +77,13 @@
     
     imageView.image = nil;
     
-    Photo *photo = [self.dataStore.fetchedResultsController objectAtIndexPath:indexPath];
+    Photo *photo = [self.photos objectAtIndex:indexPath.row];
     
     UIImage *thumbnail = [UIImage imageWithData:photo.thumbnailImage];
     
     imageView.image = thumbnail;
     
-    [cell addSubview:imageView];//do not use addSubview, subclass the cell instead
+    [cell addSubview:imageView]; //do not use addSubview, subclass the cell instead
     
     return cell;
 }
@@ -80,13 +94,12 @@
     
     
     ImageScrollViewController *imageVC = (ImageScrollViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"image"];
-    
-    
+
     NSArray *indexes = [self.collectionView indexPathsForSelectedItems];
     
     NSIndexPath *ip = indexes[0];
     
-    Photo *photo = [self.dataStore.fetchedResultsController objectAtIndexPath:ip];
+    Photo *photo = [self.photos objectAtIndex:ip.row];
     
     imageVC.photo = photo;
     

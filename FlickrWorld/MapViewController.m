@@ -66,10 +66,7 @@
         FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:@"test" Location:placeCoordinate Photo:place.photo];
         
         [self.mapView addAnnotation:annotation];
-    }
-    
-    
-    
+    }   
 }
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
