@@ -100,27 +100,54 @@
     [self updateZoom];
     
     if (!self.imageView.image) {
-        
+    
         [self.spinner startAnimating];
         
-        NSURL *url = [NSURL URLWithString:self.photo.largeImageLink];
-        NSURLRequest *request = [NSURLRequest requestWithURL:url];
+        NSURL *urlForLarge = [NSURL URLWithString:self.photo.largeImageLink];
+        NSURLRequest *requestForLarge = [NSURLRequest requestWithURL:urlForLarge];
+        
+        NSURL *urlForMedium = [NSURL URLWithString:self.photo.mediumImageLink];
+        NSURLRequest *requestForMedium = [NSURLRequest requestWithURL:urlForMedium];
         
         
-        [self.imageView setImageWithURLRequest:request placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        [self.imageView setImageWithURLRequest:requestForMedium placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             
             self.imageView.image = image;
+            
+            NSLog(@"large");
             
             [self.spinner stopAnimating];
             
             [self updateZoom];
-
+            
             self.photo.lastViewed = [NSDate date];
             
-            [self.dataStore saveContext]; 
-   
+            [self.dataStore saveContext];
+            
+            [self.imageView setImageWithURLRequest:requestForLarge placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                
+                self.imageView.image = nil;
+                
+                self.imageView.image = image;
+                
+                NSLog(@"original");
+                
+//                [self.spinner stopAnimating];
+                
+                [self updateZoom];
+                
+//                self.photo.lastViewed = [NSDate date];
+//                
+//                [self.dataStore saveContext];
+                
+            } failure:nil];
+            
         } failure:nil];
+
         
+        
+        
+    
     }
 
 }

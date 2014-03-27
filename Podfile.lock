@@ -18,6 +18,8 @@ PODS:
   - AFNetworking/UIKit (2.2.1):
     - AFNetworking/NSURLConnection
     - AFNetworking/NSURLSession
+  - AFProgressiveImageDownload (0.1):
+    - AFNetworking (~> 1.0)
   - FontAwesomeKit (2.1.5):
     - FontAwesomeKit/Core
     - FontAwesomeKit/FontAwesome
@@ -37,11 +39,13 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
+  - AFProgressiveImageDownload
   - FontAwesomeKit (~> 2.1.0)
   - MPColorTools
 
 SPEC CHECKSUMS:
   AFNetworking: 0121f4b69be3fa58d1ab317866e036e12ac9651d
+  AFProgressiveImageDownload: 57fe9bfff285622efd84e0a6a2cb8c4b28b1a999
   FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
   MPColorTools: f58e73f5c351d22fb950948cdb60521a8cb924ea
 
