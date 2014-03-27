@@ -64,9 +64,16 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
+
+    [self createImageForInfoButton];
+    [self createImageForGlobeButton];
     
+    [self.view bringSubviewToFront:self.spinner];
     
-    
+}
+
+- (void)createImageForInfoButton
+{
     UIColor *circleColor = [UIColor colorWithRed:255 green:0 blue:127 alpha:1.0];
     
     FAKFontAwesome *infoIcon = [FAKFontAwesome infoCircleIconWithSize:30];
@@ -74,31 +81,38 @@
     [self.infoButton setTintColor:circleColor];
     [self.infoButton setImage:infoImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.infoButton];
-    
+}
 
+
+- (void)createImageForGlobeButton
+{
+    UIColor *circleColor = [UIColor colorWithRed:255 green:0 blue:127 alpha:1.0];
+    
     FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:30];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(30, 30)];
     [self.backButton setTintColor:circleColor];
     [self.backButton setImage:globeImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.backButton];
-    
-    [self.view bringSubviewToFront:self.spinner];
-    
 }
 
 
 - (void) viewWillAppear:(BOOL)animated
 
 {
-    
     [super viewWillAppear:animated];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
     
     self.scrollView.delegate = self;
     
+    [self fetchImages];
+}
+
+
+- (void) fetchImages
+{
     if (!self.imageView.image) {
-    
+        
         [self.spinner startAnimating];
         
         NSURL *urlForLarge = [NSURL URLWithString:self.photo.largeImageLink];
@@ -108,7 +122,9 @@
         NSURLRequest *requestForMedium = [NSURLRequest requestWithURL:urlForMedium];
         
         
-        [self.imageView setImageWithURLRequest:requestForMedium placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+        [self.imageView setImageWithURLRequest:requestForMedium
+                              placeholderImage:nil
+                                       success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             
             self.imageView.image = image;
             
@@ -118,11 +134,15 @@
             
             [self updateConstraints];
             
+            [self updateZoom];
+            
             self.photo.lastViewed = [NSDate date];
             
             [self.dataStore saveContext];
             
-            [self.imageView setImageWithURLRequest:requestForLarge placeholderImage:nil success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+            [self.imageView setImageWithURLRequest:requestForLarge
+                                  placeholderImage:nil
+                                           success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
                 
                 self.imageView.image = nil;
                 
@@ -130,22 +150,13 @@
                 
                 NSLog(@"original");
                 
-//                [self.spinner stopAnimating];
+                [self updateConstraints];
                 
                 [self updateZoom];
-                
-//                self.photo.lastViewed = [NSDate date];
-//                
-//                [self.dataStore saveContext];
                 
             } failure:nil];
             
         } failure:nil];
-
-        
-        
-        
-    
     }
 
 }

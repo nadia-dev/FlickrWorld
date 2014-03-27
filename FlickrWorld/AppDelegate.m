@@ -40,7 +40,7 @@
 //            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
 //                
 //                photo.largeImageLink = [sizes lastObject][@"source"];
-//                photo.mediumImageLink = sizes[8][@"source"];
+//                photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
 //                
 //                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
 //                    
