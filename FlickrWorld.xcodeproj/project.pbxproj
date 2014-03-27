@@ -17,6 +17,7 @@
 		05A5071818E1F02F008EBBA7 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 05A5071718E1F02F008EBBA7 /* placeholder.png */; };
 		05A5076118E32AC3008EBBA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A5076018E32AC3008EBBA7 /* QuartzCore.framework */; };
 		05A507A718E4A19F008EBBA7 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A507A618E4A19F008EBBA7 /* Photo.m */; };
+		05A507AE18E4C555008EBBA7 /* wallabi_small.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05A507AD18E4C555008EBBA7 /* wallabi_small.jpg */; };
 		05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
 		05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C218DA118F00E06A55 /* CoreGraphics.framework */; };
 		05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
@@ -70,6 +71,7 @@
 		05A5076018E32AC3008EBBA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		05A507A518E4A19F008EBBA7 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
 		05A507A618E4A19F008EBBA7 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		05A507AD18E4C555008EBBA7 /* wallabi_small.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallabi_small.jpg; sourceTree = "<group>"; };
 		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -257,6 +259,7 @@
 			children = (
 				05A5071718E1F02F008EBBA7 /* placeholder.png */,
 				055617B418DCF84C007E9296 /* wallabi.jpg */,
+				05A507AD18E4C555008EBBA7 /* wallabi_small.jpg */,
 				05A5070B18E0C779008EBBA7 /* RecentPicturesViewController.h */,
 				05A5070C18E0C779008EBBA7 /* RecentPicturesViewController.m */,
 				055617B118DCF845007E9296 /* ImageScrollViewController.h */,
@@ -360,6 +363,7 @@
 				05D8154118DCB3DD00857BF3 /* Main.storyboard in Resources */,
 				05B327CD18DA118F00E06A55 /* InfoPlist.strings in Resources */,
 				05A5071818E1F02F008EBBA7 /* placeholder.png in Resources */,
+				05A507AE18E4C555008EBBA7 /* wallabi_small.jpg in Resources */,
 				05B327D818DA118F00E06A55 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

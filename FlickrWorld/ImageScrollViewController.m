@@ -97,8 +97,6 @@
     
     self.scrollView.delegate = self;
     
-    [self updateZoom];
-    
     if (!self.imageView.image) {
     
         [self.spinner startAnimating];
@@ -118,7 +116,7 @@
             
             [self.spinner stopAnimating];
             
-            [self updateZoom];
+            [self updateConstraints];
             
             self.photo.lastViewed = [NSDate date];
             
