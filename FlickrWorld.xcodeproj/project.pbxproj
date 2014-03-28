@@ -346,6 +346,13 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Nadia Yudina";
 				TargetAttributes = {
+					05B327BC18DA118F00E06A55 = {
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
+					};
 					05B327DC18DA118F00E06A55 = {
 						TestTargetID = 05B327BC18DA118F00E06A55;
 					};

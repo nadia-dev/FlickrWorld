@@ -13,5 +13,6 @@
 +(UIColor *)pinkTransparent;
 +(UIColor *)blueTransparent;
 +(UIColor *)pink;
++(UIColor *)blackTransparent;
 
 @end

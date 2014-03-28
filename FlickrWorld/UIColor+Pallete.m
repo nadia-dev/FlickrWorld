@@ -25,4 +25,9 @@
     return [UIColor colorWithRed:255 green:0 blue:127 alpha:1.0];
 }
 
++(UIColor *)blackTransparent
+{
+    return [[UIColor blackColor] colorWithAlphaComponent:0.6];
+}
+
 @end

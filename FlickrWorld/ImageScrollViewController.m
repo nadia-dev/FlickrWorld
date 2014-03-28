@@ -38,12 +38,39 @@
 
 @implementation ImageScrollViewController
 
+
+- (void) viewWillAppear:(BOOL)animated
+
+{
+    [super viewWillAppear:animated];
+    
+    self.dataStore = [FlickrDataStore sharedDataStore];
+    
+    self.scrollView.delegate = self;
+    
+    [self fetchImages];
+}
+
+-(void)viewDidLoad
+{
+    [super viewDidLoad];
+    
+    [self createImageForInfoButtonWithColor:[UIColor pink]];
+    [self createImageForGlobeButtonWithColor:[UIColor pink]];
+    
+    [self.view bringSubviewToFront:self.spinner];
+    
+}
+
+
 - (IBAction)infoButtonPressed:(id)sender
 {
     if ([self.view.subviews lastObject] == self.infoView) {
+        
         [self.view sendSubviewToBack:self.infoView];
     } else {
-        self.infoView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
+        
+        self.infoView.backgroundColor = [UIColor blackTransparent];
         [self.view bringSubviewToFront:self.infoView];
         [self.infoLabel sizeToFit];
         [self putTextToLabel];
@@ -62,52 +89,25 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
--(void)viewDidLoad
-{
-    [super viewDidLoad];
-    [self createImageForInfoButton];
-    [self createImageForGlobeButton];
-    
-    [self.view bringSubviewToFront:self.spinner];
-    
-}
 
-- (void)createImageForInfoButton
+- (void)createImageForInfoButtonWithColor: (UIColor *)color
 {
-    UIColor *circleColor = [UIColor pink];
-    
     FAKFontAwesome *infoIcon = [FAKFontAwesome infoCircleIconWithSize:30];
     UIImage *infoImage = [infoIcon imageWithSize:CGSizeMake(30, 30)];
-    [self.infoButton setTintColor:circleColor];
+    [self.infoButton setTintColor:color];
     [self.infoButton setImage:infoImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.infoButton];
 }
 
 
-- (void)createImageForGlobeButton
+- (void)createImageForGlobeButtonWithColor: (UIColor *)color
 {
-    UIColor *circleColor = [UIColor pink];
-    
     FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:30];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(30, 30)];
-    [self.backButton setTintColor:circleColor];
+    [self.backButton setTintColor:color];
     [self.backButton setImage:globeImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.backButton];
 }
-
-
-- (void) viewWillAppear:(BOOL)animated
-
-{
-    [super viewWillAppear:animated];
-    
-    self.dataStore = [FlickrDataStore sharedDataStore];
-    
-    self.scrollView.delegate = self;
-    
-    [self fetchImages];
-}
-
 
 - (void) fetchImages
 {
@@ -143,7 +143,7 @@
             [self.imageView setImageWithURLRequest:requestForLarge
                                   placeholderImage:nil
                                            success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                
+                //should be cancelled when user closes VC
                 self.imageView.image = nil;
                 
                 self.imageView.image = image;

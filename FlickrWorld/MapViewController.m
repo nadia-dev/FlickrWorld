@@ -31,16 +31,7 @@
 
 @implementation MapViewController
 
-- (NSString *)createAnnotationTitle: (Place *)place
-{
-    if (place.locality) {
-        return place.locality;
-    } else if (place.region) {
-        return place.region;
-    } else {
-        return place.country;
-    }
-}
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -67,10 +58,55 @@
     }];
     
     [self setTimers];
-    
-    
+  
 }
 
+- (void)createMapRegion
+{
+    MKCoordinateRegion region = MKCoordinateRegionMake(self.mapView.centerCoordinate, MKCoordinateSpanMake(180, 360));
+    [self.mapView setRegion:region animated:YES];
+}
+
+- (void)createTabBarItems
+{
+    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:20];
+    UIImage *globeImage = [globe imageWithSize:CGSizeMake(20, 20)];
+    
+    FAKFontAwesome *repeat = [FAKFontAwesome clockOIconWithSize:20];
+    UIImage *repeatImage = [repeat imageWithSize:CGSizeMake(20, 20)];
+    
+    UITabBarItem *world =  self.navigationController.tabBarController.tabBar.items[0];
+    world.image = globeImage;
+    world.title = @"World";
+    UITabBarItem *recent =  self.navigationController.tabBarController.tabBar.items[1];
+    recent.image = repeatImage;
+    recent.title = @"Recent";
+}
+
+
+- (void)fetchAndShowPlaces
+{
+    //fetching from Core Data to populate the map view with annotations
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
+    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    
+    for (Place *place in places) {
+        
+        CLLocationCoordinate2D placeCoordinate;
+        placeCoordinate.latitude = [place.latutide floatValue];
+        placeCoordinate.longitude = [place.longitude floatValue];
+        
+        NSString *annotationTitle = [self createAnnotationTitle:place];
+        
+        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:place.photo];
+        
+        [self.mapView addAnnotation:annotation];
+    }
+}
+
+
+
+#pragma mark - Timer Event Methods
 -(void)timerFired:(NSTimer *)timer
 {
 
@@ -90,7 +126,6 @@
     self.timer=[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
 }
 
-
 - (void)setTimers
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInBackGround) name:UIApplicationWillResignActiveNotification object:nil];
@@ -101,46 +136,21 @@
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
-- (void)createMapRegion
+
+
+#pragma mark - Change Annotation Methods
+
+- (NSString *)createAnnotationTitle: (Place *)place
 {
-    MKCoordinateRegion region = MKCoordinateRegionMake(self.mapView.centerCoordinate, MKCoordinateSpanMake(180, 360));
-    [self.mapView setRegion:region animated:YES];
+    if (place.locality) {
+        return place.locality;
+    } else if (place.region) {
+        return place.region;
+    } else {
+        return place.country;
+    }
 }
 
-- (void)fetchAndShowPlaces
-{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
-    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
-    for (Place *place in places) {
-        
-        CLLocationCoordinate2D placeCoordinate;
-        placeCoordinate.latitude = [place.latutide floatValue];
-        placeCoordinate.longitude = [place.longitude floatValue];
-        
-        NSString *annotationTitle = [self createAnnotationTitle:place];
-        
-        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:place.photo];
-        
-        [self.mapView addAnnotation:annotation];
-    }   
-}
-
-- (void)createTabBarItems
-{
-    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:20];
-    UIImage *globeImage = [globe imageWithSize:CGSizeMake(20, 20)];
-    
-    FAKFontAwesome *repeat = [FAKFontAwesome clockOIconWithSize:20];
-    UIImage *repeatImage = [repeat imageWithSize:CGSizeMake(20, 20)];
-    
-    UITabBarItem *world =  self.navigationController.tabBarController.tabBar.items[0];
-    world.image = globeImage;
-    world.title = @"World";
-    UITabBarItem *recent =  self.navigationController.tabBarController.tabBar.items[1];
-    recent.image = repeatImage;
-    recent.title = @"Recent";
-}
 
 - (void)changeColorForSelectedAnnotation
 {
@@ -161,6 +171,7 @@
 }
 
 #pragma mark - MapView delegate methods
+
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
     
@@ -208,63 +219,6 @@
 
 }
 
-
-
-//#pragma mark - Network call and Core Data
-//-(void)fetchDataWithCompletion: (void(^)())completionBlock
-//
-//{
-////    self.dataStore = [FlickrDataStore sharedDataStore];
-//    
-//    [self cleanCoreData];
-//    
-//    [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
-//        
-//        for (Photo *photo in photos) {
-//            
-//            [self.dataStore addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
-//                
-//                photographer.photo = photo;
-//            }];
-//            
-//            
-//            [self.dataStore addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
-//                
-//                placeForPhoto.photo = photo;
-//            }];
-//            
-//            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
-//                
-//                photo.largeImageLink = [sizes lastObject][@"source"];
-//                photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
-//                
-//                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
-//                    
-//                    photo.thumbnailImage = thumbnailData;
-//                    
-//                    NSLog(@"done fetching");
-//                    
-//                    [self.dataStore saveContext];
-//                    
-//                    completionBlock();
-//                }];
-//                
-//            }];
-//        }
-//    }];
-//
-//}
-//
-//- (void) cleanCoreData
-//{
-//    NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-//    NSArray *photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
-//    
-//    for (Photo *photo in photos) {
-//        [self.dataStore.managedObjectContext deleteObject:photo];
-//        [self.dataStore saveContext];
-//    }
-//}
 
 
 @end
