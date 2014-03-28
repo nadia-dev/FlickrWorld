@@ -26,40 +26,6 @@
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
     
-    self.dataStore = [FlickrDataStore sharedDataStore];
-    
-//    [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
-//        
-//        for (Photo *photo in photos) {
-//            
-//            [self.dataStore addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
-//                
-//                photographer.photo = photo;
-//            }];
-//        
-//
-//            [self.dataStore addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
-//                
-//                placeForPhoto.photo = photo;
-//            }];
-//            
-//            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
-//                
-//                photo.largeImageLink = [sizes lastObject][@"source"];
-//                photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
-//                
-//                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
-//                    
-//                    photo.thumbnailImage = thumbnailData;
-//                    
-//                    NSLog(@"done fetching");
-//                    
-//                    [self.dataStore saveContext];
-//                }];
-//
-//            }];
-//        }
-//    }];
 
     
 //    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];

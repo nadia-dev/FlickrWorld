@@ -13,6 +13,7 @@
 #import "ImageScrollViewController.h"
 #import <FontAwesomeKit.h>
 #import "UIColor+Pallete.h"
+#import "FlickrAPIClient.h"
 
 
 
@@ -24,6 +25,7 @@
 @property (strong, nonatomic) Photo *photo;
 
 @property (strong, nonatomic) NSArray *selectedAnnotations;
+@property (strong, nonatomic) NSTimer *timer;
 
 @end
 
@@ -40,8 +42,6 @@
     }
 }
 
-
-
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -53,8 +53,6 @@
 {
     [super viewDidLoad];
     
-  
-    
     self.dataStore = [FlickrDataStore sharedDataStore];
 
 	self.mapView.delegate = self;
@@ -64,8 +62,32 @@
     
     [self createMapRegion];
     
-    [self fetchAndShowPlaces];
+    [self fetchDataWithCompletion:^{
+        [self fetchAndShowPlaces];
+    }];
     
+    
+}
+
+- (void)applicationWillEnterInBackGround
+{
+    [self.timer invalidate];
+}
+
+//- (void)applicationWillEnterInForeground
+//{
+//    self.timer=[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(fetchData) userInfo:nil repeats:YES];
+//}
+
+
+- (void)setTimers
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInBackGround) name:UIApplicationWillResignActiveNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(fetchData) userInfo:nil repeats:YES];
+    
+    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
 
 - (void)createMapRegion
@@ -122,6 +144,7 @@
         
         MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
         
+        selectedAnnotationView.image = nil;
         selectedAnnotationView.image = circleImage;
     }
 }
@@ -172,6 +195,64 @@
     
     [self.navigationController presentViewController:imageVC animated:YES completion:nil];
 
+}
+
+
+
+#pragma mark - Network call and Core Data
+-(void)fetchDataWithCompletion: (void(^)())completionBlock
+
+{
+    self.dataStore = [FlickrDataStore sharedDataStore];
+    
+    [self cleanCoreData];
+    
+    [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
+        
+        for (Photo *photo in photos) {
+            
+            [self.dataStore addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
+                
+                photographer.photo = photo;
+            }];
+            
+            
+            [self.dataStore addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
+                
+                placeForPhoto.photo = photo;
+            }];
+            
+            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
+                
+                photo.largeImageLink = [sizes lastObject][@"source"];
+                photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
+                
+                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
+                    
+                    photo.thumbnailImage = thumbnailData;
+                    
+                    NSLog(@"done fetching");
+                    
+                    [self.dataStore saveContext];
+                    
+                    completionBlock();
+                }];
+                
+            }];
+        }
+    }];
+
+}
+
+- (void) cleanCoreData
+{
+    NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    NSArray *photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
+    
+    for (Photo *photo in photos) {
+        [self.dataStore.managedObjectContext deleteObject:photo];
+        [self.dataStore saveContext];
+    }
 }
 
 
