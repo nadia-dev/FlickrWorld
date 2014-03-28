@@ -16,8 +16,11 @@
 		05A5070D18E0C779008EBBA7 /* RecentPicturesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A5070C18E0C779008EBBA7 /* RecentPicturesViewController.m */; };
 		05A5071818E1F02F008EBBA7 /* placeholder.png in Resources */ = {isa = PBXBuildFile; fileRef = 05A5071718E1F02F008EBBA7 /* placeholder.png */; };
 		05A5076118E32AC3008EBBA7 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05A5076018E32AC3008EBBA7 /* QuartzCore.framework */; };
-		05A507A718E4A19F008EBBA7 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A507A618E4A19F008EBBA7 /* Photo.m */; };
 		05A507AE18E4C555008EBBA7 /* wallabi_small.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 05A507AD18E4C555008EBBA7 /* wallabi_small.jpg */; };
+		05A507B118E4D090008EBBA7 /* UIColor+Pallete.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A507B018E4D090008EBBA7 /* UIColor+Pallete.m */; };
+		05A507B718E4E669008EBBA7 /* Photo.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A507B618E4E669008EBBA7 /* Photo.m */; };
+		05A507BA18E4E692008EBBA7 /* Photographer+Methods.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A507B918E4E692008EBBA7 /* Photographer+Methods.m */; };
+		05A507BD18E4E861008EBBA7 /* Photographer.m in Sources */ = {isa = PBXBuildFile; fileRef = 05A507BC18E4E861008EBBA7 /* Photographer.m */; };
 		05B327C118DA118F00E06A55 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C018DA118F00E06A55 /* Foundation.framework */; };
 		05B327C318DA118F00E06A55 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C218DA118F00E06A55 /* CoreGraphics.framework */; };
 		05B327C518DA118F00E06A55 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05B327C418DA118F00E06A55 /* UIKit.framework */; };
@@ -69,9 +72,15 @@
 		05A5070C18E0C779008EBBA7 /* RecentPicturesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecentPicturesViewController.m; sourceTree = "<group>"; };
 		05A5071718E1F02F008EBBA7 /* placeholder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = placeholder.png; sourceTree = "<group>"; };
 		05A5076018E32AC3008EBBA7 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		05A507A518E4A19F008EBBA7 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
-		05A507A618E4A19F008EBBA7 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
 		05A507AD18E4C555008EBBA7 /* wallabi_small.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = wallabi_small.jpg; sourceTree = "<group>"; };
+		05A507AF18E4D090008EBBA7 /* UIColor+Pallete.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+Pallete.h"; path = "FlickrWorld/UIColor+Pallete.h"; sourceTree = "<group>"; };
+		05A507B018E4D090008EBBA7 /* UIColor+Pallete.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+Pallete.m"; path = "FlickrWorld/UIColor+Pallete.m"; sourceTree = "<group>"; };
+		05A507B518E4E669008EBBA7 /* Photo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photo.h; sourceTree = "<group>"; };
+		05A507B618E4E669008EBBA7 /* Photo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photo.m; sourceTree = "<group>"; };
+		05A507B818E4E692008EBBA7 /* Photographer+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Photographer+Methods.h"; sourceTree = "<group>"; };
+		05A507B918E4E692008EBBA7 /* Photographer+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photographer+Methods.m"; sourceTree = "<group>"; };
+		05A507BB18E4E861008EBBA7 /* Photographer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photographer.h; sourceTree = "<group>"; };
+		05A507BC18E4E861008EBBA7 /* Photographer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photographer.m; sourceTree = "<group>"; };
 		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -139,11 +148,17 @@
 		0510CAB618DBAA9A0074D768 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				05B327D418DA118F00E06A55 /* FlickrWorld.xcdatamodeld */,
+				05A507BB18E4E861008EBBA7 /* Photographer.h */,
+				05A507BC18E4E861008EBBA7 /* Photographer.m */,
+				05A507AF18E4D090008EBBA7 /* UIColor+Pallete.h */,
+				05A507B018E4D090008EBBA7 /* UIColor+Pallete.m */,
 				055617A818DCDEE8007E9296 /* Place.h */,
 				055617A918DCDEE8007E9296 /* Place.m */,
-				05A507A518E4A19F008EBBA7 /* Photo.h */,
-				05A507A618E4A19F008EBBA7 /* Photo.m */,
-				05B327D418DA118F00E06A55 /* FlickrWorld.xcdatamodeld */,
+				05A507B518E4E669008EBBA7 /* Photo.h */,
+				05A507B618E4E669008EBBA7 /* Photo.m */,
+				05A507B818E4E692008EBBA7 /* Photographer+Methods.h */,
+				05A507B918E4E692008EBBA7 /* Photographer+Methods.m */,
 				05D8153918DCAECF00857BF3 /* Place+Methods.h */,
 				05D8153A18DCAECF00857BF3 /* Place+Methods.m */,
 				0510CAB818DBAAE60074D768 /* Photo+Methods.h */,
@@ -416,17 +431,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				05A507A718E4A19F008EBBA7 /* Photo.m in Sources */,
 				05D8153B18DCAECF00857BF3 /* Place+Methods.m in Sources */,
 				05B327D318DA118F00E06A55 /* AppDelegate.m in Sources */,
 				055617B318DCF845007E9296 /* ImageScrollViewController.m in Sources */,
+				05A507B118E4D090008EBBA7 /* UIColor+Pallete.m in Sources */,
 				055617AA18DCDEE8007E9296 /* Place.m in Sources */,
 				05B327D618DA118F00E06A55 /* FlickrWorld.xcdatamodeld in Sources */,
 				055617A118DCD36A007E9296 /* FlickrAnnotation.m in Sources */,
 				05B3281418DA516A00E06A55 /* FlickrAPIClient.m in Sources */,
+				05A507BA18E4E692008EBBA7 /* Photographer+Methods.m in Sources */,
+				05A507BD18E4E861008EBBA7 /* Photographer.m in Sources */,
 				05A5070D18E0C779008EBBA7 /* RecentPicturesViewController.m in Sources */,
 				0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */,
 				05B327F818DA2DA600E06A55 /* FlickrFetcher.m in Sources */,
+				05A507B718E4E669008EBBA7 /* Photo.m in Sources */,
 				0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */,
 				05B327CF18DA118F00E06A55 /* main.m in Sources */,
 				05D8154618DCB49100857BF3 /* MapViewController.m in Sources */,

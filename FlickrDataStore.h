@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "Photo+Methods.h"
 #import "Place+Methods.h"
+#import "Photographer+Methods.h"
 
 
 @interface FlickrDataStore : NSObject
@@ -28,6 +29,7 @@
 
 - (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock;
 - (void)addPlaceToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Place *))completionBlock;
+- (void)addPhotographerToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Photographer *))completionBlock;
 
 
 

@@ -9,7 +9,7 @@
 #import "ImageScrollViewController.h"
 #import "UIImageView+AFNetworking.h"
 #import <FontAwesomeKit.h>
-#import <MPColorTools.h>
+#import "UIColor+Pallete.h"
 #import "FlickrDataStore.h"
 
 
@@ -43,6 +43,7 @@
     if ([self.view.subviews lastObject] == self.infoView) {
         [self.view sendSubviewToBack:self.infoView];
     } else {
+        self.infoView.backgroundColor = [[UIColor blackColor] colorWithAlphaComponent:0.6];
         [self.view bringSubviewToFront:self.infoView];
         [self.infoLabel sizeToFit];
         [self putTextToLabel];
@@ -51,7 +52,7 @@
 
 - (void)putTextToLabel
 {
-    self.infoLabel.text = [NSString stringWithFormat:@"Title: %@\nPhotographer: %@", self.photo.title, self.photo.ownerId];
+    self.infoLabel.text = [NSString stringWithFormat:@"%@\nby: %@", self.photo.title, self.photo.photographer.username];
 }
 
 - (IBAction)backButtonPressed:(id)sender
@@ -64,7 +65,6 @@
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-
     [self createImageForInfoButton];
     [self createImageForGlobeButton];
     
@@ -74,7 +74,7 @@
 
 - (void)createImageForInfoButton
 {
-    UIColor *circleColor = [UIColor colorWithRed:255 green:0 blue:127 alpha:1.0];
+    UIColor *circleColor = [UIColor pink];
     
     FAKFontAwesome *infoIcon = [FAKFontAwesome infoCircleIconWithSize:30];
     UIImage *infoImage = [infoIcon imageWithSize:CGSizeMake(30, 30)];
@@ -86,7 +86,7 @@
 
 - (void)createImageForGlobeButton
 {
-    UIColor *circleColor = [UIColor colorWithRed:255 green:0 blue:127 alpha:1.0];
+    UIColor *circleColor = [UIColor pink];
     
     FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:30];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(30, 30)];

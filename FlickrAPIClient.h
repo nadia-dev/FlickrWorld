@@ -23,5 +23,7 @@ extern NSString * const PARAMS;
 
 + (void)fetchPlaceForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock;
 
++ (void)fetchPhotographerForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock;
+
 
 @end

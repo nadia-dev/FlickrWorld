@@ -8,7 +8,8 @@
 
 #import "FlickrAnnotation.h"
 #import <FontAwesomeKit.h>
-#import <MPColorTools.h>
+#import "UIColor+Pallete.h"
+
 
 @implementation FlickrAnnotation
 
@@ -34,7 +35,7 @@
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     
-    UIColor *circleColor = [UIColor colorWithRed:255 green:0 blue:127 alpha:0.75];
+    UIColor *circleColor = [UIColor pinkTransparent];
     
     FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:30];
     [circle addAttribute:NSForegroundColorAttributeName value:circleColor];

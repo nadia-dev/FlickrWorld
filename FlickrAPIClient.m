@@ -97,5 +97,20 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     } failure:nil];
 }
 
++ (void)fetchPhotographerForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock
+{
+    NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.getInfo&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photo.identifier, PARAMS];
+    
+    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
+    
+    [manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+        
+        NSDictionary *ownerDict = responseObject[@"photo"][@"owner"];
+        
+        completionBlock(ownerDict);
+        
+    } failure:nil];
+}
+
 
 @end

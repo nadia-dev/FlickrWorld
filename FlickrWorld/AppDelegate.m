@@ -32,6 +32,12 @@
 //        
 //        for (Photo *photo in photos) {
 //            
+//            [self.dataStore addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
+//                
+//                photographer.photo = photo;
+//            }];
+//        
+//
 //            [self.dataStore addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
 //                
 //                placeForPhoto.photo = photo;

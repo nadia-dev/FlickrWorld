@@ -7,6 +7,7 @@
 //
 
 #import "Photo.h"
+#import "Photographer.h"
 #import "Place.h"
 
 
@@ -15,10 +16,11 @@
 @dynamic identifier;
 @dynamic largeImageLink;
 @dynamic lastViewed;
+@dynamic mediumImageLink;
 @dynamic ownerId;
 @dynamic thumbnailImage;
 @dynamic title;
-@dynamic mediumImageLink;
 @dynamic place;
+@dynamic photographer;
 
 @end

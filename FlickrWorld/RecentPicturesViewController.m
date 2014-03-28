@@ -80,7 +80,12 @@
     
     UIImage *thumbnail = [UIImage imageWithData:photo.thumbnailImage];
     
-    imageView.image = thumbnail;
+    if (thumbnail) {
+        imageView.image = thumbnail;
+    } else {
+        imageView.image = [UIImage imageNamed:@"placeholder"];
+    }
+    
     
     [cell addSubview:imageView]; //do not use addSubview, subclass the cell instead
     

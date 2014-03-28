@@ -68,7 +68,7 @@
 
 
 
-#pragma mark - Photos and Places added to CD
+#pragma mark - Photos, Places, Photographers added to CD
 
 //put Photo with id, ownerId and title into CD
 - (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock
@@ -97,6 +97,15 @@
         
         completionBlock(placeForPhoto);
         
+    }];
+}
+
+- (void)addPhotographerToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Photographer *))completionBlock
+{
+    [FlickrAPIClient fetchPhotographerForPhoto:photo Completion:^(NSDictionary *ownerDict) {
+        Photographer *photographer = [Photographer getPhotographerFromDict:ownerDict inManagedObjectContext:self.managedObjectContext];
+        
+        completionBlock(photographer);
     }];
 }
 

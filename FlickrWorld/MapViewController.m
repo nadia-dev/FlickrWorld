@@ -12,7 +12,7 @@
 #import "FlickrAnnotation.h"
 #import "ImageScrollViewController.h"
 #import <FontAwesomeKit.h>
-#import <MPColorTools.h>
+#import "UIColor+Pallete.h"
 
 
 
@@ -52,6 +52,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+  
     
     self.dataStore = [FlickrDataStore sharedDataStore];
 
@@ -96,7 +98,7 @@
     FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:20];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(20, 20)];
     
-    FAKFontAwesome *repeat = [FAKFontAwesome repeatIconWithSize:20];
+    FAKFontAwesome *repeat = [FAKFontAwesome clockOIconWithSize:20];
     UIImage *repeatImage = [repeat imageWithSize:CGSizeMake(20, 20)];
     
     UITabBarItem *world =  self.navigationController.tabBarController.tabBar.items[0];
@@ -109,7 +111,7 @@
 
 - (void)changeColorForSelectedAnnotation
 {
-    UIColor *circleColor = [UIColor colorWithRed:0 green:0 blue:255 alpha:0.75];
+    UIColor *circleColor = [UIColor blueTransparent];
     
     FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:30];
     [circle addAttribute:NSForegroundColorAttributeName value:circleColor];
