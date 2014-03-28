@@ -31,6 +31,9 @@
 - (void)addPlaceToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Place *))completionBlock;
 - (void)addPhotographerToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Photographer *))completionBlock;
 
+-(void)fetchDataWithCompletion: (void(^)())completionBlock;
+
+
 
 
 @end

@@ -15,7 +15,12 @@
 
 @implementation AppDelegate
 
-
+-(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
+{
+    [self.dataStore fetchDataWithCompletion:^{
+        NSLog(@"bsckground fetch");
+    }];
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
@@ -25,13 +30,6 @@
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    
-
-    
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
-//    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-//    
-//    NSLog(@"%@", places);
     
     return YES;
 }

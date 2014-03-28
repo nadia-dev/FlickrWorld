@@ -62,11 +62,22 @@
     
     [self createMapRegion];
     
-    [self fetchDataWithCompletion:^{
+    [self.dataStore fetchDataWithCompletion:^{
         [self fetchAndShowPlaces];
     }];
     
+    [self setTimers];
     
+    
+}
+
+-(void)timerFired:(NSTimer *)timer
+{
+
+    NSLog(@"timed event");
+    [self.dataStore fetchDataWithCompletion:^{
+        [self fetchAndShowPlaces];
+    }];
 }
 
 - (void)applicationWillEnterInBackGround
@@ -74,18 +85,18 @@
     [self.timer invalidate];
 }
 
-//- (void)applicationWillEnterInForeground
-//{
-//    self.timer=[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(fetchData) userInfo:nil repeats:YES];
-//}
+- (void)applicationWillEnterInForeground
+{
+    self.timer=[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+}
 
 
 - (void)setTimers
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInBackGround) name:UIApplicationWillResignActiveNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
     
-//    self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(fetchData) userInfo:nil repeats:YES];
+    self.timer = [NSTimer scheduledTimerWithTimeInterval:43200.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];//every 12 hours
     
     [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
 }
@@ -199,61 +210,61 @@
 
 
 
-#pragma mark - Network call and Core Data
--(void)fetchDataWithCompletion: (void(^)())completionBlock
-
-{
-    self.dataStore = [FlickrDataStore sharedDataStore];
-    
-    [self cleanCoreData];
-    
-    [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
-        
-        for (Photo *photo in photos) {
-            
-            [self.dataStore addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
-                
-                photographer.photo = photo;
-            }];
-            
-            
-            [self.dataStore addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
-                
-                placeForPhoto.photo = photo;
-            }];
-            
-            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
-                
-                photo.largeImageLink = [sizes lastObject][@"source"];
-                photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
-                
-                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
-                    
-                    photo.thumbnailImage = thumbnailData;
-                    
-                    NSLog(@"done fetching");
-                    
-                    [self.dataStore saveContext];
-                    
-                    completionBlock();
-                }];
-                
-            }];
-        }
-    }];
-
-}
-
-- (void) cleanCoreData
-{
-    NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-    NSArray *photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
-    
-    for (Photo *photo in photos) {
-        [self.dataStore.managedObjectContext deleteObject:photo];
-        [self.dataStore saveContext];
-    }
-}
+//#pragma mark - Network call and Core Data
+//-(void)fetchDataWithCompletion: (void(^)())completionBlock
+//
+//{
+////    self.dataStore = [FlickrDataStore sharedDataStore];
+//    
+//    [self cleanCoreData];
+//    
+//    [self.dataStore populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
+//        
+//        for (Photo *photo in photos) {
+//            
+//            [self.dataStore addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
+//                
+//                photographer.photo = photo;
+//            }];
+//            
+//            
+//            [self.dataStore addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
+//                
+//                placeForPhoto.photo = photo;
+//            }];
+//            
+//            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
+//                
+//                photo.largeImageLink = [sizes lastObject][@"source"];
+//                photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
+//                
+//                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
+//                    
+//                    photo.thumbnailImage = thumbnailData;
+//                    
+//                    NSLog(@"done fetching");
+//                    
+//                    [self.dataStore saveContext];
+//                    
+//                    completionBlock();
+//                }];
+//                
+//            }];
+//        }
+//    }];
+//
+//}
+//
+//- (void) cleanCoreData
+//{
+//    NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+//    NSArray *photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
+//    
+//    for (Photo *photo in photos) {
+//        [self.dataStore.managedObjectContext deleteObject:photo];
+//        [self.dataStore saveContext];
+//    }
+//}
 
 
 @end

@@ -109,6 +109,61 @@
     }];
 }
 
+#pragma mark - Network call and Core Data
+-(void)fetchDataWithCompletion: (void(^)())completionBlock
+
+{
+    //    self.dataStore = [FlickrDataStore sharedDataStore];
+    
+    [self cleanCoreData];
+    
+    [self populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
+        
+        for (Photo *photo in photos) {
+            
+            [self addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
+                
+                photographer.photo = photo;
+            }];
+            
+            
+            [self addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
+                
+                placeForPhoto.photo = photo;
+            }];
+            
+            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
+                
+                photo.largeImageLink = [sizes lastObject][@"source"];
+                photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
+                
+                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
+                    
+                    photo.thumbnailImage = thumbnailData;
+                    
+                    NSLog(@"done fetching");
+                    
+                    [self saveContext];
+                    
+                    completionBlock();
+                }];
+                
+            }];
+        }
+    }];
+    
+}
+
+- (void) cleanCoreData
+{
+    NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    NSArray *photos = [self.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
+    
+    for (Photo *photo in photos) {
+        [self.managedObjectContext deleteObject:photo];
+        [self saveContext];
+    }
+}
 
 #pragma mark - Core Data stack
 
