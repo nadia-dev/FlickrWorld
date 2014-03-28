@@ -125,8 +125,7 @@
                 
                 photographer.photo = photo;
             }];
-            
-            
+
             [self addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
                 
                 placeForPhoto.photo = photo;

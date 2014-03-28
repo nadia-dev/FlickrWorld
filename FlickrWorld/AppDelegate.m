@@ -11,25 +11,34 @@
 #import "FlickrAPIClient.h"
 #import "Photo+Methods.h"
 #import "AFNetworkActivityIndicatorManager.h"
+#import "FlickrDataStore.h"
 
 
 @implementation AppDelegate
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
+    self.dataStore = [FlickrDataStore sharedDataStore];
+    
     [self.dataStore fetchDataWithCompletion:^{
-        NSLog(@"bsckground fetch");
+        completionHandler(UIBackgroundFetchResultNewData);
+        NSLog(@"backgr");
     }];
+
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    
+    self.dataStore = [FlickrDataStore sharedDataStore];
     
     UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
     [[UITabBar appearance] setBackgroundImage:tabBarBackground];
     [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    [[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     return YES;
 }

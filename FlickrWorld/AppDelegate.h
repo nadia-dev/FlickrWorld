@@ -15,6 +15,4 @@
 
 @property (strong, nonatomic) FlickrDataStore *dataStore;
 
-
-
 @end

@@ -47,9 +47,7 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
         
         completionBlock(sizes);
         
-    } failure:nil];
-    
-    
+    } failure:nil]; 
 }
 
 + (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes Completion: (void(^)(NSData *))completionBlock

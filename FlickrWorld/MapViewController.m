@@ -57,7 +57,7 @@
         [self fetchAndShowPlaces];
     }];
     
-    [self setTimers];
+//    [self setTimers];
   
 }
 
@@ -90,6 +90,8 @@
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
     NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     
+    NSLog(@"%d", [places count]);
+    
     for (Place *place in places) {
         
         CLLocationCoordinate2D placeCoordinate;
@@ -107,34 +109,34 @@
 
 
 #pragma mark - Timer Event Methods
--(void)timerFired:(NSTimer *)timer
-{
-
-    NSLog(@"timed event");
-    [self.dataStore fetchDataWithCompletion:^{
-        [self fetchAndShowPlaces];
-    }];
-}
-
-- (void)applicationWillEnterInBackGround
-{
-    [self.timer invalidate];
-}
-
-- (void)applicationWillEnterInForeground
-{
-    self.timer=[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
-}
-
-- (void)setTimers
-{
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInBackGround) name:UIApplicationWillResignActiveNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
-    
-    self.timer = [NSTimer scheduledTimerWithTimeInterval:43200.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];//every 12 hours
-    
-    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-}
+//-(void)timerFired:(NSTimer *)timer
+//{
+//
+//    NSLog(@"timed event");
+//    [self.dataStore fetchDataWithCompletion:^{
+//        [self fetchAndShowPlaces];
+//    }];
+//}
+//
+//- (void)applicationWillEnterInBackGround
+//{
+//    [self.timer invalidate];
+//}
+//
+//- (void)applicationWillEnterInForeground
+//{
+//    self.timer=[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
+//}
+//
+//- (void)setTimers
+//{
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInBackGround) name:UIApplicationWillResignActiveNotification object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
+//    
+//    self.timer = [NSTimer scheduledTimerWithTimeInterval:43200.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];//every 12 hours
+//    
+//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
+//}
 
 
 
@@ -165,7 +167,7 @@
         
         MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
         
-        selectedAnnotationView.image = nil;
+//        selectedAnnotationView.image = nil;
         selectedAnnotationView.image = circleImage;
     }
 }
@@ -210,7 +212,6 @@
 
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
-    
     ImageScrollViewController *imageVC = (ImageScrollViewController *)[storyBoard instantiateViewControllerWithIdentifier:@"image"];
     
     imageVC.photo = annotation.photo;
