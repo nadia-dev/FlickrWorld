@@ -74,8 +74,6 @@
 	self.mapView.delegate = self;
     self.mapView.mapType = MKMapTypeStandard;
     
-    [self createImageForRefreshButtonWithColor:[UIColor pink]];
-    
     [self.spinner startAnimating];
     
     [self createTabBarItems];
@@ -91,6 +89,8 @@
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
 {
     [self.spinner stopAnimating];
+    
+    [self createImageForRefreshButtonWithColor:[UIColor pink]];
     
     [self.view sendSubviewToBack:self.blackVIew];
 }
