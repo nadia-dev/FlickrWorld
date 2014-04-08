@@ -35,6 +35,16 @@
                                     <constraint firstAttribute="centerX" secondItem="fE4-8r-Ppi" secondAttribute="centerX" constant="0.5" id="qz5-Ks-FWQ"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pLe-lY-u8R">
+                                <rect key="frame" x="137" y="269" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="refreshButtonPressed:" destination="Ryo-e1-Aqg" eventType="touchUpInside" id="Zqp-Bp-XXj"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -42,7 +52,9 @@
                             <constraint firstItem="vep-UT-hhz" firstAttribute="leading" secondItem="dp4-oQ-9D6" secondAttribute="leading" id="8Dd-32-RRs"/>
                             <constraint firstItem="vep-UT-hhz" firstAttribute="top" secondItem="3Bf-5K-Id2" secondAttribute="bottom" constant="-20" id="9DX-NL-Yp5"/>
                             <constraint firstAttribute="bottom" secondItem="FCY-co-OsD" secondAttribute="bottom" id="9PA-Qi-O5E"/>
+                            <constraint firstItem="pLe-lY-u8R" firstAttribute="leading" secondItem="dp4-oQ-9D6" secondAttribute="leading" constant="10" id="E9Q-N3-Aye"/>
                             <constraint firstItem="FCY-co-OsD" firstAttribute="top" secondItem="dp4-oQ-9D6" secondAttribute="top" id="Moj-Ue-fN3"/>
+                            <constraint firstItem="spp-gV-rDN" firstAttribute="top" secondItem="pLe-lY-u8R" secondAttribute="bottom" constant="10" id="QCc-LI-kEE"/>
                             <constraint firstItem="spp-gV-rDN" firstAttribute="top" secondItem="vep-UT-hhz" secondAttribute="bottom" constant="-49" id="RKE-WY-lyg"/>
                             <constraint firstAttribute="centerY" secondItem="vep-UT-hhz" secondAttribute="centerY" id="bO2-ME-vyU"/>
                             <constraint firstAttribute="trailing" secondItem="vep-UT-hhz" secondAttribute="trailing" id="bVN-S0-eHY"/>
@@ -54,6 +66,7 @@
                     <connections>
                         <outlet property="blackVIew" destination="vep-UT-hhz" id="3aK-MB-3ip"/>
                         <outlet property="mapView" destination="FCY-co-OsD" id="md2-xR-Yje"/>
+                        <outlet property="refreshButton" destination="pLe-lY-u8R" id="1RC-g8-Pd2"/>
                         <outlet property="spinner" destination="fE4-8r-Ppi" id="WH3-X9-6Q3"/>
                     </connections>
                 </viewController>

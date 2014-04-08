@@ -30,10 +30,28 @@
 @property (strong, nonatomic) NSTimer *timer;
 
 @property (strong, nonatomic) NSMutableArray *annotatedPlaces;//prevent from adding one annotation to map more than once
+@property (strong, nonatomic) IBOutlet UIButton *refreshButton;
 
 @end
 
+
+
 @implementation MapViewController
+
+- (IBAction)refreshButtonPressed:(id)sender {
+    
+}
+
+
+- (void)createImageForRefreshButtonWithColor: (UIColor *)color
+{
+    FAKFontAwesome *refreshIcon = [FAKFontAwesome refreshIconWithSize:30];
+    UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(30, 30)];
+    [self.refreshButton setTintColor:color];
+    [self.refreshButton setImage:refreshImage forState:UIControlStateNormal];
+    [self.view bringSubviewToFront:self.refreshButton];
+}
+
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -55,6 +73,8 @@
 
 	self.mapView.delegate = self;
     self.mapView.mapType = MKMapTypeStandard;
+    
+    [self createImageForRefreshButtonWithColor:[UIColor pink]];
     
     [self.spinner startAnimating];
     
