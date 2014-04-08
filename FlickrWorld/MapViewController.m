@@ -21,6 +21,7 @@
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
 @property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
+@property (strong, nonatomic) IBOutlet UIView *blackVIew;
 
 @property (strong, nonatomic) FlickrDataStore *dataStore;
 @property (strong, nonatomic) Photo *photo;
@@ -38,6 +39,8 @@
 {
     [super viewWillAppear:animated];
     
+    
+    
     [self changeColorForSelectedAnnotation];
 }
 
@@ -49,6 +52,8 @@
     self.annotatedPlaces = [[NSMutableArray alloc]init];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
+    
+    [self.view bringSubviewToFront:self.blackVIew];
 
 	self.mapView.delegate = self;
     self.mapView.mapType = MKMapTypeStandard;
@@ -70,6 +75,8 @@
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
 {
     [self.spinner stopAnimating];
+    
+    [self.view sendSubviewToBack:self.blackVIew];
 }
 
 - (void)createMapRegion

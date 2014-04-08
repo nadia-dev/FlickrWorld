@@ -20,23 +20,39 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fE4-8r-Ppi">
-                                <rect key="frame" x="150" y="274" width="37" height="37"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vep-UT-hhz">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </activityIndicatorView>
+                                <subviews>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fE4-8r-Ppi">
+                                        <rect key="frame" x="141" y="266" width="37" height="37"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </activityIndicatorView>
+                                </subviews>
+                                <color key="backgroundColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="centerY" secondItem="fE4-8r-Ppi" secondAttribute="centerY" constant="-0.5" id="0W6-b4-ifL"/>
+                                    <constraint firstAttribute="centerX" secondItem="fE4-8r-Ppi" secondAttribute="centerX" constant="0.5" id="qz5-Ks-FWQ"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FCY-co-OsD" secondAttribute="trailing" id="6GD-e8-XQh"/>
+                            <constraint firstItem="vep-UT-hhz" firstAttribute="leading" secondItem="dp4-oQ-9D6" secondAttribute="leading" id="8Dd-32-RRs"/>
+                            <constraint firstItem="vep-UT-hhz" firstAttribute="top" secondItem="3Bf-5K-Id2" secondAttribute="bottom" constant="-20" id="9DX-NL-Yp5"/>
                             <constraint firstAttribute="bottom" secondItem="FCY-co-OsD" secondAttribute="bottom" id="9PA-Qi-O5E"/>
-                            <constraint firstAttribute="centerX" secondItem="fE4-8r-Ppi" secondAttribute="centerX" constant="-8.5" id="G53-FZ-Wl3"/>
                             <constraint firstItem="FCY-co-OsD" firstAttribute="top" secondItem="dp4-oQ-9D6" secondAttribute="top" id="Moj-Ue-fN3"/>
-                            <constraint firstAttribute="centerY" secondItem="fE4-8r-Ppi" secondAttribute="centerY" constant="-8.5" id="jX3-vt-5tP"/>
+                            <constraint firstItem="spp-gV-rDN" firstAttribute="top" secondItem="vep-UT-hhz" secondAttribute="bottom" constant="-49" id="RKE-WY-lyg"/>
+                            <constraint firstAttribute="centerY" secondItem="vep-UT-hhz" secondAttribute="centerY" id="bO2-ME-vyU"/>
+                            <constraint firstAttribute="trailing" secondItem="vep-UT-hhz" secondAttribute="trailing" id="bVN-S0-eHY"/>
                             <constraint firstItem="FCY-co-OsD" firstAttribute="leading" secondItem="dp4-oQ-9D6" secondAttribute="leading" id="omv-xh-mmD"/>
+                            <constraint firstAttribute="centerX" secondItem="vep-UT-hhz" secondAttribute="centerX" id="saJ-Et-dpe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="G2V-NC-kFc"/>
                     <connections>
+                        <outlet property="blackVIew" destination="vep-UT-hhz" id="3aK-MB-3ip"/>
                         <outlet property="mapView" destination="FCY-co-OsD" id="md2-xR-Yje"/>
                         <outlet property="spinner" destination="fE4-8r-Ppi" id="WH3-X9-6Q3"/>
                     </connections>
@@ -119,7 +135,7 @@
                                         <rect key="frame" x="110" y="234" width="100" height="100"/>
                                     </imageView>
                                 </subviews>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="backgroundColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="c7l-nH-aQX" secondAttribute="bottom" constant="234" id="6OU-Tk-j58"/>
                                     <constraint firstItem="c7l-nH-aQX" firstAttribute="top" secondItem="AWH-Mj-LF1" secondAttribute="top" constant="234" id="oTa-4Q-PhQ"/>
@@ -232,7 +248,7 @@
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="yha-WA-N2H">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.098039217293262482" green="0.098039217293262482" blue="0.098039217293262482" alpha="1" colorSpace="calibratedRGB"/>
                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pKg-wz-aGG">
                             <size key="itemSize" width="100" height="100"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
