@@ -7,7 +7,7 @@
 //
 
 #import "FlickrDataStore.h"
-#import "FlickrAPIClient.h"
+
 
 
 @implementation FlickrDataStore
@@ -15,6 +15,7 @@
 @synthesize managedObjectContext = _managedObjectContext;
 @synthesize managedObjectModel = _managedObjectModel;
 @synthesize persistentStoreCoordinator = _persistentStoreCoordinator;
+
 
 
 +(FlickrDataStore *) sharedDataStore
@@ -46,6 +47,8 @@
         
         _fetchedResultsController = [[NSFetchedResultsController alloc] initWithFetchRequest:fetchRequest managedObjectContext:self.managedObjectContext sectionNameKeyPath:nil cacheName:@"fetchResultsCache"];
         [self.fetchedResultsController performFetch:nil];
+        
+        _apiClient = [[FlickrAPIClient alloc]init];
     }
     return self;
 }
@@ -73,7 +76,9 @@
 //put Photo with id, ownerId and title into CD
 - (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock
 {
-    [FlickrAPIClient fetchInterestingPhotosWithCompletion:^(NSArray *photoDictionaries) {
+    //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
+    
+    [self.apiClient fetchInterestingPhotosWithCompletion:^(NSArray *photoDictionaries) {
         
         NSMutableArray *photos = [[NSMutableArray alloc]init];
         
@@ -91,7 +96,10 @@
 
 - (void)addPlaceToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Place *))completionBlock
 {
-    [FlickrAPIClient fetchPlaceForPhoto:photo Completion:^(NSDictionary *placeDict) {
+    //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
+    
+    
+    [self.apiClient fetchPlaceForPhoto:photo Completion:^(NSDictionary *placeDict) {
         
         Place *placeForPhoto = [Place getPlaceFromPlaceDict:placeDict inManagedObjectContext:self.managedObjectContext];
         
@@ -102,7 +110,9 @@
 
 - (void)addPhotographerToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Photographer *))completionBlock
 {
-    [FlickrAPIClient fetchPhotographerForPhoto:photo Completion:^(NSDictionary *ownerDict) {
+    //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
+    
+    [self.apiClient fetchPhotographerForPhoto:photo Completion:^(NSDictionary *ownerDict) {
         Photographer *photographer = [Photographer getPhotographerFromDict:ownerDict inManagedObjectContext:self.managedObjectContext];
         
         completionBlock(photographer);
@@ -110,12 +120,13 @@
 }
 
 #pragma mark - Network call and Core Data
+
 -(void)fetchDataWithCompletion: (void(^)())completionBlock
 
 {
-    //    self.dataStore = [FlickrDataStore sharedDataStore];
-    
     [self cleanCoreData];
+    
+    //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
     
     [self populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
         
@@ -131,17 +142,17 @@
                 placeForPhoto.photo = photo;
             }];
             
-            [FlickrAPIClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
+            [self.apiClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
                 
                 photo.largeImageLink = [sizes lastObject][@"source"];
                 photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
                 
-                [FlickrAPIClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
+                [self.apiClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
                     
                     photo.thumbnailImage = thumbnailData;
                     
                     NSLog(@"done fetching");
-                    
+                
                     [self saveContext];
                     
                     completionBlock();

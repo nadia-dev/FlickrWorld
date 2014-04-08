@@ -13,19 +13,32 @@
 #import "UIImageView+AFNetworking.h"
 
 
+@interface FlickrAPIClient ()
+
+@property (strong, nonatomic) AFHTTPSessionManager *manager;
+
+@end
+
 @implementation FlickrAPIClient
 
 NSString * const BASE_URL = @"https://api.flickr.com/services/rest";
 NSString * const PARAMS = @"format=json&nojsoncallback=1";
 
+
+- (AFHTTPSessionManager *)manager
+{
+    if (!_manager) {
+        _manager = [AFHTTPSessionManager manager];
+    }
+    return _manager;
+}
+
 //will take id, ownerId and title from here
-+ (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock
+- (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock
 {
     NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.interestingness.getList&api_key=%@&%@", BASE_URL, FlickrAPIKey, PARAMS];
-    
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
 
-    [manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray *photos = responseObject[@"photos"][@"photo"];
 
@@ -35,13 +48,11 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
 }
 
 
-+ (void)fetchImagesForPhoto: (Photo *)photo Completion: (void(^)(NSArray *))completionBlock
+- (void)fetchImagesForPhoto: (Photo *)photo Completion: (void(^)(NSArray *))completionBlock
 {
     NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.getSizes&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photo.identifier, PARAMS];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    [manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSArray *sizes = responseObject[@"sizes"][@"size"];
         
@@ -50,7 +61,7 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     } failure:nil]; 
 }
 
-+ (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes Completion: (void(^)(NSData *))completionBlock
+- (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes Completion: (void(^)(NSData *))completionBlock
 {
     NSString *URLString = [NSString stringWithFormat:@"%@", sizes[2][@"source"]];
     
@@ -79,14 +90,12 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
 }
 
 
-+ (void)fetchPlaceForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock
+- (void)fetchPlaceForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock
 {
     
     NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.geo.getLocation&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photo.identifier, PARAMS];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    [manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSDictionary *placeDict = responseObject[@"photo"][@"location"];
         
@@ -95,13 +104,11 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     } failure:nil];
 }
 
-+ (void)fetchPhotographerForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock
+- (void)fetchPhotographerForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock
 {
     NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.getInfo&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photo.identifier, PARAMS];
     
-    AFHTTPSessionManager *manager = [AFHTTPSessionManager manager];
-    
-    [manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
+    [self.manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
         
         NSDictionary *ownerDict = responseObject[@"photo"][@"owner"];
         
@@ -109,8 +116,6 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
         
     } failure:nil];
 }
-
-
 
 
 @end

@@ -81,6 +81,7 @@
 		05A507B918E4E692008EBBA7 /* Photographer+Methods.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Photographer+Methods.m"; sourceTree = "<group>"; };
 		05A507BB18E4E861008EBBA7 /* Photographer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Photographer.h; sourceTree = "<group>"; };
 		05A507BC18E4E861008EBBA7 /* Photographer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Photographer.m; sourceTree = "<group>"; };
+		05A5080018E5F4D2008EBBA7 /* FlickrAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		05B327BD18DA118F00E06A55 /* FlickrWorld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FlickrWorld.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05B327C018DA118F00E06A55 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		05B327C218DA118F00E06A55 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -101,7 +102,6 @@
 		05B327EB18DA118F00E06A55 /* FlickrWorldTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FlickrWorldTests.m; sourceTree = "<group>"; };
 		05B327F618DA2DA600E06A55 /* FlickrFetcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrFetcher.h; sourceTree = "<group>"; };
 		05B327F718DA2DA600E06A55 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
-		05B327FA18DA2FD200E06A55 /* FlickrAPIKey.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FlickrAPIKey.h; sourceTree = "<group>"; };
 		05B3281218DA516A00E06A55 /* FlickrAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIClient.h; sourceTree = "<group>"; };
 		05B3281318DA516A00E06A55 /* FlickrAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAPIClient.m; sourceTree = "<group>"; };
 		05D8153918DCAECF00857BF3 /* Place+Methods.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "Place+Methods.h"; path = "FlickrWorld/Place+Methods.h"; sourceTree = "<group>"; };
@@ -262,7 +262,7 @@
 		05B327F918DA2DC100E06A55 /* FlickrFetcher */ = {
 			isa = PBXGroup;
 			children = (
-				05B327FA18DA2FD200E06A55 /* FlickrAPIKey.h */,
+				05A5080018E5F4D2008EBBA7 /* FlickrAPIKey.h */,
 				05B327F618DA2DA600E06A55 /* FlickrFetcher.h */,
 				05B327F718DA2DA600E06A55 /* FlickrFetcher.m */,
 			);
@@ -575,6 +575,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlickrWorld/FlickrWorld-Prefix.pch";
 				INFOPLIST_FILE = "FlickrWorld/FlickrWorld-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -589,6 +590,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "FlickrWorld/FlickrWorld-Prefix.pch";
 				INFOPLIST_FILE = "FlickrWorld/FlickrWorld-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};

@@ -27,6 +27,8 @@
 @property (strong, nonatomic) NSArray *selectedAnnotations;
 @property (strong, nonatomic) NSTimer *timer;
 
+@property (strong, nonatomic) NSMutableArray *annotatedPlaces;//prevent from adding one annotation to map more than once
+
 @end
 
 @implementation MapViewController
@@ -40,9 +42,12 @@
     [self changeColorForSelectedAnnotation];
 }
 
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.annotatedPlaces = [[NSMutableArray alloc]init];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
 
@@ -56,6 +61,8 @@
     [self.dataStore fetchDataWithCompletion:^{
         [self fetchAndShowPlaces];
     }];
+    
+    
     
 //    [self setTimers];
   
@@ -87,26 +94,35 @@
 - (void)fetchAndShowPlaces
 {
     //fetching from Core Data to populate the map view with annotations
+    
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
     NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    
-    NSLog(@"%d", [places count]);
+    //NSMutableArray *annots = [[NSMutableArray alloc]init];
     
     for (Place *place in places) {
         
-        CLLocationCoordinate2D placeCoordinate;
-        placeCoordinate.latitude = [place.latutide floatValue];
-        placeCoordinate.longitude = [place.longitude floatValue];
+        if (place.photo.mediumImageLink) { //in there will be broken link
         
-        NSString *annotationTitle = [self createAnnotationTitle:place];
-        
-        FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:place.photo];
-        
-        [self.mapView addAnnotation:annotation];
+            if (![self.annotatedPlaces containsObject:place]) {
+            
+                [self.annotatedPlaces addObject:place];
+                
+                CLLocationCoordinate2D placeCoordinate;
+                placeCoordinate.latitude = [place.latutide floatValue];
+                placeCoordinate.longitude = [place.longitude floatValue];
+                
+                NSString *annotationTitle = [self createAnnotationTitle:place];
+                
+                FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:place.photo];
+
+                
+                [self.mapView addAnnotation:annotation];
+            }
+        }
     }
+    
+    NSLog(@"Places: %d, annotations: %d", [places count], [self.mapView.annotations count]);
 }
-
-
 
 #pragma mark - Timer Event Methods
 //-(void)timerFired:(NSTimer *)timer
@@ -219,6 +235,8 @@
     [self.navigationController presentViewController:imageVC animated:YES completion:nil];
 
 }
+
+
 
 
 

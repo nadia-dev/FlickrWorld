@@ -11,6 +11,7 @@
 #import <FontAwesomeKit.h>
 #import "UIColor+Pallete.h"
 #import "FlickrDataStore.h"
+#import "FlickrAPIClient.h"
 
 
 @interface ImageScrollViewController () <UIScrollViewDelegate>
@@ -32,6 +33,8 @@
 
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
 
+@property (strong, nonatomic) FlickrAPIClient *apiClient;
+
 @property (strong, nonatomic) FlickrDataStore *dataStore;
 
 @end
@@ -43,6 +46,8 @@
 
 {
     [super viewWillAppear:animated];
+    
+    self.apiClient = [[FlickrAPIClient alloc]init];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
     
@@ -87,6 +92,9 @@
     [self.dataStore saveContext];
     
     [self dismissViewControllerAnimated:YES completion:nil];
+    
+    [self.imageView cancelImageRequestOperation];
+    
 }
 
 
@@ -121,14 +129,11 @@
         NSURL *urlForMedium = [NSURL URLWithString:self.photo.mediumImageLink];
         NSURLRequest *requestForMedium = [NSURLRequest requestWithURL:urlForMedium];
         
-        
         [self.imageView setImageWithURLRequest:requestForMedium
                               placeholderImage:nil
                                        success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
             
             self.imageView.image = image;
-            
-            NSLog(@"large");
             
             [self.spinner stopAnimating];
             
@@ -139,23 +144,25 @@
             self.photo.lastViewed = [NSDate date];
             
             [self.dataStore saveContext];
-            
-            [self.imageView setImageWithURLRequest:requestForLarge
-                                  placeholderImage:nil
-                                           success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
-                //should be cancelled when user closes VC
-                self.imageView.image = nil;
-                
-                self.imageView.image = image;
-                
-                NSLog(@"original");
-                
-                [self updateConstraints];
-                
-                [self updateZoom];
-                
-            } failure:nil];
-            
+                                           //don't upload original image for non-retina devices
+                                           if (!IS_RETINA) {
+                                               
+                                               [self.imageView setImageWithURLRequest:requestForLarge
+                                                                     placeholderImage:nil
+                                                                              success:^(NSURLRequest *request, NSHTTPURLResponse *response, UIImage *image) {
+                                                                                  
+                                                                                  self.imageView.image = nil;
+                                                                                  
+                                                                                  self.imageView.image = image;
+                                                                                  
+                                                                                  [self updateConstraints];
+                                                                                  
+                                                                                  [self updateZoom];
+                                                                                  
+                                                                              } failure:nil];
+
+                                           }
+
         } failure:nil];
     }
 
@@ -219,8 +226,6 @@
 {
     return self.imageView;
 }
-
-
 
 
 @end

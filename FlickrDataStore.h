@@ -10,6 +10,7 @@
 #import "Photo+Methods.h"
 #import "Place+Methods.h"
 #import "Photographer+Methods.h"
+#import "FlickrAPIClient.h"
 
 
 @interface FlickrDataStore : NSObject
@@ -20,6 +21,8 @@
 @property (readonly, strong, nonatomic) NSFetchedResultsController *fetchedResultsController;
 
 @property (strong, nonatomic) NSMutableArray *selectedAnnotations;
+
+@property (strong, nonatomic) FlickrAPIClient *apiClient;
 
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
