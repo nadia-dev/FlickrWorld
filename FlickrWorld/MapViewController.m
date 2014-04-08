@@ -38,9 +38,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    
-    
-    
+
     [self changeColorForSelectedAnnotation];
 }
 
@@ -67,8 +65,6 @@
     [self.dataStore fetchDataWithCompletion:^{
         [self fetchAndShowPlaces];
     }];
-
-//    [self setTimers];
   
 }
 
@@ -134,36 +130,6 @@
     
     NSLog(@"Places: %d, annotations: %d", [places count], [self.mapView.annotations count]);
 }
-
-#pragma mark - Timer Event Methods
-//-(void)timerFired:(NSTimer *)timer
-//{
-//
-//    NSLog(@"timed event");
-//    [self.dataStore fetchDataWithCompletion:^{
-//        [self fetchAndShowPlaces];
-//    }];
-//}
-//
-//- (void)applicationWillEnterInBackGround
-//{
-//    [self.timer invalidate];
-//}
-//
-//- (void)applicationWillEnterInForeground
-//{
-//    self.timer=[NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];
-//}
-//
-//- (void)setTimers
-//{
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInBackGround) name:UIApplicationWillResignActiveNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationWillEnterInForeground) name:UIApplicationWillEnterForegroundNotification object:nil];
-//    
-//    self.timer = [NSTimer scheduledTimerWithTimeInterval:43200.0 target:self selector:@selector(timerFired:) userInfo:nil repeats:YES];//every 12 hours
-//    
-//    [[NSRunLoop currentRunLoop] addTimer:self.timer forMode:NSRunLoopCommonModes];
-//}
 
 
 
