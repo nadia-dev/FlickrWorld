@@ -20,18 +20,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="fE4-8r-Ppi">
+                                <rect key="frame" x="150" y="274" width="37" height="37"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="FCY-co-OsD" secondAttribute="trailing" id="6GD-e8-XQh"/>
                             <constraint firstAttribute="bottom" secondItem="FCY-co-OsD" secondAttribute="bottom" id="9PA-Qi-O5E"/>
+                            <constraint firstAttribute="centerX" secondItem="fE4-8r-Ppi" secondAttribute="centerX" constant="-8.5" id="G53-FZ-Wl3"/>
                             <constraint firstItem="FCY-co-OsD" firstAttribute="top" secondItem="dp4-oQ-9D6" secondAttribute="top" id="Moj-Ue-fN3"/>
+                            <constraint firstAttribute="centerY" secondItem="fE4-8r-Ppi" secondAttribute="centerY" constant="-8.5" id="jX3-vt-5tP"/>
                             <constraint firstItem="FCY-co-OsD" firstAttribute="leading" secondItem="dp4-oQ-9D6" secondAttribute="leading" id="omv-xh-mmD"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="G2V-NC-kFc"/>
                     <connections>
                         <outlet property="mapView" destination="FCY-co-OsD" id="md2-xR-Yje"/>
+                        <outlet property="spinner" destination="fE4-8r-Ppi" id="WH3-X9-6Q3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="HM0-9E-sJb" userLabel="First Responder" sceneMemberID="firstResponder"/>

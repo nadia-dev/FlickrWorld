@@ -20,6 +20,7 @@
 @interface MapViewController ()
 
 @property (strong, nonatomic) IBOutlet MKMapView *mapView;
+@property (strong, nonatomic) IBOutlet UIActivityIndicatorView *spinner;
 
 @property (strong, nonatomic) FlickrDataStore *dataStore;
 @property (strong, nonatomic) Photo *photo;
@@ -32,8 +33,6 @@
 @end
 
 @implementation MapViewController
-
-
 
 -(void)viewWillAppear:(BOOL)animated
 {
@@ -54,6 +53,8 @@
 	self.mapView.delegate = self;
     self.mapView.mapType = MKMapTypeStandard;
     
+    [self.spinner startAnimating];
+    
     [self createTabBarItems];
     
     [self createMapRegion];
@@ -61,11 +62,14 @@
     [self.dataStore fetchDataWithCompletion:^{
         [self fetchAndShowPlaces];
     }];
-    
-    
-    
+
 //    [self setTimers];
   
+}
+
+- (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
+{
+    [self.spinner stopAnimating];
 }
 
 - (void)createMapRegion

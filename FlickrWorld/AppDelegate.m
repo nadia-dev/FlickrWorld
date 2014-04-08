@@ -18,7 +18,7 @@
 
 -(void)application:(UIApplication *)application performFetchWithCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler
 {
-    self.dataStore = [FlickrDataStore sharedDataStore];
+    //self.dataStore = [FlickrDataStore sharedDataStore];//do i really need this?
     
     [self.dataStore fetchDataWithCompletion:^{
         completionHandler(UIBackgroundFetchResultNewData);
