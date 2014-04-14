@@ -124,7 +124,7 @@
 -(void)fetchDataWithCompletion: (void(^)())completionBlock
 
 {
-    [self cleanCoreData];
+    //[self cleanCoreData];
     
     //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
     
@@ -151,7 +151,7 @@
                     
                     photo.thumbnailImage = thumbnailData;
                     
-                    NSLog(@"done fetching");
+                    //NSLog(@"done fetching");
                 
                     [self saveContext];
                     
@@ -169,10 +169,28 @@
     NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
     NSArray *photos = [self.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
     
+    NSFetchRequest *fetchPlace = [[NSFetchRequest alloc]initWithEntityName:@"Place"];
+    NSArray *places = [self.managedObjectContext executeFetchRequest:fetchPlace error:nil];
+    
+    NSFetchRequest *fetchPhotographer = [[NSFetchRequest alloc]initWithEntityName:@"Photographer"];
+    NSArray *photographers = [self.managedObjectContext executeFetchRequest:fetchPhotographer error:nil];
+    
+    for (Place *place in places) {
+        [self.managedObjectContext deleteObject:place];
+        //[self saveContext];
+    }
+    
+    for (Photographer *ph in photographers) {
+        [self.managedObjectContext deleteObject:ph];
+        //[self saveContext];
+    }
+    
     for (Photo *photo in photos) {
         [self.managedObjectContext deleteObject:photo];
-        [self saveContext];
+        //[self saveContext];
     }
+    
+    
 }
 
 #pragma mark - Core Data stack

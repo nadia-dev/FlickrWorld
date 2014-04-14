@@ -8,8 +8,8 @@
         <attribute name="ownerId" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="thumbnailImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="photographer" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Photographer" inverseName="photo" inverseEntity="Photographer" syncable="YES"/>
-        <relationship name="place" optional="YES" maxCount="1" deletionRule="Cascade" destinationEntity="Place" inverseName="photo" inverseEntity="Place" syncable="YES"/>
+        <relationship name="photographer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photographer" inverseName="photo" inverseEntity="Photographer" syncable="YES"/>
+        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="photo" inverseEntity="Place" syncable="YES"/>
     </entity>
     <entity name="Photographer" representedClassName="Photographer" syncable="YES">
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>

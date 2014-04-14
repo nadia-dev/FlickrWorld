@@ -14,6 +14,7 @@
 #import <FontAwesomeKit.h>
 #import "UIColor+Pallete.h"
 #import "FlickrAPIClient.h"
+#import <AFNetworking.h>
 
 
 
@@ -32,6 +33,8 @@
 @property (strong, nonatomic) NSMutableArray *annotatedPlaces;//prevent from adding one annotation to map more than once
 @property (strong, nonatomic) IBOutlet UIButton *refreshButton;
 
+@property (strong, nonatomic) AFHTTPSessionManager *manager;
+
 @end
 
 
@@ -39,6 +42,17 @@
 @implementation MapViewController
 
 - (IBAction)refreshButtonPressed:(id)sender {
+    
+    [self.manager.operationQueue cancelAllOperations];
+    
+    [self cleanCoreData];
+    
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
+    [self.dataStore fetchDataWithCompletion:^{
+        
+        [self fetchAndShowPlaces];
+    }];
     
 }
 
@@ -65,6 +79,8 @@
 {
     [super viewDidLoad];
     
+    self.manager = [AFHTTPSessionManager manager];
+    
     self.annotatedPlaces = [[NSMutableArray alloc]init];
     
     self.dataStore = [FlickrDataStore sharedDataStore];
@@ -90,7 +106,7 @@
 {
     [self.spinner stopAnimating];
     
-    [self createImageForRefreshButtonWithColor:[UIColor pink]];
+    [self createImageForRefreshButtonWithColor:[UIColor blueOpaque]];
     
     [self.view sendSubviewToBack:self.blackVIew];
 }
@@ -117,6 +133,14 @@
     recent.title = @"Recent";
 }
 
+- (void)cleanCoreData
+{
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
+    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    for (Place *place in places) {
+        [self.dataStore.managedObjectContext deleteObject:place];
+    }
+}
 
 - (void)fetchAndShowPlaces
 {
