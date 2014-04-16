@@ -68,6 +68,25 @@
     }
 }
 
+- (void) cleanCoreData
+{
+    [self.managedObjectContext lock];
+    
+    NSArray *stores = [self.persistentStoreCoordinator persistentStores];
+    
+    for (NSPersistentStore *store in stores) {
+        
+        [self.persistentStoreCoordinator removePersistentStore:store error:nil];
+        
+        [[NSFileManager defaultManager] removeItemAtPath:store.URL.path error:nil];
+    }
+    
+    [self.managedObjectContext unlock];
+    
+    _managedObjectContext = nil;
+    _persistentStoreCoordinator = nil;
+    _managedObjectModel = nil;
+}
 
 
 
@@ -121,7 +140,7 @@
 
 #pragma mark - Network call and Core Data
 
--(void)fetchDataWithCompletion: (void(^)())completionBlock
+-(void)fetchDataWithCompletion: (void(^)(BOOL))completionBlock
 
 {
     //[self cleanCoreData];
@@ -130,7 +149,11 @@
     
     [self populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
         
+        NSInteger photoCount = 0;
+        
         for (Photo *photo in photos) {
+            
+            photoCount++;
             
             [self addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
                 
@@ -152,10 +175,22 @@
                     photo.thumbnailImage = thumbnailData;
                     
                     //NSLog(@"done fetching");
+                    
+                    BOOL isLast = NO;
+                    
+                    self.doneFetch = NO;
+                    
+                    if (photoCount == [photos count]) {
+                        
+                        isLast = YES;
+                        
+                        self.doneFetch = YES;
+                    }
                 
                     [self saveContext];
                     
-                    completionBlock();
+                    completionBlock(isLast);
+                    //make it with bool to check if it is a last obj in photos - compare it with photos count
                 }];
                 
             }];
@@ -164,34 +199,34 @@
     
 }
 
-- (void) cleanCoreData
-{
-    NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-    NSArray *photos = [self.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
-    
-    NSFetchRequest *fetchPlace = [[NSFetchRequest alloc]initWithEntityName:@"Place"];
-    NSArray *places = [self.managedObjectContext executeFetchRequest:fetchPlace error:nil];
-    
-    NSFetchRequest *fetchPhotographer = [[NSFetchRequest alloc]initWithEntityName:@"Photographer"];
-    NSArray *photographers = [self.managedObjectContext executeFetchRequest:fetchPhotographer error:nil];
-    
-    for (Place *place in places) {
-        [self.managedObjectContext deleteObject:place];
-        //[self saveContext];
-    }
-    
-    for (Photographer *ph in photographers) {
-        [self.managedObjectContext deleteObject:ph];
-        //[self saveContext];
-    }
-    
-    for (Photo *photo in photos) {
-        [self.managedObjectContext deleteObject:photo];
-        //[self saveContext];
-    }
-    
-    
-}
+//- (void) cleanCoreData
+//{
+//    NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+//    NSArray *photos = [self.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
+//    
+//    NSFetchRequest *fetchPlace = [[NSFetchRequest alloc]initWithEntityName:@"Place"];
+//    NSArray *places = [self.managedObjectContext executeFetchRequest:fetchPlace error:nil];
+//    
+//    NSFetchRequest *fetchPhotographer = [[NSFetchRequest alloc]initWithEntityName:@"Photographer"];
+//    NSArray *photographers = [self.managedObjectContext executeFetchRequest:fetchPhotographer error:nil];
+//    
+//    for (Place *place in places) {
+//        [self.managedObjectContext deleteObject:place];
+//        //[self saveContext];
+//    }
+//    
+//    for (Photographer *ph in photographers) {
+//        [self.managedObjectContext deleteObject:ph];
+//        //[self saveContext];
+//    }
+//    
+//    for (Photo *photo in photos) {
+//        [self.managedObjectContext deleteObject:photo];
+//        //[self saveContext];
+//    }
+//    
+//    
+//}
 
 #pragma mark - Core Data stack
 
@@ -273,6 +308,7 @@
 {
     return [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
 }
+
 
 
 @end

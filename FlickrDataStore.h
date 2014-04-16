@@ -24,6 +24,8 @@
 
 @property (strong, nonatomic) FlickrAPIClient *apiClient;
 
+@property (nonatomic) BOOL doneFetch;
+
 - (void)saveContext;
 - (NSURL *)applicationDocumentsDirectory;
 
@@ -34,8 +36,11 @@
 - (void)addPlaceToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Place *))completionBlock;
 - (void)addPhotographerToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Photographer *))completionBlock;
 
--(void)fetchDataWithCompletion: (void(^)())completionBlock;
+-(void)fetchDataWithCompletion: (void(^)(BOOL))completionBlock;
 
+
+
+- (void) cleanCoreData;
 
 
 

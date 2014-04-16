@@ -15,6 +15,7 @@
 #import "UIColor+Pallete.h"
 #import "FlickrAPIClient.h"
 #import <AFNetworking.h>
+#import "AppDelegate.h"
 
 
 
@@ -33,6 +34,7 @@
 @property (strong, nonatomic) NSMutableArray *annotatedPlaces;//prevent from adding one annotation to map more than once
 @property (strong, nonatomic) IBOutlet UIButton *refreshButton;
 
+
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
 
 @end
@@ -43,17 +45,23 @@
 
 - (IBAction)refreshButtonPressed:(id)sender {
     
-    [self.manager.operationQueue cancelAllOperations];
-    
-    [self cleanCoreData];
-    
     [self.mapView removeAnnotations:self.mapView.annotations];
     
-    [self.dataStore fetchDataWithCompletion:^{
+    [self cleanPlacesFromCoreData];
+    
+    //[self.dataStore cleanCoreData];//make it partial? and clean when goes to background
+    
+    [self.refreshButton setEnabled:NO];
+    
+    [self.dataStore fetchDataWithCompletion:^(BOOL isLast) {
         
         [self fetchAndShowPlaces];
-    }];
-    
+        
+        if (isLast) {
+            
+            [self.refreshButton setEnabled:YES];
+        }
+    }]; 
 }
 
 
@@ -72,6 +80,20 @@
     [super viewWillAppear:animated];
 
     [self changeColorForSelectedAnnotation];
+    
+    
+}
+
+
+- (void)cleanPlacesFromCoreData
+{
+    //uniqness check
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
+    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    for (Place *place in places) {
+        [self.dataStore.managedObjectContext deleteObject:place];
+    }
+    [self.dataStore saveContext];
 }
 
 
@@ -81,10 +103,17 @@
     
     self.manager = [AFHTTPSessionManager manager];
     
-    self.annotatedPlaces = [[NSMutableArray alloc]init];
-    
     self.dataStore = [FlickrDataStore sharedDataStore];
     
+    [self.dataStore cleanCoreData];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(applicationEnteredForeground:)
+                                                 name:UIApplicationWillEnterForegroundNotification
+                                               object:nil];
+    
+    self.annotatedPlaces = [[NSMutableArray alloc]init];
+
     [self.view bringSubviewToFront:self.blackVIew];
 
 	self.mapView.delegate = self;
@@ -96,10 +125,36 @@
     
     [self createMapRegion];
     
-    [self.dataStore fetchDataWithCompletion:^{
+    [self.refreshButton setEnabled:NO];
+    
+    [self.dataStore fetchDataWithCompletion:^(BOOL isLast) {
+        
         [self fetchAndShowPlaces];
+        
+        if (isLast) {
+            
+            [self.refreshButton setEnabled:YES];
+        }
     }];
-  
+}
+
+- (void)applicationEnteredForeground:(NSNotification *)notification {
+    
+    //[self.dataStore cleanCoreData];
+    
+    [self.mapView removeAnnotations:self.mapView.annotations];
+    
+    [self.refreshButton setEnabled:NO];
+    
+    [self.dataStore fetchDataWithCompletion:^(BOOL isLast) {
+        
+        [self fetchAndShowPlaces];
+        
+        if (isLast) {
+            
+            [self.refreshButton setEnabled:YES];
+        }
+    }];
 }
 
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
@@ -111,11 +166,13 @@
     [self.view sendSubviewToBack:self.blackVIew];
 }
 
+
 - (void)createMapRegion
 {
     MKCoordinateRegion region = MKCoordinateRegionMake(self.mapView.centerCoordinate, MKCoordinateSpanMake(180, 360));
     [self.mapView setRegion:region animated:YES];
 }
+
 
 - (void)createTabBarItems
 {
@@ -133,14 +190,7 @@
     recent.title = @"Recent";
 }
 
-- (void)cleanCoreData
-{
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
-    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    for (Place *place in places) {
-        [self.dataStore.managedObjectContext deleteObject:place];
-    }
-}
+
 
 - (void)fetchAndShowPlaces
 {
@@ -166,7 +216,6 @@
                 
                 FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:place.photo];
 
-                
                 [self.mapView addAnnotation:annotation];
             }
         }
