@@ -68,8 +68,8 @@
 
 - (void)createImageForRefreshButtonWithColor: (UIColor *)color
 {
-    FAKFontAwesome *refreshIcon = [FAKFontAwesome refreshIconWithSize:30];
-    UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(30, 30)];
+    FAKFontAwesome *refreshIcon = [FAKFontAwesome refreshIconWithSize:50];
+    UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(50, 50)];
     [self.refreshButton setTintColor:color];
     [self.refreshButton setImage:refreshImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.refreshButton];
@@ -78,8 +78,8 @@
 
 - (void)createImageForRecentButtonWithColor: (UIColor *)color
 {
-    FAKFontAwesome *refreshIcon = [FAKFontAwesome clockOIconWithSize:30];
-    UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(30, 30)];
+    FAKFontAwesome *refreshIcon = [FAKFontAwesome clockOIconWithSize:50];
+    UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(50, 50)];
     [self.recentButton setTintColor:color];
     [self.recentButton setImage:refreshImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.recentButton];
@@ -257,9 +257,9 @@
 {
     UIColor *circleColor = [UIColor blueTransparent];
     
-    FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:30];
+    FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:40];
     [circle addAttribute:NSForegroundColorAttributeName value:circleColor];
-    UIImage *circleImage = [circle imageWithSize:CGSizeMake(30, 30)];
+    UIImage *circleImage = [circle imageWithSize:CGSizeMake(40, 40)];
     
     
     for (FlickrAnnotation *selectedAnotation in self.dataStore.selectedAnnotations) {

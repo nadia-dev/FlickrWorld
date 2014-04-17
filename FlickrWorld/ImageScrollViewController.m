@@ -100,8 +100,8 @@
 
 - (void)createImageForInfoButtonWithColor: (UIColor *)color
 {
-    FAKFontAwesome *infoIcon = [FAKFontAwesome infoCircleIconWithSize:30];
-    UIImage *infoImage = [infoIcon imageWithSize:CGSizeMake(30, 30)];
+    FAKFontAwesome *infoIcon = [FAKFontAwesome infoIconWithSize:50];
+    UIImage *infoImage = [infoIcon imageWithSize:CGSizeMake(50, 50)];
     [self.infoButton setTintColor:color];
     [self.infoButton setImage:infoImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.infoButton];
@@ -110,8 +110,8 @@
 
 - (void)createImageForGlobeButtonWithColor: (UIColor *)color
 {
-    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:30];
-    UIImage *globeImage = [globe imageWithSize:CGSizeMake(30, 30)];
+    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:50];
+    UIImage *globeImage = [globe imageWithSize:CGSizeMake(50, 50)];
     [self.backButton setTintColor:color];
     [self.backButton setImage:globeImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.backButton];

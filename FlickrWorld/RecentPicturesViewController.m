@@ -11,6 +11,8 @@
 #import "FlickrDataStore.h"
 #import "Photo+Methods.h"
 #import "ImageScrollViewController.h"
+#import "UIColor+Pallete.h"
+#import <FontAwesomeKit.h>
 
 
 @interface RecentPicturesViewController ()
@@ -29,9 +31,8 @@
     
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-44, self.view.bounds.size.width, 44)];
-    toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
-    [self.view addSubview:toolbar];
+    [self setupToolbar];
+    
 }
 
 
@@ -54,6 +55,44 @@
     
     [self.collectionView reloadData];
     
+}
+
+
+- (void)setupToolbar
+{
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-44, self.view.bounds.size.width, 44)];
+    toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
+    [toolbar setBarStyle:UIBarStyleBlack];
+    [toolbar setTranslucent:YES];
+//    [toolbar setBackgroundImage:[UIImage new]
+//                  forToolbarPosition:UIBarPositionAny
+//                          barMetrics:UIBarMetricsDefault];
+//    [toolbar setShadowImage:[UIImage new]
+//              forToolbarPosition:UIToolbarPositionAny];
+    [self.view addSubview:toolbar];
+    
+
+    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:50];
+    [globe addAttribute:NSForegroundColorAttributeName value:[UIColor pink]];
+    UIImage *globeImage = [globe imageWithSize:CGSizeMake(50, 50)];
+    
+    CGRect frame = CGRectMake(0, 0, 50, 50);
+    
+    UIButton* button = [[UIButton alloc] initWithFrame:frame];
+
+    [button setImage:globeImage forState:UIControlStateNormal];
+    [button addTarget:self action:@selector(backButtonClicked:) forControlEvents:UIControlEventTouchUpInside];
+
+    UIBarButtonItem *barButton = [[UIBarButtonItem alloc] initWithCustomView:button];
+    
+    [toolbar setItems:@[barButton]];
+}
+
+
+- (IBAction)backButtonClicked:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
+    //NSLog(@"clicked");
 }
 
 

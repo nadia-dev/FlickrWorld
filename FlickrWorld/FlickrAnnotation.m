@@ -37,9 +37,9 @@
     
     UIColor *circleColor = [UIColor pinkTransparent];
     
-    FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:30];
+    FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:40];
     [circle addAttribute:NSForegroundColorAttributeName value:circleColor];
-    UIImage *circleImage = [circle imageWithSize:CGSizeMake(30, 30)];
+    UIImage *circleImage = [circle imageWithSize:CGSizeMake(40, 40)];
     
     annotationView.image = circleImage;
     annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
