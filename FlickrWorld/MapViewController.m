@@ -34,6 +34,7 @@
 @property (strong, nonatomic) NSMutableArray *annotatedPlaces;//prevent from adding one annotation to map more than once
 @property (strong, nonatomic) IBOutlet UIButton *refreshButton;
 
+@property (strong, nonatomic) IBOutlet UIButton *recentButton;
 
 @property (strong, nonatomic) AFHTTPSessionManager *manager;
 
@@ -72,6 +73,16 @@
     [self.refreshButton setTintColor:color];
     [self.refreshButton setImage:refreshImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.refreshButton];
+}
+
+
+- (void)createImageForRecentButtonWithColor: (UIColor *)color
+{
+    FAKFontAwesome *refreshIcon = [FAKFontAwesome clockOIconWithSize:30];
+    UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(30, 30)];
+    [self.recentButton setTintColor:color];
+    [self.recentButton setImage:refreshImage forState:UIControlStateNormal];
+    [self.view bringSubviewToFront:self.recentButton];
 }
 
 
@@ -162,6 +173,8 @@
     [self.spinner stopAnimating];
     
     [self createImageForRefreshButtonWithColor:[UIColor blueOpaque]];
+    
+    [self createImageForRecentButtonWithColor:[UIColor blueOpaque]];
     
     [self.view sendSubviewToBack:self.blackVIew];
 }

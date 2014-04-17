@@ -20,6 +20,17 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qxg-ev-Rv7">
+                                <rect key="frame" x="137" y="269" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="C3q-3F-VUE"/>
+                                    <constraint firstAttribute="width" constant="50" id="Lrp-um-2Wu"/>
+                                </constraints>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vep-UT-hhz">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -59,13 +70,16 @@
                             <constraint firstAttribute="centerY" secondItem="vep-UT-hhz" secondAttribute="centerY" id="bO2-ME-vyU"/>
                             <constraint firstAttribute="trailing" secondItem="vep-UT-hhz" secondAttribute="trailing" id="bVN-S0-eHY"/>
                             <constraint firstItem="FCY-co-OsD" firstAttribute="leading" secondItem="dp4-oQ-9D6" secondAttribute="leading" id="omv-xh-mmD"/>
+                            <constraint firstItem="spp-gV-rDN" firstAttribute="top" secondItem="Qxg-ev-Rv7" secondAttribute="bottom" constant="10" id="sLY-Ib-4rX"/>
                             <constraint firstAttribute="centerX" secondItem="vep-UT-hhz" secondAttribute="centerX" id="saJ-Et-dpe"/>
+                            <constraint firstAttribute="trailing" secondItem="Qxg-ev-Rv7" secondAttribute="trailing" constant="10" id="zV3-hq-tZe"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="G2V-NC-kFc"/>
                     <connections>
                         <outlet property="blackVIew" destination="vep-UT-hhz" id="3aK-MB-3ip"/>
                         <outlet property="mapView" destination="FCY-co-OsD" id="md2-xR-Yje"/>
+                        <outlet property="recentButton" destination="Qxg-ev-Rv7" id="BY9-Wi-3Ay"/>
                         <outlet property="refreshButton" destination="pLe-lY-u8R" id="1RC-g8-Pd2"/>
                         <outlet property="spinner" destination="fE4-8r-Ppi" id="WH3-X9-6Q3"/>
                     </connections>
