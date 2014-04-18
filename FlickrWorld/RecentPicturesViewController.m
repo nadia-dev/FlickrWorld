@@ -33,6 +33,8 @@
     
     [self setupToolbar];
     
+    
+    
 }
 
 
@@ -40,6 +42,8 @@
 
 {
     [super viewWillAppear:animated];
+    
+    //self.collectionView.alwaysBounceVertical = YES;
     
     self.dataStore = [FlickrDataStore sharedDataStore];
 
@@ -60,15 +64,11 @@
 
 - (void)setupToolbar
 {
-    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-44, self.view.bounds.size.width, 44)];
+    UIToolbar *toolbar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, self.view.bounds.size.height-70, self.view.bounds.size.width, 70)];
     toolbar.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleTopMargin;
     [toolbar setBarStyle:UIBarStyleBlack];
     [toolbar setTranslucent:YES];
-//    [toolbar setBackgroundImage:[UIImage new]
-//                  forToolbarPosition:UIBarPositionAny
-//                          barMetrics:UIBarMetricsDefault];
-//    [toolbar setShadowImage:[UIImage new]
-//              forToolbarPosition:UIToolbarPositionAny];
+
     [self.view addSubview:toolbar];
     
 
@@ -76,7 +76,7 @@
     [globe addAttribute:NSForegroundColorAttributeName value:[UIColor pink]];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(50, 50)];
     
-    CGRect frame = CGRectMake(0, 0, 50, 50);
+    CGRect frame = CGRectMake(0, 0, 70, 70);
     
     UIButton* button = [[UIButton alloc] initWithFrame:frame];
 
@@ -91,8 +91,8 @@
 
 - (IBAction)backButtonClicked:(UIButton *)sender
 {
+    //[self dismissViewControllerAnimated:YES completion:nil];
     [self.navigationController popViewControllerAnimated:YES];
-    //NSLog(@"clicked");
 }
 
 
@@ -121,7 +121,7 @@
     
     Photo *photo = [self.photos objectAtIndex:indexPath.row];
     
-    UIImage *thumbnail = [UIImage imageWithData:photo.thumbnailImage];
+    UIImage *thumbnail = [UIImage imageWithData:photo.thumbnail];
     
     if (thumbnail) {
         imageView.image = thumbnail;
@@ -136,6 +136,7 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+
 {
     UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     

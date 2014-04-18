@@ -22,7 +22,7 @@
 @implementation FlickrAPIClient
 
 NSString * const BASE_URL = @"https://api.flickr.com/services/rest";
-NSString * const PARAMS = @"format=json&nojsoncallback=1";
+NSString * const PARAMS = @"extras=geo%2C+owner_name%2C+url_o%2C+url_l%2C+url_t&format=json&nojsoncallback=1";
 
 
 - (AFHTTPSessionManager *)manager
@@ -32,6 +32,7 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     }
     return _manager;
 }
+
 
 //will take id, ownerId and title from here
 - (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock
@@ -48,25 +49,11 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
 }
 
 
-- (void)fetchImagesForPhoto: (Photo *)photo Completion: (void(^)(NSArray *))completionBlock
-{
-    NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.getSizes&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photo.identifier, PARAMS];
-    
-    [self.manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSArray *sizes = responseObject[@"sizes"][@"size"];
-        
-        completionBlock(sizes);
-        
-    } failure:nil]; 
-}
 
-- (void)fetchThumbnailForPhoto: (Photo *)photo FromSizes: (NSArray *)sizes Completion: (void(^)(NSData *))completionBlock
+- (void)fetchThumbnailsForPhoto: (Photo *)photo Completion: (void(^)(NSData *))completionBlock
 {
-    NSString *URLString = [NSString stringWithFormat:@"%@", sizes[2][@"source"]];
+    NSURL *url = [NSURL URLWithString:photo.thumbnailLink];
     
-    NSURL *url = [NSURL URLWithString:URLString];
- 
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
     
     AFHTTPRequestOperation *operation = [[AFHTTPRequestOperation alloc] initWithRequest:request];
@@ -86,36 +73,9 @@ NSString * const PARAMS = @"format=json&nojsoncallback=1";
     }];
     
     [operation start];
-    
 }
 
 
-- (void)fetchPlaceForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock
-{
-    
-    NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.geo.getLocation&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photo.identifier, PARAMS];
-    
-    [self.manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSDictionary *placeDict = responseObject[@"photo"][@"location"];
-        
-        completionBlock(placeDict);
-        
-    } failure:nil];
-}
-
-- (void)fetchPhotographerForPhoto: (Photo *)photo Completion: (void(^)(NSDictionary *))completionBlock
-{
-    NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.photos.getInfo&format=rest&api_key=%@&photo_id=%@&%@", BASE_URL, FlickrAPIKey, photo.identifier, PARAMS];
-    
-    [self.manager GET:URLString parameters:nil success:^(NSURLSessionDataTask *task, id responseObject) {
-        
-        NSDictionary *ownerDict = responseObject[@"photo"][@"owner"];
-        
-        completionBlock(ownerDict);
-        
-    } failure:nil];
-}
 
 
 @end

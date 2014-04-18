@@ -4,29 +4,15 @@
         <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="largeImageLink" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="lastViewed" optional="YES" attributeType="Date" syncable="YES"/>
-        <attribute name="mediumImageLink" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="ownerId" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="thumbnailImage" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <attribute name="latitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longitude" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="master" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="originalImageLink" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="thumbnail" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="thumbnailLink" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="title" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="photographer" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photographer" inverseName="photo" inverseEntity="Photographer" syncable="YES"/>
-        <relationship name="place" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Place" inverseName="photo" inverseEntity="Place" syncable="YES"/>
-    </entity>
-    <entity name="Photographer" representedClassName="Photographer" syncable="YES">
-        <attribute name="identifier" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="photographer" inverseEntity="Photo" syncable="YES"/>
-    </entity>
-    <entity name="Place" representedClassName="Place" syncable="YES">
-        <attribute name="country" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="latutide" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="locality" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="longitude" optional="YES" attributeType="Float" defaultValueString="0.0" syncable="YES"/>
-        <attribute name="region" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="photo" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Photo" inverseName="place" inverseEntity="Photo" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Photo" positionX="0" positionY="0" width="128" height="178"/>
-        <element name="Photographer" positionX="232" positionY="27" width="128" height="88"/>
-        <element name="Place" positionX="160" positionY="192" width="128" height="133"/>
+        <element name="Photo" positionX="0" positionY="0" width="128" height="193"/>
     </elements>
 </model>

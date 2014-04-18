@@ -84,7 +84,7 @@
 
 - (void)putTextToLabel
 {
-    self.infoLabel.text = [NSString stringWithFormat:@"%@\nby: %@", self.photo.title, self.photo.photographer.username];
+    self.infoLabel.text = [NSString stringWithFormat:@"%@\nby: %@", self.photo.title, self.photo.master];
 }
 
 - (IBAction)backButtonPressed:(id)sender
@@ -123,10 +123,10 @@
         
         [self.spinner startAnimating];
         
-        NSURL *urlForLarge = [NSURL URLWithString:self.photo.largeImageLink];
+        NSURL *urlForLarge = [NSURL URLWithString:self.photo.originalImageLink];
         NSURLRequest *requestForLarge = [NSURLRequest requestWithURL:urlForLarge];
         
-        NSURL *urlForMedium = [NSURL URLWithString:self.photo.mediumImageLink];
+        NSURL *urlForMedium = [NSURL URLWithString:self.photo.largeImageLink];
         NSURLRequest *requestForMedium = [NSURLRequest requestWithURL:urlForMedium];
         
         [self.imageView setImageWithURLRequest:requestForMedium
@@ -217,8 +217,7 @@
     if (minZoom > 1) minZoom = 1;
     
     self.scrollView.minimumZoomScale = minZoom;
-    
-    
+        
     self.scrollView.zoomScale = minZoom;
 }
 

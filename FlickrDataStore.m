@@ -92,10 +92,8 @@
 
 #pragma mark - Photos, Places, Photographers added to CD
 
-//put Photo with id, ownerId and title into CD
 - (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock
 {
-    //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
     
     [self.apiClient fetchInterestingPhotosWithCompletion:^(NSArray *photoDictionaries) {
         
@@ -113,120 +111,56 @@
 }
 
 
-- (void)addPlaceToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Place *))completionBlock
+- (void)addThumbnailForPhoto: (Photo *)photo WithCompletion: (void (^)())completionBlock
 {
-    //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
-    
-    
-    [self.apiClient fetchPlaceForPhoto:photo Completion:^(NSDictionary *placeDict) {
+    [self.apiClient fetchThumbnailsForPhoto:photo Completion:^(NSData *imageData) {
         
-        Place *placeForPhoto = [Place getPlaceFromPlaceDict:placeDict inManagedObjectContext:self.managedObjectContext];
+        photo.thumbnail = imageData;
         
-        completionBlock(placeForPhoto);
+        completionBlock();
         
     }];
 }
 
-- (void)addPhotographerToCoreDataForPhoto: (Photo *)photo Completion: (void (^)(Photographer *))completionBlock
+
+- (void)fetchDataWithCompletion:(void (^)(BOOL))completionBlock
 {
-    //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
-    
-    [self.apiClient fetchPhotographerForPhoto:photo Completion:^(NSDictionary *ownerDict) {
-        Photographer *photographer = [Photographer getPhotographerFromDict:ownerDict inManagedObjectContext:self.managedObjectContext];
-        
-        completionBlock(photographer);
-    }];
-}
-
-#pragma mark - Network call and Core Data
-
--(void)fetchDataWithCompletion: (void(^)(BOOL))completionBlock
-
-{
-    //[self cleanCoreData];
-    
-    //FlickrAPIClient *apiCient = [[FlickrAPIClient alloc]init];
-    
     [self populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
         
-        NSInteger photoCount = 0;
+        NSInteger counter = 0;
         
         for (Photo *photo in photos) {
             
-            photoCount++;
+            NSLog(@"link: %@, thumbnail: %@, geo: %@", photo.largeImageLink, photo.thumbnailLink, photo.latitude);
             
-            [self addPhotographerToCoreDataForPhoto:photo Completion:^(Photographer *photographer) {
-                
-                photographer.photo = photo;
-            }];
-
-            [self addPlaceToCoreDataForPhoto:photo Completion:^(Place *placeForPhoto) {
-                
-                placeForPhoto.photo = photo;
-            }];
+            counter++;
             
-            [self.apiClient fetchImagesForPhoto:photo Completion:^(NSArray *sizes) {
+            if (photo.largeImageLink && photo.thumbnailLink && photo.latitude) {
                 
-                photo.largeImageLink = [sizes lastObject][@"source"];
-                photo.mediumImageLink = sizes[[sizes count]-2][@"source"];//object before last one
+                NSLog(@"photo added to context");
                 
-                [self.apiClient fetchThumbnailForPhoto:photo FromSizes:sizes Completion:^(NSData *thumbnailData) {
+                [self addThumbnailForPhoto:photo WithCompletion:^{
                     
-                    photo.thumbnailImage = thumbnailData;
+                    BOOL isDone = NO;
                     
-                    //NSLog(@"done fetching");
-                    
-                    BOOL isLast = NO;
-                    
-                    self.doneFetch = NO;
-                    
-                    if (photoCount == [photos count]) {
+                    if (counter == [photos count]) {
                         
-                        isLast = YES;
+                        isDone = YES;
                         
-                        self.doneFetch = YES;
+                        completionBlock(isDone);
                     }
-                
-                    [self saveContext];
-                    
-                    completionBlock(isLast);
-                    //make it with bool to check if it is a last obj in photos - compare it with photos count
                 }];
+            
+            } else {
                 
-            }];
+                [self.managedObjectContext deleteObject:photo];
+            }
         }
+        
     }];
-    
 }
 
-//- (void) cleanCoreData
-//{
-//    NSFetchRequest *fetchPhoto = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
-//    NSArray *photos = [self.managedObjectContext executeFetchRequest:fetchPhoto error:nil];
-//    
-//    NSFetchRequest *fetchPlace = [[NSFetchRequest alloc]initWithEntityName:@"Place"];
-//    NSArray *places = [self.managedObjectContext executeFetchRequest:fetchPlace error:nil];
-//    
-//    NSFetchRequest *fetchPhotographer = [[NSFetchRequest alloc]initWithEntityName:@"Photographer"];
-//    NSArray *photographers = [self.managedObjectContext executeFetchRequest:fetchPhotographer error:nil];
-//    
-//    for (Place *place in places) {
-//        [self.managedObjectContext deleteObject:place];
-//        //[self saveContext];
-//    }
-//    
-//    for (Photographer *ph in photographers) {
-//        [self.managedObjectContext deleteObject:ph];
-//        //[self saveContext];
-//    }
-//    
-//    for (Photo *photo in photos) {
-//        [self.managedObjectContext deleteObject:photo];
-//        //[self saveContext];
-//    }
-//    
-//    
-//}
+
 
 #pragma mark - Core Data stack
 

@@ -8,7 +8,6 @@
 
 #import "MapViewController.h"
 #import "FlickrDataStore.h"
-#import "Place+Methods.h"
 #import "FlickrAnnotation.h"
 #import "ImageScrollViewController.h"
 #import <FontAwesomeKit.h>
@@ -68,7 +67,8 @@
 
 - (void)createImageForRefreshButtonWithColor: (UIColor *)color
 {
-    FAKFontAwesome *refreshIcon = [FAKFontAwesome refreshIconWithSize:50];
+    FAKIonIcons *refreshIcon = [FAKIonIcons ios7ReloadIconWithSize:50];
+    //FAKFontAwesome *refreshIcon = [FAKFontAwesome refreshIconWithSize:50];
     UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(50, 50)];
     [self.refreshButton setTintColor:color];
     [self.refreshButton setImage:refreshImage forState:UIControlStateNormal];
@@ -78,7 +78,8 @@
 
 - (void)createImageForRecentButtonWithColor: (UIColor *)color
 {
-    FAKFontAwesome *refreshIcon = [FAKFontAwesome clockOIconWithSize:50];
+    FAKIonIcons *refreshIcon = [FAKIonIcons ios7ClockOutlineIconWithSize:50];
+    //FAKFontAwesome *refreshIcon = [FAKFontAwesome clockOIconWithSize:50];
     UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(50, 50)];
     [self.recentButton setTintColor:color];
     [self.recentButton setImage:refreshImage forState:UIControlStateNormal];
@@ -98,14 +99,16 @@
 
 - (void)cleanPlacesFromCoreData
 {
-    //uniqness check
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
-    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    for (Place *place in places) {
-        [self.dataStore.managedObjectContext deleteObject:place];
-    }
-    [self.dataStore saveContext];
+//    //uniqness check
+//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
+//    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+//    for (Place *place in places) {
+//        [self.dataStore.managedObjectContext deleteObject:place];
+//    }
+//    [self.dataStore saveContext];
 }
+
+
 
 
 - (void)viewDidLoad
@@ -113,6 +116,7 @@
     [super viewDidLoad];
     
     self.manager = [AFHTTPSessionManager manager];
+    
     
     self.dataStore = [FlickrDataStore sharedDataStore];
     
@@ -138,6 +142,7 @@
     
     [self.refreshButton setEnabled:NO];
     
+    
     [self.dataStore fetchDataWithCompletion:^(BOOL isLast) {
         
         [self fetchAndShowPlaces];
@@ -145,28 +150,32 @@
         if (isLast) {
             
             [self.refreshButton setEnabled:YES];
+            
+            //[self.dataStore saveContext];
         }
     }];
 }
 
-- (void)applicationEnteredForeground:(NSNotification *)notification {
-    
-    //[self.dataStore cleanCoreData];
-    
-    [self.mapView removeAnnotations:self.mapView.annotations];
-    
-    [self.refreshButton setEnabled:NO];
-    
-    [self.dataStore fetchDataWithCompletion:^(BOOL isLast) {
-        
-        [self fetchAndShowPlaces];
-        
-        if (isLast) {
-            
-            [self.refreshButton setEnabled:YES];
-        }
-    }];
-}
+//- (void)applicationEnteredForeground:(NSNotification *)notification {
+//    
+//    //[self.dataStore cleanCoreData];
+//    
+//    [self.mapView removeAnnotations:self.mapView.annotations];
+//    
+//    [self.refreshButton setEnabled:NO];
+//    
+//    [self.dataStore fetchDataWithCompletion:^(BOOL isDone) {
+//        
+//        [self fetchAndShowPlaces];
+//        
+//        if (isDone) {
+//            
+//            [self.refreshButton setEnabled:YES];
+//            
+//        }
+//    }];
+//    
+//}
 
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
 {
@@ -209,47 +218,43 @@
 {
     //fetching from Core Data to populate the map view with annotations
     
-    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
-    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
+    NSArray *photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     //NSMutableArray *annots = [[NSMutableArray alloc]init];
     
-    for (Place *place in places) {
+    NSLog(@"Photos is core data: %d", [photos count]);
+    
+    for (Photo *photo in photos) {
         
-        if (place.photo.mediumImageLink) { //in there will be broken link
+        if (photo.largeImageLink) { //in there will be broken link
         
-            if (![self.annotatedPlaces containsObject:place]) {
+            if (![self.annotatedPlaces containsObject:photo]) {
             
-                [self.annotatedPlaces addObject:place];
+                [self.annotatedPlaces addObject:photo];
                 
                 CLLocationCoordinate2D placeCoordinate;
-                placeCoordinate.latitude = [place.latutide floatValue];
-                placeCoordinate.longitude = [place.longitude floatValue];
+                placeCoordinate.latitude = [photo.latitude floatValue];
+                placeCoordinate.longitude = [photo.longitude floatValue];
                 
-                NSString *annotationTitle = [self createAnnotationTitle:place];
+                NSString *annotationTitle = [self createAnnotationTitle:photo];
                 
-                FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:place.photo];
+                FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:photo];
 
                 [self.mapView addAnnotation:annotation];
             }
         }
     }
     
-    NSLog(@"Places: %d, annotations: %d", [places count], [self.mapView.annotations count]);
+    //NSLog(@"Places: %d, annotations: %d", [places count], [self.mapView.annotations count]);
 }
 
 
 
 #pragma mark - Change Annotation Methods
 
-- (NSString *)createAnnotationTitle: (Place *)place
+- (NSString *)createAnnotationTitle: (Photo *)photo
 {
-    if (place.locality) {
-        return place.locality;
-    } else if (place.region) {
-        return place.region;
-    } else {
-        return place.country;
-    }
+    return @"title";
 }
 
 

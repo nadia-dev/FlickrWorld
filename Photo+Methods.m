@@ -16,12 +16,9 @@
 }
 
 
-
-//get id, title and ownerId for the photo
 + (Photo *)getPhotoFromPhotoDict: (NSDictionary *)photoDict inManagedObjectContext: (NSManagedObjectContext *)context
 
 {
-    //uniqness check
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
     NSString *searchID = photoDict[@"id"];
     
@@ -37,8 +34,12 @@
         
         newPhoto.identifier = [NSString stringWithFormat:@"%@", photoDict[@"id"]];
         newPhoto.title = photoDict[@"title"];
-        newPhoto.ownerId = [NSString stringWithFormat:@"%@", photoDict[@"owner"]];
-//        newPhoto.lastViewed = [NSDate date];
+        newPhoto.largeImageLink = photoDict[@"url_l"];
+        newPhoto.originalImageLink = photoDict[@"url_o"];
+        newPhoto.thumbnailLink = photoDict[@"url_t"];
+        newPhoto.latitude = [NSString stringWithFormat:@"%@", photoDict[@"latitude"]];
+        newPhoto.longitude = [NSString stringWithFormat:@"%@", photoDict[@"latitude"]];
+        newPhoto.master = photoDict[@"ownername"];
         
         return newPhoto;
         
@@ -49,10 +50,7 @@
 }
 
 
-+ (void)getImagesFromSizes: (NSArray *)sizes
-{
-    
-}
+
 
 
 
