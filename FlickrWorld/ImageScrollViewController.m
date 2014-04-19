@@ -100,7 +100,9 @@
 
 - (void)createImageForInfoButtonWithColor: (UIColor *)color
 {
-    FAKFontAwesome *infoIcon = [FAKFontAwesome infoIconWithSize:50];
+    
+    FAKIonIcons *infoIcon = [FAKIonIcons ios7InformationOutlineIconWithSize:50];
+    //FAKFontAwesome *infoIcon = [FAKFontAwesome infoIconWithSize:50];
     UIImage *infoImage = [infoIcon imageWithSize:CGSizeMake(50, 50)];
     [self.infoButton setTintColor:color];
     [self.infoButton setImage:infoImage forState:UIControlStateNormal];
@@ -110,7 +112,8 @@
 
 - (void)createImageForGlobeButtonWithColor: (UIColor *)color
 {
-    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:50];
+    FAKIonIcons *globe = [FAKIonIcons ios7WorldOutlineIconWithSize:50];
+    //FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:50];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(50, 50)];
     [self.backButton setTintColor:color];
     [self.backButton setImage:globeImage forState:UIControlStateNormal];
