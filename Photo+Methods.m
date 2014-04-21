@@ -38,7 +38,7 @@
         newPhoto.originalImageLink = photoDict[@"url_o"];
         newPhoto.thumbnailLink = photoDict[@"url_t"];
         newPhoto.latitude = [NSString stringWithFormat:@"%@", photoDict[@"latitude"]];
-        newPhoto.longitude = [NSString stringWithFormat:@"%@", photoDict[@"latitude"]];
+        newPhoto.longitude = [NSString stringWithFormat:@"%@", photoDict[@"longitude"]];
         newPhoto.master = photoDict[@"ownername"];
         
         return newPhoto;
