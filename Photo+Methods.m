@@ -29,7 +29,7 @@
     
     
     if ([photos count] == 0) {//if photo not in context
-    
+        
         Photo *newPhoto = [NSEntityDescription insertNewObjectForEntityForName:@"Photo" inManagedObjectContext:context];
         
         newPhoto.identifier = [NSString stringWithFormat:@"%@", photoDict[@"id"]];
@@ -47,6 +47,7 @@
         
         return photos[0];
     }
+    
 }
 
 

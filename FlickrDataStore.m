@@ -103,7 +103,15 @@
             
             Photo *newPhoto = [Photo getPhotoFromPhotoDict:photoDict inManagedObjectContext:self.managedObjectContext];
             
-            [photos addObject:newPhoto];
+            if (![newPhoto.latitude isEqualToString:@"0"]) {
+                
+                [photos addObject:newPhoto];
+                
+            } else {
+                
+                [self.managedObjectContext deleteObject:newPhoto];
+            }
+            
         }
         
         completionBlock(photos);
@@ -127,34 +135,33 @@
 {
     [self populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
         
+        //NSLog(@"inital: %d", [photos count]);
+        
         NSInteger counter = 0;
         
         for (Photo *photo in photos) {
             
-            NSLog(@"link: %@, thumbnail: %@, geo: %@", photo.largeImageLink, photo.thumbnailLink, photo.latitude);
+            //NSLog(@"link: %@, thumbnail: %@, geo: %@", photo.largeImageLink, photo.thumbnailLink, photo.latitude);
             
             counter++;
+                
+            NSLog(@"photo added to context");
             
-            if (photo.largeImageLink && photo.thumbnailLink && photo.latitude) {
+            [self addThumbnailForPhoto:photo WithCompletion:^{
                 
-                NSLog(@"photo added to context");
+                BOOL isDone = NO;
                 
-                [self addThumbnailForPhoto:photo WithCompletion:^{
+                NSLog(@"counter: %d", counter);
+                NSLog(@"count %d", [photos count]);
+                
+                if (counter == [photos count]) {
                     
-                    BOOL isDone = NO;
+                    isDone = YES;
                     
-                    if (counter == [photos count]) {
-                        
-                        isDone = YES;
-                        
-                        completionBlock(isDone);
-                    }
-                }];
+                    completionBlock(isDone);
+                }
+            }];
             
-            } else {
-                
-                [self.managedObjectContext deleteObject:photo];
-            }
         }
         
     }];
