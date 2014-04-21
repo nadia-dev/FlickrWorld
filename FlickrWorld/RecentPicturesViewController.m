@@ -72,7 +72,7 @@
     [self.view addSubview:toolbar];
     
 
-    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:50];
+    FAKIonIcons *globe = [FAKIonIcons ios7WorldOutlineIconWithSize:50];
     [globe addAttribute:NSForegroundColorAttributeName value:[UIColor pink]];
     UIImage *globeImage = [globe imageWithSize:CGSizeMake(50, 50)];
     

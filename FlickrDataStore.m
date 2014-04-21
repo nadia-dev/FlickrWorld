@@ -135,24 +135,15 @@
 {
     [self populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
         
-        //NSLog(@"inital: %d", [photos count]);
-        
         NSInteger counter = 0;
         
         for (Photo *photo in photos) {
             
-            //NSLog(@"link: %@, thumbnail: %@, geo: %@", photo.largeImageLink, photo.thumbnailLink, photo.latitude);
-            
             counter++;
-                
-            NSLog(@"photo added to context");
             
             [self addThumbnailForPhoto:photo WithCompletion:^{
                 
                 BOOL isDone = NO;
-                
-                NSLog(@"counter: %d", counter);
-                NSLog(@"count %d", [photos count]);
                 
                 if (counter == [photos count]) {
                     

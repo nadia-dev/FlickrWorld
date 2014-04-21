@@ -122,10 +122,10 @@
     
     [self.dataStore cleanCoreData];
     
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(applicationEnteredForeground:)
-                                                 name:UIApplicationWillEnterForegroundNotification
-                                               object:nil];
+//    [[NSNotificationCenter defaultCenter] addObserver:self
+//                                             selector:@selector(applicationEnteredForeground:)
+//                                                 name:UIApplicationWillEnterForegroundNotification
+//                                               object:nil];
     
     self.annotatedPlaces = [[NSMutableArray alloc]init];
 
@@ -222,30 +222,26 @@
     NSArray *photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
     //NSMutableArray *annots = [[NSMutableArray alloc]init];
     
-    NSLog(@"Photos is core data: %d", [photos count]);
+    //NSLog(@"Photos is core data: %d", [photos count]);
     
     for (Photo *photo in photos) {
         
         if (photo.largeImageLink) { //in there will be broken link
-        
-            if (![self.annotatedPlaces containsObject:photo]) {
             
-                [self.annotatedPlaces addObject:photo];
-                
-                CLLocationCoordinate2D placeCoordinate;
-                placeCoordinate.latitude = [photo.latitude floatValue];
-                placeCoordinate.longitude = [photo.longitude floatValue];
-                
-                NSString *annotationTitle = [self createAnnotationTitle:photo];
-                
-                FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:photo];
+            [self.annotatedPlaces addObject:photo];
+            
+            CLLocationCoordinate2D placeCoordinate;
+            placeCoordinate.latitude = [photo.latitude floatValue];
+            placeCoordinate.longitude = [photo.longitude floatValue];
+            
+            NSString *annotationTitle = [self createAnnotationTitle:photo];
+            
+            FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:photo];
 
-                [self.mapView addAnnotation:annotation];
-            }
+            [self.mapView addAnnotation:annotation];
         }
     }
-    
-    //NSLog(@"Places: %d, annotations: %d", [places count], [self.mapView.annotations count]);
+
 }
 
 
@@ -266,12 +262,10 @@
     [circle addAttribute:NSForegroundColorAttributeName value:circleColor];
     UIImage *circleImage = [circle imageWithSize:CGSizeMake(40, 40)];
     
-    
     for (FlickrAnnotation *selectedAnotation in self.dataStore.selectedAnnotations) {
         
         MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
-        
-//        selectedAnnotationView.image = nil;
+
         selectedAnnotationView.image = circleImage;
     }
 }
