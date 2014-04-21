@@ -45,7 +45,15 @@
 
 - (IBAction)refreshButtonPressed:(id)sender {
     
-    [self.mapView removeAnnotations:self.mapView.annotations];
+    for (FlickrAnnotation *annotation in self.mapView.annotations) {
+        
+        if (![self.dataStore.selectedAnnotations containsObject:annotation]) {
+            
+            [self.mapView removeAnnotation:annotation];
+        }
+    }
+    
+    //[self.mapView removeAnnotations:self.mapView.annotations];
     
     [self cleanPlacesFromCoreData];
     
