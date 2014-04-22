@@ -33,13 +33,16 @@ PODS:
     - FontAwesomeKit/Core
   - FontAwesomeKit/Zocial (2.1.5):
     - FontAwesomeKit/Core
+  - JPSThumbnailAnnotation (1.0.0)
 
 DEPENDENCIES:
   - AFNetworking (~> 2.0)
   - FontAwesomeKit (~> 2.1.0)
+  - JPSThumbnailAnnotation
 
 SPEC CHECKSUMS:
   AFNetworking: ae513199cca79e9d7af2708ccabe2ed075550c42
   FontAwesomeKit: 7d935e100337d503bdaefde2ea16be740b81ed13
+  JPSThumbnailAnnotation: 7782dda03d1b2d247fe815634b8c5819794b325d
 
 COCOAPODS: 0.32.1

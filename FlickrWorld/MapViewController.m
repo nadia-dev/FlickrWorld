@@ -15,6 +15,7 @@
 #import "FlickrAPIClient.h"
 #import <AFNetworking.h>
 #import "AppDelegate.h"
+#import "JPSThumbnailAnnotation.h"
 
 
 
@@ -213,8 +214,9 @@
             NSString *annotationTitle = [self createAnnotationTitle:photo];
             
             FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:photo];
-            
+
             [self.mapView addAnnotation:annotation];
+            
         }
         
     }
@@ -227,7 +229,7 @@
 
 - (NSString *)createAnnotationTitle: (Photo *)photo
 {
-    return @" ";
+    return photo.title;
 }
 
 
@@ -255,7 +257,7 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    
+   
     if ([annotation isKindOfClass:[FlickrAnnotation class]]) {
         
         FlickrAnnotation *myLocation = (FlickrAnnotation *)annotation;
@@ -278,6 +280,9 @@
         return nil;
     }
 }
+
+
+
 
 
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control

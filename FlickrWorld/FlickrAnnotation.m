@@ -45,7 +45,7 @@
     UIImage *photoImage = [UIImage imageWithData:self.photo.thumbnail];
     
     UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
-    [imageButton setFrame:CGRectMake(0, 0, 50, 50)];
+    [imageButton setFrame:CGRectMake(0, 0, 40, 40)];
     [imageButton setImage:photoImage forState:UIControlStateNormal];
         
     annotationView.rightCalloutAccessoryView = imageButton;
