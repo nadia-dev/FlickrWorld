@@ -22,7 +22,7 @@
         if (title) {
             _title = title;
         } else {
-            _title = @"no title";
+            _title = @"";
         }
         _coordinate = location;
     }
@@ -42,7 +42,16 @@
     UIImage *circleImage = [circle imageWithSize:CGSizeMake(40, 40)];
     
     annotationView.image = circleImage;
-    annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    //annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    
+    
+    UIImage *photoImage = [UIImage imageWithData:self.photo.thumbnail];
+    
+    
+    UIImageView *imageView = [[UIImageView alloc]initWithImage:photoImage];
+    imageView.contentMode = UIViewContentModeScaleToFill;
+    
+    annotationView.rightCalloutAccessoryView = imageView;
 
     return annotationView;
 }
