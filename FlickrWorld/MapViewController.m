@@ -53,7 +53,7 @@
         }
     }
     
-    //[self.mapView removeAnnotations:self.mapView.annotations];
+    [self.mapView removeAnnotations:self.mapView.annotations];
     
     [self cleanPlacesFromCoreData];
     
@@ -144,7 +144,7 @@
     
     [self.spinner startAnimating];
     
-    [self createTabBarItems];
+    //[self createTabBarItems];
     
     [self createMapRegion];
     
@@ -233,7 +233,7 @@
     //NSLog(@"Photos is core data: %d", [photos count]);
     
     for (Photo *photo in photos) {
-        
+            
         if (photo.largeImageLink) { //in there will be broken link
             
             [self.annotatedPlaces addObject:photo];
@@ -245,9 +245,10 @@
             NSString *annotationTitle = [self createAnnotationTitle:photo];
             
             FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:photo];
-
+            
             [self.mapView addAnnotation:annotation];
         }
+        
     }
 
 }
@@ -311,6 +312,8 @@
 {
     
     FlickrAnnotation *annotation = view.annotation;
+    
+    [self.dataStore.watchedPhotos addObject:annotation.photo];
 
     [self.dataStore.selectedAnnotations addObject:annotation];
     

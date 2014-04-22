@@ -20,6 +20,8 @@
 
 @property (strong, nonatomic) NSMutableArray *selectedAnnotations;
 
+@property (strong, nonatomic) NSMutableArray *watchedPhotos;
+
 @property (strong, nonatomic) FlickrAPIClient *apiClient;
 
 @property (nonatomic) BOOL doneFetch;
