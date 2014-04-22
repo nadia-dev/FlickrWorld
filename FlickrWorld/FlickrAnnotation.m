@@ -42,17 +42,15 @@
     UIImage *circleImage = [circle imageWithSize:CGSizeMake(40, 40)];
     
     annotationView.image = circleImage;
-    //annotationView.rightCalloutAccessoryView = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
-    
-    
     UIImage *photoImage = [UIImage imageWithData:self.photo.thumbnail];
     
+    UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
+    [imageButton setFrame:CGRectMake(0, 0, 50, 50)];
+    [imageButton setImage:photoImage forState:UIControlStateNormal];
     
-    UIImageView *imageView = [[UIImageView alloc]initWithImage:photoImage];
-    imageView.contentMode = UIViewContentModeScaleToFill;
     
-    annotationView.rightCalloutAccessoryView = imageView;
-
+    annotationView.rightCalloutAccessoryView = imageButton;
+   
     return annotationView;
 }
 

@@ -227,7 +227,7 @@
 
 - (NSString *)createAnnotationTitle: (Photo *)photo
 {
-    return @"t";
+    return @" ";
 }
 
 
@@ -277,11 +277,6 @@
         
         return nil;
     }
-}
-
-- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
-{
-
 }
 
 
