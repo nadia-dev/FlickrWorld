@@ -45,17 +45,26 @@
 
 - (IBAction)refreshButtonPressed:(id)sender {
     
-    for (FlickrAnnotation *annotation in self.mapView.annotations) {
+    UIColor *circleColor = [UIColor pinkTransparent];
+    
+    FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:40];
+    [circle addAttribute:NSForegroundColorAttributeName value:circleColor];
+    UIImage *circleImage = [circle imageWithSize:CGSizeMake(40, 40)];
+    
+    for (FlickrAnnotation *selectedAnotation in self.dataStore.selectedAnnotations) {
         
-        if (![self.dataStore.selectedAnnotations containsObject:annotation]) {
-            
-            [self.mapView removeAnnotation:annotation];
-        }
+        [self.dataStore.watchedPhotos addObject:selectedAnotation.photo];
+        
+        NSLog(@"photo on selection: %@", selectedAnotation.photo);
+        
+        MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
+        
+        selectedAnnotationView.image = circleImage;
     }
+
+        
     
     [self.mapView removeAnnotations:self.mapView.annotations];
-    
-    [self cleanPlacesFromCoreData];
     
     //[self.dataStore cleanCoreData];//make it partial? and clean when goes to background
     
@@ -76,7 +85,7 @@
 - (void)createImageForRefreshButtonWithColor: (UIColor *)color
 {
     FAKIonIcons *refreshIcon = [FAKIonIcons ios7ReloadIconWithSize:50];
-    //FAKFontAwesome *refreshIcon = [FAKFontAwesome refreshIconWithSize:50];
+    
     UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(50, 50)];
     [self.refreshButton setTintColor:color];
     [self.refreshButton setImage:refreshImage forState:UIControlStateNormal];
@@ -87,7 +96,7 @@
 - (void)createImageForRecentButtonWithColor: (UIColor *)color
 {
     FAKIonIcons *refreshIcon = [FAKIonIcons ios7ClockOutlineIconWithSize:50];
-    //FAKFontAwesome *refreshIcon = [FAKFontAwesome clockOIconWithSize:50];
+    
     UIImage *refreshImage = [refreshIcon imageWithSize:CGSizeMake(50, 50)];
     [self.recentButton setTintColor:color];
     [self.recentButton setImage:refreshImage forState:UIControlStateNormal];
@@ -100,23 +109,8 @@
     [super viewWillAppear:animated];
 
     [self changeColorForSelectedAnnotation];
-    
-    
+ 
 }
-
-
-- (void)cleanPlacesFromCoreData
-{
-//    //uniqness check
-//    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Place"];
-//    NSArray *places = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-//    for (Place *place in places) {
-//        [self.dataStore.managedObjectContext deleteObject:place];
-//    }
-//    [self.dataStore saveContext];
-}
-
-
 
 
 - (void)viewDidLoad
@@ -124,8 +118,7 @@
     [super viewDidLoad];
     
     self.manager = [AFHTTPSessionManager manager];
-    
-    
+ 
     self.dataStore = [FlickrDataStore sharedDataStore];
     
     [self.dataStore cleanCoreData];
@@ -144,12 +137,9 @@
     
     [self.spinner startAnimating];
     
-    //[self createTabBarItems];
-    
     [self createMapRegion];
     
     [self.refreshButton setEnabled:NO];
-    
     
     [self.dataStore fetchDataWithCompletion:^(BOOL isLast) {
         
@@ -201,23 +191,6 @@
 {
     MKCoordinateRegion region = MKCoordinateRegionMake(self.mapView.centerCoordinate, MKCoordinateSpanMake(180, 360));
     [self.mapView setRegion:region animated:YES];
-}
-
-
-- (void)createTabBarItems
-{
-    FAKFontAwesome *globe = [FAKFontAwesome globeIconWithSize:20];
-    UIImage *globeImage = [globe imageWithSize:CGSizeMake(20, 20)];
-    
-    FAKFontAwesome *repeat = [FAKFontAwesome clockOIconWithSize:20];
-    UIImage *repeatImage = [repeat imageWithSize:CGSizeMake(20, 20)];
-    
-    UITabBarItem *world =  self.navigationController.tabBarController.tabBar.items[0];
-    world.image = globeImage;
-    world.title = @"World";
-    UITabBarItem *recent =  self.navigationController.tabBarController.tabBar.items[1];
-    recent.image = repeatImage;
-    recent.title = @"Recent";
 }
 
 
@@ -273,6 +246,10 @@
     
     for (FlickrAnnotation *selectedAnotation in self.dataStore.selectedAnnotations) {
         
+        [self.dataStore.watchedPhotos addObject:selectedAnotation.photo];
+        
+        NSLog(@"photo on selection: %@", selectedAnotation.photo);
+        
         MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
 
         selectedAnnotationView.image = circleImage;
@@ -313,7 +290,7 @@
     
     FlickrAnnotation *annotation = view.annotation;
     
-    [self.dataStore.watchedPhotos addObject:annotation.photo];
+    //[self.dataStore.watchedPhotos addObject:annotation.photo];
 
     [self.dataStore.selectedAnnotations addObject:annotation];
     
