@@ -53,16 +53,11 @@
     
     for (FlickrAnnotation *selectedAnotation in self.dataStore.selectedAnnotations) {
         
-        [self.dataStore.watchedPhotos addObject:selectedAnotation.photo];
-        
-        NSLog(@"photo on selection: %@", selectedAnotation.photo);
-        
         MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
         
         selectedAnnotationView.image = circleImage;
     }
 
-        
     
     [self.mapView removeAnnotations:self.mapView.annotations];
     
@@ -282,6 +277,11 @@
         
         return nil;
     }
+}
+
+- (void)mapView:(MKMapView *)mapView didSelectAnnotationView:(MKAnnotationView *)view
+{
+    
 }
 
 

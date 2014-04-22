@@ -111,7 +111,7 @@
     
     UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake(0,0,100,100)];
     
-    imageView.backgroundColor = [UIColor blackColor];
+    imageView.backgroundColor = [UIColor whiteColor];
     
     imageView.contentMode = UIViewContentModeScaleAspectFit;
     
