@@ -125,7 +125,7 @@
 - (void)createImageForActionButtonWithColor: (UIColor *)color
 {
     
-    FAKIonIcons *actionIcon = [FAKIonIcons ios7PaperplaneOutlineIconWithSize:50];
+    FAKIonIcons *actionIcon = [FAKIonIcons ios7EmailOutlineIconWithSize:50];
     //FAKFontAwesome *infoIcon = [FAKFontAwesome infoIconWithSize:50];
     UIImage *infoImage = [actionIcon imageWithSize:CGSizeMake(50, 50)];
     [self.actionButton setTintColor:color];
@@ -253,7 +253,7 @@
     return self.imageView;
 }
 
-
+#pragma mark - Sharing methods
 -(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     switch (buttonIndex) {
