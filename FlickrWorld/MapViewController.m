@@ -119,11 +119,6 @@
     
     [self.dataStore cleanCoreData];
     
-//    [[NSNotificationCenter defaultCenter] addObserver:self
-//                                             selector:@selector(applicationEnteredForeground:)
-//                                                 name:UIApplicationWillEnterForegroundNotification
-//                                               object:nil];
-    
     self.annotatedPlaces = [[NSMutableArray alloc]init];
 
     [self.view bringSubviewToFront:self.blackVIew];
@@ -145,31 +140,11 @@
             
             [self.refreshButton setEnabled:YES];
             
-            //[self.dataStore saveContext];
+            [self.dataStore saveContext];
         }
     }];
 }
 
-//- (void)applicationEnteredForeground:(NSNotification *)notification {
-//    
-//    //[self.dataStore cleanCoreData];
-//    
-//    [self.mapView removeAnnotations:self.mapView.annotations];
-//    
-//    [self.refreshButton setEnabled:NO];
-//    
-//    [self.dataStore fetchDataWithCompletion:^(BOOL isDone) {
-//        
-//        [self fetchAndShowPlaces];
-//        
-//        if (isDone) {
-//            
-//            [self.refreshButton setEnabled:YES];
-//            
-//        }
-//    }];
-//    
-//}
 
 - (void)mapViewDidFinishRenderingMap:(MKMapView *)mapView fullyRendered:(BOOL)fullyRendered
 {
@@ -245,7 +220,7 @@
         
         [self.dataStore.watchedPhotos addObject:selectedAnotation.photo];
         
-        NSLog(@"photo on selection: %@", selectedAnotation.photo);
+        //NSLog(@"photo on selection: %@", selectedAnotation.photo);
         
         MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
 

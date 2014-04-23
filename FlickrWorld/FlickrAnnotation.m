@@ -22,7 +22,7 @@
         if (title) {
             _title = title;
         } else {
-            _title = @"";
+            _title = @" ";
         }
         _coordinate = location;
     }
@@ -49,8 +49,7 @@
     [imageButton setImage:photoImage forState:UIControlStateNormal];
         
     annotationView.rightCalloutAccessoryView = imageButton;
-    
-   
+       
     return annotationView;
 }
 

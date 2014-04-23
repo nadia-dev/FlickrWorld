@@ -149,6 +149,16 @@
                                     <action selector="backButtonPressed:" destination="9Yy-yv-Qlm" eventType="touchUpInside" id="QMl-dO-qmL"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b95-7z-9xb">
+                                <rect key="frame" x="254" y="40" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="actionButtonPressed:" destination="9Yy-yv-Qlm" eventType="touchUpInside" id="vBE-pL-iZe"/>
+                                </connections>
+                            </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="MoH-O1-eU8">
                                 <rect key="frame" x="141" y="266" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -173,12 +183,14 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="top" secondItem="sH5-nx-VSJ" secondAttribute="top" id="0dU-y6-dhe"/>
+                            <constraint firstAttribute="trailing" secondItem="b95-7z-9xb" secondAttribute="trailing" constant="10" id="5cf-dI-TvB"/>
                             <constraint firstAttribute="centerY" secondItem="MoH-O1-eU8" secondAttribute="centerY" constant="-0.5" id="7xO-9U-xhb"/>
                             <constraint firstAttribute="centerX" secondItem="MoH-O1-eU8" secondAttribute="centerX" constant="0.5" id="DK2-Ne-XIt"/>
                             <constraint firstItem="Sn1-Zv-jNv" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" constant="10" id="Ihg-Ss-6fU"/>
                             <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="Sn1-Zv-jNv" secondAttribute="bottom" constant="20" id="K0t-Jn-UGt"/>
                             <constraint firstAttribute="bottom" secondItem="AWH-Mj-LF1" secondAttribute="bottom" id="KFo-3F-v5z"/>
                             <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="940-bA-ovD" secondAttribute="bottom" constant="20" id="QBS-kI-jqj"/>
+                            <constraint firstItem="b95-7z-9xb" firstAttribute="top" secondItem="OMa-c7-7Cd" secondAttribute="bottom" constant="10" id="RYc-Wu-kFI"/>
                             <constraint firstAttribute="trailing" secondItem="940-bA-ovD" secondAttribute="trailing" constant="10" id="Tg6-pN-0bM"/>
                             <constraint firstItem="AWH-Mj-LF1" firstAttribute="leading" secondItem="sH5-nx-VSJ" secondAttribute="leading" id="V63-nd-8eW"/>
                             <constraint firstItem="5Ed-v3-f3o" firstAttribute="top" secondItem="UZD-sb-FHq" secondAttribute="bottom" constant="20" id="Y5L-xS-YRB"/>
@@ -189,6 +201,7 @@
                     <extendedEdge key="edgesForExtendedLayout"/>
                     <navigationItem key="navigationItem" id="gU9-tH-VGw"/>
                     <connections>
+                        <outlet property="actionButton" destination="b95-7z-9xb" id="whh-Mx-YhA"/>
                         <outlet property="backButton" destination="Sn1-Zv-jNv" id="ctC-Qp-RAK"/>
                         <outlet property="constraintBottom" destination="6OU-Tk-j58" id="amo-Dm-XZ0"/>
                         <outlet property="constraintLeft" destination="yek-hf-OHO" id="5WN-63-rws"/>

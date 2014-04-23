@@ -14,6 +14,7 @@
 #import "FlickrAPIClient.h"
 
 
+
 @interface ImageScrollViewController () <UIScrollViewDelegate>
 
 @property (strong, nonatomic) IBOutlet UIView *infoView;
@@ -32,6 +33,8 @@
 @property (strong, nonatomic) IBOutlet UIButton *infoButton;
 
 @property (strong, nonatomic) IBOutlet UIButton *backButton;
+
+@property (strong, nonatomic) IBOutlet UIButton *actionButton;
 
 @property (strong, nonatomic) FlickrAPIClient *apiClient;
 
@@ -62,9 +65,18 @@
     
     [self createImageForInfoButtonWithColor:[UIColor pink]];
     [self createImageForGlobeButtonWithColor:[UIColor pink]];
+    [self createImageForActionButtonWithColor:[UIColor pink]];
     
     [self.view bringSubviewToFront:self.spinner];
     
+}
+
+
+
+- (IBAction)actionButtonPressed:(id)sender
+{
+    UIActionSheet *actionSheet = [[UIActionSheet alloc]initWithTitle:@"Share" delegate:self cancelButtonTitle:@"Cancel" destructiveButtonTitle:nil otherButtonTitles:@"Send email", @"Send message", nil];
+    [actionSheet showInView:self.view];
 }
 
 
@@ -107,6 +119,18 @@
     [self.infoButton setTintColor:color];
     [self.infoButton setImage:infoImage forState:UIControlStateNormal];
     [self.view bringSubviewToFront:self.infoButton];
+}
+
+
+- (void)createImageForActionButtonWithColor: (UIColor *)color
+{
+    
+    FAKIonIcons *actionIcon = [FAKIonIcons ios7PaperplaneOutlineIconWithSize:50];
+    //FAKFontAwesome *infoIcon = [FAKFontAwesome infoIconWithSize:50];
+    UIImage *infoImage = [actionIcon imageWithSize:CGSizeMake(50, 50)];
+    [self.actionButton setTintColor:color];
+    [self.actionButton setImage:infoImage forState:UIControlStateNormal];
+    [self.view bringSubviewToFront:self.actionButton];
 }
 
 
@@ -228,6 +252,126 @@
 {
     return self.imageView;
 }
+
+
+-(void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    switch (buttonIndex) {
+        case 0:
+            [self email];
+            break;
+            
+        case 1:
+            [self message];
+            
+        default:
+            break;
+    }
+}
+
+
+-(void)email
+{
+    UIImage *UIImageToSend = self.imageView.image;
+    
+    NSString *emailTitle = @"Interesting photo from Flickr";
+    // Email Content
+    //NSString *messageBody = @"";
+    // To address
+    NSArray *toRecipents = @[];
+    
+    MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
+    mc.mailComposeDelegate = self;
+    [mc setSubject:emailTitle];
+    //[mc setMessageBody:messageBody isHTML:NO];
+    [mc setToRecipients:toRecipents];
+    
+    NSData *data = UIImageJPEGRepresentation(UIImageToSend,1);
+    
+    
+    [mc addAttachmentData:data  mimeType:@"image/jpeg" fileName:self.photo.title];
+    
+    // Present mail view controller on screen
+    [self presentViewController:mc animated:YES completion:NULL];
+    
+}
+
+- (void) mailComposeController:(MFMailComposeViewController *)controller didFinishWithResult:(MFMailComposeResult)result error:(NSError *)error
+{
+    switch (result)
+    {
+        case MFMailComposeResultCancelled:
+            NSLog(@"Mail cancelled");
+            break;
+        case MFMailComposeResultSaved:
+            NSLog(@"Mail saved");
+            break;
+        case MFMailComposeResultSent:
+            NSLog(@"Mail sent");
+            break;
+        case MFMailComposeResultFailed:
+            NSLog(@"Mail sent failure: %@", [error localizedDescription]);
+            break;
+        default:
+            break;
+    }
+    
+    // Close the Mail Interface
+    [self dismissViewControllerAnimated:YES completion:NULL];
+}
+
+-(void)message
+{
+    UIImage *UIImageToSend = self.imageView.image;
+    
+    
+    if(![MFMessageComposeViewController canSendText]) {
+        UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Your device doesn't support SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [warningAlert show];
+        return;
+    }
+    
+    NSArray *recipents = @[];
+    NSString *message = [NSString stringWithFormat:@"Interesting photo from Flickr"];
+    
+    MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
+    messageController.messageComposeDelegate = self;
+    [messageController setRecipients:recipents];
+    [messageController setBody:message];
+    
+    NSData *data = UIImageJPEGRepresentation(UIImageToSend,1);
+    
+    NSString *fileName = [NSString stringWithFormat:@"%@.png", self.photo.title];
+    
+    [messageController addAttachmentData:data typeIdentifier:@"image/jpeg" filename:fileName];
+    
+    // Present message view controller on screen
+    [self presentViewController:messageController animated:YES completion:nil];
+}
+
+- (void)messageComposeViewController:(MFMessageComposeViewController *)controller didFinishWithResult:(MessageComposeResult) result
+{
+    switch (result) {
+        case MessageComposeResultCancelled:
+            break;
+            
+        case MessageComposeResultFailed:
+        {
+            UIAlertView *warningAlert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Failed to send SMS!" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [warningAlert show];
+            break;
+        }
+            
+        case MessageComposeResultSent:
+            break;
+            
+        default:
+            break;
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 
 @end
