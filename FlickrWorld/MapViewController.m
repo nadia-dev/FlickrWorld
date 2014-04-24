@@ -151,6 +151,8 @@
         } Failure:^(NSInteger errorCode) {
             
             [self handleError:errorCode];
+            
+            NSLog(@"%d", errorCode);
         }];
         
     }
@@ -285,7 +287,7 @@
 
 - (void)handleError: (NSInteger) errorCode
 {
-    if (errorCode == 500) {
+    if (errorCode == 400) {
         
         UIAlertView *alertConnect = [[UIAlertView alloc] initWithTitle:@"Not Connected" message:@"Please check your connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alertConnect show];
