@@ -15,8 +15,8 @@ extern NSString * const BASE_URL;
 extern NSString * const PARAMS;
 
 
-- (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock;
-- (void)fetchThumbnailsForPhoto: (Photo *)photo Completion: (void(^)(NSData *))completionBlock;
+- (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock Failure: (void(^)(NSInteger))failureBlock;
+- (void)fetchThumbnailsForPhoto: (Photo *)photo Completion: (void(^)(NSData *))completionBlock ;
 
 
 

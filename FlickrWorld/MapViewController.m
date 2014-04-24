@@ -62,7 +62,11 @@
             
             [self.refreshButton setEnabled:YES];
         }
-    }]; 
+        
+    } Failure:^(NSInteger errorCode) {
+        
+        [self handleError:errorCode];
+    }];
 }
 
 
@@ -94,7 +98,6 @@
     
     [self changeColorForSelectedAnnotation];
 }
-
 
 
 - (void)viewDidLoad
@@ -145,7 +148,11 @@
                 
                 [self.dataStore saveContext];
             }
+        } Failure:^(NSInteger errorCode) {
+            
+            [self handleError:errorCode];
         }];
+        
     }
 }
 
@@ -274,7 +281,22 @@
 }
 
 
+#pragma mark - Error handling 
 
+- (void)handleError: (NSInteger) errorCode
+{
+    if (errorCode == 500) {
+        
+        UIAlertView *alertConnect = [[UIAlertView alloc] initWithTitle:@"Not Connected" message:@"Please check your connection" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertConnect show];
+    
+    } else if (errorCode == 404) {
+    
+        UIAlertView *alertBad = [[UIAlertView alloc] initWithTitle:@"Server error" message:@"Please try again later" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alertBad show];
+    }
+
+}
 
 
 @end

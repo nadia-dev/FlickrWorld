@@ -34,8 +34,10 @@ NSString * const PARAMS = @"extras=geo%2C+owner_name%2C+url_o%2C+url_l%2C+url_t&
 }
 
 
+
+
 //will take id, ownerId and title from here
-- (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock
+- (void)fetchInterestingPhotosWithCompletion: (void(^)(NSArray *))completionBlock Failure: (void(^)(NSInteger))failureBlock
 {
     NSString *URLString = [NSString stringWithFormat:@"%@/?method=flickr.interestingness.getList&api_key=%@&%@", BASE_URL, FlickrAPIKey, PARAMS];
 
@@ -45,7 +47,14 @@ NSString * const PARAMS = @"extras=geo%2C+owner_name%2C+url_o%2C+url_l%2C+url_t&
 
         completionBlock(photos);
         
-    } failure:nil];
+    } failure:^(NSURLSessionDataTask *task, NSError *error) {
+        
+        //NSInteger errorCode = [[[error userInfo] objectForKey:AFNetworkingOperationFailingURLResponseErrorKey] statusCode];
+        
+        NSHTTPURLResponse *response = (NSHTTPURLResponse *)task.response;
+        
+        failureBlock(response.statusCode);
+    }];
 }
 
 

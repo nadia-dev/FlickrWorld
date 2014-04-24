@@ -92,9 +92,9 @@
 
 #pragma mark - Photos, Places, Photographers added to CD
 
-- (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock
+- (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock Failure: (void(^)(NSInteger))failureBlock
+
 {
-    
     [self.apiClient fetchInterestingPhotosWithCompletion:^(NSArray *photoDictionaries) {
         
         NSMutableArray *photos = [[NSMutableArray alloc]init];
@@ -111,11 +111,18 @@
                 
                 [self.managedObjectContext deleteObject:newPhoto];
             }
-            
         }
         
         completionBlock(photos);
+        
+    } Failure:^(NSInteger errorCode) {
+        
+        failureBlock(errorCode);
+    
     }];
+    
+    
+    
 }
 
 
@@ -131,7 +138,7 @@
 }
 
 
-- (void)fetchDataWithCompletion:(void (^)(BOOL))completionBlock
+- (void)fetchDataWithCompletion:(void (^)(BOOL))completionBlock Failure: (void(^)(NSInteger))failureBlock
 {
     [self populateCoreDataWithPhotosWithCompletion:^(NSArray *photos) {
         
@@ -152,9 +159,11 @@
                     completionBlock(isDone);
                 }
             }];
-            
         }
+
+    } Failure:^(NSInteger errorCode) {
         
+        failureBlock(errorCode);
     }];
 }
 

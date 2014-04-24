@@ -30,9 +30,11 @@
 +(FlickrDataStore *) sharedDataStore;
 
 
-- (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock;
+//- (void)populateCoreDataWithPhotosWithCompletion: (void (^)(NSArray *))completionBlock;
 
--(void)fetchDataWithCompletion: (void(^)(BOOL))completionBlock;
+//-(void)fetchDataWithCompletion: (void(^)(BOOL))completionBlock;
+
+- (void)fetchDataWithCompletion:(void (^)(BOOL))completionBlock Failure: (void(^)(NSInteger))failureBlock;
 
 - (void) cleanCoreData;
 
