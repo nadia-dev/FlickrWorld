@@ -15,27 +15,19 @@
 #import <AFNetworking/AFNetworking.h>
 
 
+
 @implementation AppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
-    
-    self.dataStore = [FlickrDataStore sharedDataStore];
 
-    
-//    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
-//    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-//    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
-    
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
-    
-    //[[AFNetworkReachabilityManager sharedManager] startMonitoring];
-
-    //[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     
     return YES;
 }
+
+
 
 - (void)applicationWillResignActive:(UIApplication *)application
 {
@@ -46,10 +38,10 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
     
-    if (self.dataStore.doneFetch) {
-        
-        [self.dataStore cleanCoreData];
-    }
+//    if (self.dataStore.doneFetch) {
+//        
+//        [self.dataStore cleanCoreData];
+//    }
     
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later. 
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.

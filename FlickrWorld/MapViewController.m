@@ -88,6 +88,14 @@
 }
 
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    [self changeColorForSelectedAnnotation];
+}
+
+
 
 - (void)viewDidLoad
 {
@@ -225,8 +233,6 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
-    
-   
     if ([annotation isKindOfClass:[FlickrAnnotation class]]) {
         
         FlickrAnnotation *myLocation = (FlickrAnnotation *)annotation;
@@ -252,6 +258,8 @@
     FlickrAnnotation *annotation = view.annotation;
 
     [self.dataStore.selectedAnnotations addObject:annotation];
+    
+    //[self changeColorForSelectedAnnotation];
     
     [self.mapView deselectAnnotation:annotation animated:YES];
 

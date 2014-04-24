@@ -34,8 +34,6 @@
 
 -(void)fetchDataWithCompletion: (void(^)(BOOL))completionBlock;
 
-
-
 - (void) cleanCoreData;
 
 
