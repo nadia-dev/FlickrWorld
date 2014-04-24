@@ -10,3 +10,9 @@ Based on Stanford iOS class assignment, this project grew beyond this bounds and
 + Implemented memory optimizations for image downloading and storage
 
 
+
+![Alt text](https://github.com/joystate/FlickrWorld/blob/pics/iOS%20Simulator%20Screen%20shot%20Apr%2024%2C%202014%2C%205.44.52%20PM.png?raw=true "Map View with annotations")
+
+
+
+
