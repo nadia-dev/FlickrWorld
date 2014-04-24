@@ -32,9 +32,6 @@
     [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"Cell"];
     
     [self setupToolbar];
-    
-    
-    
 }
 
 

@@ -12,6 +12,7 @@
 #import "Photo+Methods.h"
 #import "AFNetworkActivityIndicatorManager.h"
 #import "FlickrDataStore.h"
+#import <AFNetworking/AFNetworking.h>
 
 
 @implementation AppDelegate
@@ -23,11 +24,13 @@
     self.dataStore = [FlickrDataStore sharedDataStore];
 
     
-    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
-    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
-    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
+//    UIImage* tabBarBackground = [UIImage imageNamed:@"tabbar.png"];
+//    [[UITabBar appearance] setBackgroundImage:tabBarBackground];
+//    [[UITabBar appearance] setSelectionIndicatorImage:[UIImage imageNamed:@"tabbar_selected.png"]];
     
     [[AFNetworkActivityIndicatorManager sharedManager] setEnabled:YES];
+    
+    //[[AFNetworkReachabilityManager sharedManager] startMonitoring];
 
     //[[UIApplication sharedApplication] setMinimumBackgroundFetchInterval:UIApplicationBackgroundFetchIntervalMinimum];
     

@@ -9,6 +9,7 @@
 #import "FlickrAnnotation.h"
 #import <FontAwesomeKit.h>
 #import "UIColor+Pallete.h"
+#import "FlickrView.h"
 
 
 @implementation FlickrAnnotation
@@ -20,7 +21,7 @@
         
         _photo = photo;
         
-        _image = image; //can put placeholder
+        _image = image; //can put placeholder if no thumbnail available
         
         if (title) {
             _title = title;
@@ -32,9 +33,10 @@
     return self;
 }
 
--(MKAnnotationView *)annotationView
+-(FlickrView *)annotationView
 {
-    MKAnnotationView *annotationView = [[MKAnnotationView alloc]initWithAnnotation:self reuseIdentifier:@"FlickrAnnotation"];
+    FlickrView *annotationView = [[FlickrView alloc]initWithAnnotation:self reuseIdentifier:@"FlickrAnnotation"];
+    
     annotationView.enabled = YES;
     annotationView.canShowCallout = YES;
     

@@ -36,7 +36,6 @@
     if (self) {
         
         _selectedAnnotations = [[NSMutableArray alloc]init];
-        _watchedPhotos = [[NSMutableArray alloc]init];
         
         NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
         fetchRequest.fetchBatchSize = 20;

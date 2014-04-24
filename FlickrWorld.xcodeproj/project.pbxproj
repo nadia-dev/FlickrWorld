@@ -36,6 +36,9 @@
 		05B327EC18DA118F00E06A55 /* FlickrWorldTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B327EB18DA118F00E06A55 /* FlickrWorldTests.m */; };
 		05B327F818DA2DA600E06A55 /* FlickrFetcher.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B327F718DA2DA600E06A55 /* FlickrFetcher.m */; };
 		05B3281418DA516A00E06A55 /* FlickrAPIClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 05B3281318DA516A00E06A55 /* FlickrAPIClient.m */; };
+		05BC7FE119094D3E005F9566 /* FlickrView.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC7FE019094D3E005F9566 /* FlickrView.m */; };
+		05BC7FE41909931E005F9566 /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = 05BC7FE31909931E005F9566 /* Reachability.m */; };
+		05BC7FE6190994AA005F9566 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05BC7FE5190994AA005F9566 /* SystemConfiguration.framework */; };
 		05D8153D18DCB37D00857BF3 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D8153C18DCB37D00857BF3 /* MapKit.framework */; };
 		05D8153F18DCB38800857BF3 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 05D8153E18DCB38800857BF3 /* CoreLocation.framework */; };
 		05D8154118DCB3DD00857BF3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05D8154018DCB3DD00857BF3 /* Main.storyboard */; };
@@ -96,6 +99,11 @@
 		05B327F718DA2DA600E06A55 /* FlickrFetcher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrFetcher.m; sourceTree = "<group>"; };
 		05B3281218DA516A00E06A55 /* FlickrAPIClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrAPIClient.h; sourceTree = "<group>"; };
 		05B3281318DA516A00E06A55 /* FlickrAPIClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrAPIClient.m; sourceTree = "<group>"; };
+		05BC7FDF19094D3E005F9566 /* FlickrView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlickrView.h; sourceTree = "<group>"; };
+		05BC7FE019094D3E005F9566 /* FlickrView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlickrView.m; sourceTree = "<group>"; };
+		05BC7FE21909931E005F9566 /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
+		05BC7FE31909931E005F9566 /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
+		05BC7FE5190994AA005F9566 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		05D8153C18DCB37D00857BF3 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		05D8153E18DCB38800857BF3 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		05D8154018DCB3DD00857BF3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = Main.storyboard; path = ../Main.storyboard; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05BC7FE6190994AA005F9566 /* SystemConfiguration.framework in Frameworks */,
 				0534BBF319082D5600C5308F /* MessageUI.framework in Frameworks */,
 				05A5076118E32AC3008EBBA7 /* QuartzCore.framework in Frameworks */,
 				05D8153F18DCB38800857BF3 /* CoreLocation.framework in Frameworks */,
@@ -155,6 +164,8 @@
 		0510CAB718DBAAB30074D768 /* APIClient */ = {
 			isa = PBXGroup;
 			children = (
+				05BC7FE21909931E005F9566 /* Reachability.h */,
+				05BC7FE31909931E005F9566 /* Reachability.m */,
 				05B3281218DA516A00E06A55 /* FlickrAPIClient.h */,
 				05B3281318DA516A00E06A55 /* FlickrAPIClient.m */,
 				05B327F918DA2DC100E06A55 /* FlickrFetcher */,
@@ -189,6 +200,7 @@
 		05B327BF18DA118F00E06A55 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05BC7FE5190994AA005F9566 /* SystemConfiguration.framework */,
 				0534BBF219082D5600C5308F /* MessageUI.framework */,
 				05A5076018E32AC3008EBBA7 /* QuartzCore.framework */,
 				05D8153E18DCB38800857BF3 /* CoreLocation.framework */,
@@ -265,6 +277,8 @@
 				055617B218DCF845007E9296 /* ImageScrollViewController.m */,
 				05D8154418DCB49100857BF3 /* MapViewController.h */,
 				05D8154518DCB49100857BF3 /* MapViewController.m */,
+				05BC7FDF19094D3E005F9566 /* FlickrView.h */,
+				05BC7FE019094D3E005F9566 /* FlickrView.m */,
 				0556179F18DCD36A007E9296 /* FlickrAnnotation.h */,
 				055617A018DCD36A007E9296 /* FlickrAnnotation.m */,
 			);
@@ -426,11 +440,13 @@
 				055617B318DCF845007E9296 /* ImageScrollViewController.m in Sources */,
 				05A507B118E4D090008EBBA7 /* UIColor+Pallete.m in Sources */,
 				05B327D618DA118F00E06A55 /* FlickrWorld.xcdatamodeld in Sources */,
+				05BC7FE41909931E005F9566 /* Reachability.m in Sources */,
 				05A4F1B51901E60F003CC280 /* Photo.m in Sources */,
 				055617A118DCD36A007E9296 /* FlickrAnnotation.m in Sources */,
 				05B3281418DA516A00E06A55 /* FlickrAPIClient.m in Sources */,
 				05A5070D18E0C779008EBBA7 /* RecentPicturesViewController.m in Sources */,
 				0510CABA18DBAAE60074D768 /* Photo+Methods.m in Sources */,
+				05BC7FE119094D3E005F9566 /* FlickrView.m in Sources */,
 				05B327F818DA2DA600E06A55 /* FlickrFetcher.m in Sources */,
 				0510CAC018DBAD980074D768 /* FlickrDataStore.m in Sources */,
 				05B327CF18DA118F00E06A55 /* main.m in Sources */,

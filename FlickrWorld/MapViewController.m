@@ -16,6 +16,8 @@
 #import <AFNetworking.h>
 #import "AppDelegate.h"
 #import "JPSThumbnailAnnotation.h"
+#import "Reachability.h"
+
 
 
 
@@ -45,19 +47,6 @@
 @implementation MapViewController
 
 - (IBAction)refreshButtonPressed:(id)sender {
-    
-    UIColor *circleColor = [UIColor pinkTransparent];
-    
-    FAKFontAwesome *circle = [FAKFontAwesome circleIconWithSize:40];
-    [circle addAttribute:NSForegroundColorAttributeName value:circleColor];
-    UIImage *circleImage = [circle imageWithSize:CGSizeMake(40, 40)];
-    
-    for (FlickrAnnotation *selectedAnotation in self.dataStore.selectedAnnotations) {
-        
-        MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
-        
-        selectedAnnotationView.image = circleImage;
-    }
     
     [self.mapView removeAnnotations:self.mapView.annotations];
     
@@ -99,49 +88,57 @@
 }
 
 
--(void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
-    [self changeColorForSelectedAnnotation];
- 
-}
-
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
-    self.manager = [AFHTTPSessionManager manager];
- 
-    self.dataStore = [FlickrDataStore sharedDataStore];
+    Reachability *networkReachability = [Reachability reachabilityForInternetConnection];
+    NetworkStatus networkStatus = [networkReachability currentReachabilityStatus];
     
-    [self.dataStore cleanCoreData];
-    
-    self.annotatedPlaces = [[NSMutableArray alloc]init];
-
-    [self.view bringSubviewToFront:self.blackVIew];
-
-	self.mapView.delegate = self;
-    self.mapView.mapType = MKMapTypeStandard;
-    
-    [self.spinner startAnimating];
-    
-    [self createMapRegion];
-    
-    [self.refreshButton setEnabled:NO];
-    
-    [self.dataStore fetchDataWithCompletion:^(BOOL isLast) {
+    if (networkStatus == NotReachable) {
         
-        [self fetchAndShowPlaces];
+        UIAlertView *noConnectionAlert = [[UIAlertView alloc]initWithTitle:@"No internet connection"
+                                                                   message:@"Press Home"
+                                                                  delegate:self
+                                                         cancelButtonTitle:nil
+                                                         otherButtonTitles:nil, nil];
         
-        if (isLast) {
+        [noConnectionAlert show];
+        
+    } else {
+        
+        self.manager = [AFHTTPSessionManager manager];
+        
+        self.dataStore = [FlickrDataStore sharedDataStore];
+        
+        [self.dataStore cleanCoreData];
+        
+        self.annotatedPlaces = [[NSMutableArray alloc]init];
+        
+        [self.view bringSubviewToFront:self.blackVIew];
+        
+        self.mapView.delegate = self;
+        self.mapView.mapType = MKMapTypeStandard;
+        
+        [self.spinner startAnimating];
+        
+        [self createMapRegion];
+        
+        [self.refreshButton setEnabled:NO];
+        
+        [self.dataStore fetchDataWithCompletion:^(BOOL isLast) {
             
-            [self.refreshButton setEnabled:YES];
+            [self fetchAndShowPlaces];
             
-            [self.dataStore saveContext];
-        }
-    }];
+            if (isLast) {
+                
+                [self.refreshButton setEnabled:YES];
+                
+                [self.dataStore saveContext];
+            }
+        }];
+    }
 }
 
 
@@ -160,6 +157,7 @@
 - (void)createMapRegion
 {
     MKCoordinateRegion region = MKCoordinateRegionMake(self.mapView.centerCoordinate, MKCoordinateSpanMake(180, 360));
+    
     [self.mapView setRegion:region animated:YES];
 }
 
@@ -171,13 +169,10 @@
     
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Photo"];
     NSArray *photos = [self.dataStore.managedObjectContext executeFetchRequest:fetchRequest error:nil];
-    //NSMutableArray *annots = [[NSMutableArray alloc]init];
-    
-    //NSLog(@"Photos is core data: %d", [photos count]);
     
     for (Photo *photo in photos) {
             
-        if (photo.largeImageLink) { //in there will be broken link
+        if (photo.largeImageLink) { //if there is broken link
             
             [self.annotatedPlaces addObject:photo];
             
@@ -189,14 +184,15 @@
             
             UIImage *buttonImage = [UIImage imageWithData:photo.thumbnail];
             
-            FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Image:buttonImage Photo:photo];
+            FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle
+                                                                              Location:placeCoordinate
+                                                                                 Image:buttonImage
+                                                                                 Photo:photo];
 
             [self.mapView addAnnotation:annotation];
             
         }
-        
     }
-
 }
 
 
@@ -219,10 +215,6 @@
     
     for (FlickrAnnotation *selectedAnotation in self.dataStore.selectedAnnotations) {
         
-        //[self.dataStore.watchedPhotos addObject:selectedAnotation.photo];
-        
-        //NSLog(@"photo on selection: %@", selectedAnotation.photo);
-        
         MKAnnotationView *selectedAnnotationView = [self.mapView viewForAnnotation:selectedAnotation];
 
         selectedAnnotationView.image = circleImage;
@@ -240,15 +232,10 @@
         FlickrAnnotation *myLocation = (FlickrAnnotation *)annotation;
         
         MKAnnotationView *annotationView = [mapView dequeueReusableAnnotationViewWithIdentifier:@"FlickrAnnotation"];
+
+        annotationView = nil;
         
-        if (annotationView == nil) {
-            
-            annotationView = myLocation.annotationView;
-            
-        } else {
-            
-            annotationView.annotation = annotation;
-        }
+        annotationView = myLocation.annotationView;
         
         return annotationView;
         
@@ -259,14 +246,10 @@
 }
 
 
-
-
 - (void)mapView:(MKMapView *)mapView annotationView:(MKAnnotationView *)view calloutAccessoryControlTapped:(UIControl *)control
 {
     
     FlickrAnnotation *annotation = view.annotation;
-    
-    //[self.dataStore.watchedPhotos addObject:annotation.photo];
 
     [self.dataStore.selectedAnnotations addObject:annotation];
     

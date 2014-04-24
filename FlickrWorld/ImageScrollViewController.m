@@ -276,14 +276,14 @@
     
     NSString *emailTitle = @"Interesting photo from Flickr";
     // Email Content
-    //NSString *messageBody = @"";
+    NSString *messageBody = [NSString stringWithFormat:@"%@\nby: %@", self.photo.title, self.photo.master];
     // To address
     NSArray *toRecipents = @[];
     
     MFMailComposeViewController *mc = [[MFMailComposeViewController alloc] init];
     mc.mailComposeDelegate = self;
     [mc setSubject:emailTitle];
-    //[mc setMessageBody:messageBody isHTML:NO];
+    [mc setMessageBody:messageBody isHTML:NO];
     [mc setToRecipients:toRecipents];
     
     NSData *data = UIImageJPEGRepresentation(UIImageToSend,1);
@@ -332,7 +332,7 @@
     }
     
     NSArray *recipents = @[];
-    NSString *message = [NSString stringWithFormat:@"Interesting photo from Flickr"];
+    NSString *message = [NSString stringWithFormat:@"Interesting photo from Flickr: %@\nby: %@", self.photo.title, self.photo.master];
     
     MFMessageComposeViewController *messageController = [[MFMessageComposeViewController alloc] init];
     messageController.messageComposeDelegate = self;
