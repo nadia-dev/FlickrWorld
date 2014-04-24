@@ -58,11 +58,10 @@
         
         selectedAnnotationView.image = circleImage;
     }
-
     
     [self.mapView removeAnnotations:self.mapView.annotations];
     
-    //[self.dataStore cleanCoreData];//make it partial? and clean when goes to background
+    [self.dataStore cleanCoreData];
     
     [self.refreshButton setEnabled:NO];
     
@@ -188,7 +187,9 @@
             
             NSString *annotationTitle = [self createAnnotationTitle:photo];
             
-            FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Photo:photo];
+            UIImage *buttonImage = [UIImage imageWithData:photo.thumbnail];
+            
+            FlickrAnnotation *annotation = [[FlickrAnnotation alloc] initWithWithTitle:annotationTitle Location:placeCoordinate Image:buttonImage Photo:photo];
 
             [self.mapView addAnnotation:annotation];
             
@@ -218,7 +219,7 @@
     
     for (FlickrAnnotation *selectedAnotation in self.dataStore.selectedAnnotations) {
         
-        [self.dataStore.watchedPhotos addObject:selectedAnotation.photo];
+        //[self.dataStore.watchedPhotos addObject:selectedAnotation.photo];
         
         //NSLog(@"photo on selection: %@", selectedAnotation.photo);
         
@@ -232,6 +233,7 @@
 
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation
 {
+    
    
     if ([annotation isKindOfClass:[FlickrAnnotation class]]) {
         
@@ -255,7 +257,6 @@
         return nil;
     }
 }
-
 
 
 

@@ -13,11 +13,14 @@
 
 @implementation FlickrAnnotation
 
--(id)initWithWithTitle: (NSString *)title Location: (CLLocationCoordinate2D)location Photo: (Photo *)photo;
+-(id)initWithWithTitle: (NSString *)title Location: (CLLocationCoordinate2D)location Image: (UIImage *)image Photo: (Photo *)photo
 {
     self = [super init];
     if (self) {
+        
         _photo = photo;
+        
+        _image = image; //can put placeholder
         
         if (title) {
             _title = title;
@@ -42,16 +45,18 @@
     UIImage *circleImage = [circle imageWithSize:CGSizeMake(40, 40)];
     
     annotationView.image = circleImage;
-    UIImage *photoImage = [UIImage imageWithData:self.photo.thumbnail];
     
     UIButton *imageButton = [UIButton buttonWithType:UIButtonTypeCustom];
     [imageButton setFrame:CGRectMake(0, 0, 40, 40)];
-    [imageButton setImage:photoImage forState:UIControlStateNormal];
-        
+    
+    [imageButton setImage:self.image forState:UIControlStateNormal];
+    
     annotationView.rightCalloutAccessoryView = imageButton;
        
     return annotationView;
 }
+
+
 
 
 

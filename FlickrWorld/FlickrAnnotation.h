@@ -15,9 +15,10 @@
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
 @property (copy, nonatomic) NSString *title;
 @property (strong, nonatomic) Photo *photo;
+@property (strong, nonatomic) UIImage *image;
 
 
--(id)initWithWithTitle: (NSString *)title Location: (CLLocationCoordinate2D)location Photo: (Photo *)photo;
+-(id)initWithWithTitle: (NSString *)title Location: (CLLocationCoordinate2D)location Image: (UIImage *)image Photo: (Photo *)photo;
 
 -(MKAnnotationView *)annotationView;
 
