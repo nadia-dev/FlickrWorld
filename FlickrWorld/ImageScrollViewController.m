@@ -64,6 +64,10 @@
     
 }
 
+- (BOOL)prefersStatusBarHidden {
+    return  YES;
+}
+
 
 
 - (IBAction)actionButtonPressed:(id)sender
